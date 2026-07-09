@@ -1,8 +1,0 @@
-{
-  "name": "KRESZ Kerék",
-  "description": "Interaktív, játékos KRESZ oktató játék gyerekeknek. Plinkó sorsolótábla, animált rendőr kabala és izgalmas tesztkérdések a biztonságos közlekedésért.",
-  "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
-}
