@@ -324,7 +324,7 @@ export default function AdminPanel({ settings, onSaveSettings }: AdminPanelProps
                   </div>
                   <h3 className="text-lg font-bold text-slate-800 mb-1">PIN Kód Szükséges</h3>
                   <p className="text-sm text-slate-500 mb-6 text-center">
-                    A beállítások módosításához add meg az adminisztrátori PIN kódot! (Gyári PIN: <span className="font-bold text-indigo-600">1234</span>)
+                    A beállítások módosításához add meg az adminisztrátori PIN kódot!
                   </p>
 
                   {/* PIN Display */}
