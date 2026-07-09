@@ -407,7 +407,7 @@ export default function App() {
       {/* --- Footer Kiosk notice --- */}
       {currentScreen === "home" && (
         <footer className="py-4 border-t border-slate-200/50 text-center text-[10px] text-slate-400 font-medium tracking-wider z-10 bg-white/40 backdrop-blur-sm">
-          KRESZ PLINKÓ OKTATÓ JÁTÉK • SOMOGY VÁRMEGYEI RENDŐR-FŐKAPITÁNYSÁG
+          KRESZ PLINKÓ OKTATÓ JÁTÉK • SOMOGY VÁRMEGYEI BALESETMEGELŐZÉSI BIZOTTSÁG
         </footer>
       )}
     </div>
