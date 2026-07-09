@@ -18,51 +18,54 @@ export default function Mascot({ mood, message, enableSpeechBubble = true }: Mas
     return () => clearInterval(interval);
   }, []);
 
+  // Szemek 3D-sített üveghatással
   const getEyeExpression = () => {
     switch (mood) {
       case "happy":
       case "cheering":
         return (
           <>
-            <path d="M 32 54 Q 39 44 46 54" stroke="#1e293b" strokeWidth="4" fill="none" strokeLinecap="round" />
-            <path d="M 54 54 Q 61 44 68 54" stroke="#1e293b" strokeWidth="4" fill="none" strokeLinecap="round" />
+            <path d="M 32 54 Q 39 42 46 54" stroke="#0f172a" strokeWidth="4" strokeLinecap="round" fill="none" />
+            <path d="M 54 54 Q 61 42 68 54" stroke="#0f172a" strokeWidth="4" strokeLinecap="round" fill="none" />
           </>
         );
       case "sad":
         return (
           <>
-            <path d="M 32 50 Q 39 58 46 50" stroke="#1e293b" strokeWidth="4" fill="none" strokeLinecap="round" />
-            <path d="M 54 50 Q 61 58 68 50" stroke="#1e293b" strokeWidth="4" fill="none" strokeLinecap="round" />
+            <path d="M 32 48 Q 39 58 46 48" stroke="#0f172a" strokeWidth="4" strokeLinecap="round" fill="none" />
+            <path d="M 54 48 Q 61 58 68 48" stroke="#0f172a" strokeWidth="4" strokeLinecap="round" fill="none" />
           </>
         );
       default:
         return (
           <>
-            {/* 3D-sített Szemek */}
+            {/* Bal Szem */}
             <motion.g
               animate={{ scaleY: [1, 1, 0.1, 1, 1, 1, 0.1, 1] }}
               transition={{ repeat: Infinity, duration: 4, times: [0, 0.7, 0.72, 0.74, 0.9, 0.92, 0.94, 1] }}
               style={{ transformOrigin: "39px 54px" }}
             >
-              <ellipse cx="39" cy="54" rx="8" ry="10" fill="#ffffff" stroke="#1e293b" strokeWidth="1" />
-              <ellipse cx="39" cy="54" rx="7.5" ry="9.5" fill="url(#eyeGrad)" />
+              <ellipse cx="39" cy="54" rx="8" ry="10" fill="#ffffff" />
+              <ellipse cx="39" cy="54" rx="7.5" ry="9.5" fill="url(#eyeShadow)" />
               <ellipse cx="39" cy="54.5" rx="5.5" ry="7" fill="#451a03" />
               <circle cx="39" cy="55.5" r="3.5" fill="#020617" />
-              <circle cx="37" cy="51.5" r="2" fill="#ffffff" />
-              <circle cx="41.5" cy="57.5" r="0.8" fill="#ffffff" />
+              {/* Becsillanások (Highlights) */}
+              <circle cx="36.5" cy="51.5" r="2.5" fill="#ffffff" opacity="0.9" />
+              <circle cx="41.5" cy="57.5" r="1" fill="#ffffff" opacity="0.8" />
             </motion.g>
 
+            {/* Jobb Szem */}
             <motion.g
               animate={{ scaleY: [1, 1, 0.1, 1, 1, 1, 0.1, 1] }}
               transition={{ repeat: Infinity, duration: 4, times: [0, 0.7, 0.72, 0.74, 0.9, 0.92, 0.94, 1] }}
               style={{ transformOrigin: "61px 54px" }}
             >
-              <ellipse cx="61" cy="54" rx="8" ry="10" fill="#ffffff" stroke="#1e293b" strokeWidth="1" />
-              <ellipse cx="61" cy="54" rx="7.5" ry="9.5" fill="url(#eyeGrad)" />
+              <ellipse cx="61" cy="54" rx="8" ry="10" fill="#ffffff" />
+              <ellipse cx="61" cy="54" rx="7.5" ry="9.5" fill="url(#eyeShadow)" />
               <ellipse cx="61" cy="54.5" rx="5.5" ry="7" fill="#451a03" />
               <circle cx="61" cy="55.5" r="3.5" fill="#020617" />
-              <circle cx="59" cy="51.5" r="2" fill="#ffffff" />
-              <circle cx="63.5" cy="57.5" r="0.8" fill="#ffffff" />
+              <circle cx="58.5" cy="51.5" r="2.5" fill="#ffffff" opacity="0.9" />
+              <circle cx="63.5" cy="57.5" r="1" fill="#ffffff" opacity="0.8" />
             </motion.g>
           </>
         );
@@ -75,195 +78,208 @@ export default function Mascot({ mood, message, enableSpeechBubble = true }: Mas
       case "cheering":
         return (
           <g>
-            <path d="M 42 66 Q 50 78 58 66 Z" fill="#9f1239" stroke="#1e293b" strokeWidth="2" strokeLinejoin="round" />
-            <path d="M 45 69 Q 50 75 55 69 Z" fill="#f43f5e" />
+            <path d="M 42 66 C 42 66, 50 82, 58 66 Z" fill="#9f1239" stroke="#0f172a" strokeWidth="2" strokeLinejoin="round" />
+            <path d="M 45 69 Q 50 78 55 69 Z" fill="#f43f5e" />
           </g>
         );
       case "sad":
-        return <path d="M 45 72 Q 50 65 55 72" stroke="#1e293b" strokeWidth="3" fill="none" strokeLinecap="round" />;
+        return <path d="M 44 71 Q 50 63 56 71" stroke="#0f172a" strokeWidth="3" fill="none" strokeLinecap="round" />;
       default:
-        return <path d="M 44 67 Q 50 72 56 67" stroke="#1e293b" strokeWidth="2.5" fill="none" strokeLinecap="round" />;
+        return <path d="M 44 66 Q 50 71 56 66" stroke="#0f172a" strokeWidth="2.5" fill="none" strokeLinecap="round" />;
     }
   };
 
   return (
     <div className="flex items-center gap-4 select-none">
       <motion.div
-        className="w-32 h-32 sm:w-40 sm:h-40 flex-shrink-0"
-        animate={{ y: [0, -4, 0], scaleY: [1, 1.02, 1], scaleX: [1, 0.98, 1] }}
+        className="w-40 h-40 flex-shrink-0"
+        animate={{ y: [0, -3, 0] }}
         transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
       >
-        <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-xl">
+        <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-2xl overflow-visible">
           <defs>
-            {/* Textúra Generátor a Plüss/Bolyhos hatáshoz */}
-            <filter id="fuzzTexture">
-              <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" result="noise" />
-              <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.15 0" in="noise" result="coloredNoise" />
-              <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="texture" />
-              <feBlend mode="multiply" in="texture" in2="SourceGraphic" />
-            </filter>
-
-            {/* Fényes 3D Gömbszerű Színátmenetek */}
-            <radialGradient id="body3DGrad" cx="35%" cy="30%" r="70%">
-              <stop offset="0%" stopColor="#93c5fd" />
-              <stop offset="40%" stopColor="#3b82f6" />
-              <stop offset="85%" stopColor="#1e40af" />
-              <stop offset="100%" stopColor="#0f172a" />
-            </radialGradient>
-
-            <radialGradient id="noseGrad" cx="35%" cy="35%" r="65%">
+            {/* Gazdag 3D test átmenetek */}
+            <radialGradient id="bodyBaseGrad" cx="30%" cy="30%" r="70%">
               <stop offset="0%" stopColor="#60a5fa" />
-              <stop offset="70%" stopColor="#2563eb" />
-              <stop offset="100%" stopColor="#1e3a8a" />
+              <stop offset="50%" stopColor="#2563eb" />
+              <stop offset="90%" stopColor="#1e3a8a" />
+              <stop offset="100%" stopColor="#172554" />
+            </radialGradient>
+            
+            {/* Belső árnyék a gömbölydedséghez */}
+            <radialGradient id="bodyInnerShadow" cx="50%" cy="50%" r="50%">
+              <stop offset="70%" stopColor="#000" stopOpacity="0" />
+              <stop offset="100%" stopColor="#020617" stopOpacity="0.4" />
             </radialGradient>
 
-            <linearGradient id="capTopGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            {/* Szem árnyékolás */}
+            <radialGradient id="eyeShadow" cx="50%" cy="50%" r="50%">
+              <stop offset="70%" stopColor="#000" stopOpacity="0" />
+              <stop offset="100%" stopColor="#000" stopOpacity="0.2" />
+            </radialGradient>
+
+            {/* Sapka anyagok */}
+            <linearGradient id="capGrad" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#ffffff" />
-              <stop offset="50%" stopColor="#f1f5f9" />
+              <stop offset="80%" stopColor="#e2e8f0" />
               <stop offset="100%" stopColor="#94a3b8" />
             </linearGradient>
-
             <linearGradient id="visorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#64748b" />
-              <stop offset="30%" stopColor="#1e293b" />
+              <stop offset="0%" stopColor="#334155" />
+              <stop offset="30%" stopColor="#0f172a" />
               <stop offset="100%" stopColor="#020617" />
             </linearGradient>
 
-            <linearGradient id="gloveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#ffffff" />
-              <stop offset="70%" stopColor="#e2e8f0" />
-              <stop offset="100%" stopColor="#94a3b8" />
+            {/* Hengeres árnyék a batonhoz */}
+            <linearGradient id="batonRed" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#991b1b" />
+              <stop offset="30%" stopColor="#ef4444" />
+              <stop offset="70%" stopColor="#f87171" />
+              <stop offset="100%" stopColor="#7f1d1d" />
+            </linearGradient>
+            <linearGradient id="batonWhite" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#94a3b8" />
+              <stop offset="30%" stopColor="#ffffff" />
+              <stop offset="70%" stopColor="#f1f5f9" />
+              <stop offset="100%" stopColor="#64748b" />
             </linearGradient>
 
-            <linearGradient id="shoeGrad" x1="30%" y1="0%" x2="70%" y2="100%">
+            {/* Kesztyű és Láb */}
+            <radialGradient id="gloveGrad" cx="30%" cy="30%" r="70%">
+              <stop offset="0%" stopColor="#ffffff" />
+              <stop offset="100%" stopColor="#cbd5e1" />
+            </radialGradient>
+            <linearGradient id="shoeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#334155" />
-              <stop offset="50%" stopColor="#0f172a" />
+              <stop offset="40%" stopColor="#0f172a" />
               <stop offset="100%" stopColor="#000000" />
             </linearGradient>
-            
-            <radialGradient id="eyeGrad" cx="50%" cy="50%" r="50%">
-              <stop offset="80%" stopColor="#ffffff" stopOpacity="0" />
-              <stop offset="100%" stopColor="#cbd5e1" stopOpacity="0.8" />
-            </radialGradient>
+
+            {/* Sapka Árnyék Filter */}
+            <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="4" stdDeviation="3" floodColor="#020617" floodOpacity="0.5"/>
+            </filter>
           </defs>
 
-          {/* Föld Árnyék */}
-          <ellipse cx="50" cy="95" rx="30" ry="5" fill="#000000" opacity="0.25" filter="blur(2px)" />
+          {/* Talaj árnyék */}
+          <ellipse cx="50" cy="94" rx="25" ry="4" fill="#020617" opacity="0.3" filter="blur(2px)" />
 
-          {/* Lábak */}
-          <rect x="36" y="80" width="7" height="10" fill="#1e3a8a" rx="1" />
-          <rect x="57" y="80" width="7" height="10" fill="#1e3a8a" rx="1" />
-          <rect x="36" y="80" width="7" height="10" fill="url(#body3DGrad)" opacity="0.6" rx="1" />
-          <rect x="57" y="80" width="7" height="10" fill="url(#body3DGrad)" opacity="0.6" rx="1" />
+          {/* Lábak (Vastag vonalakként rajzolva a dobozok elkerülése végett) */}
+          <path d="M 38 82 L 38 88" stroke="#1e3a8a" strokeWidth="8" strokeLinecap="round" />
+          <path d="M 62 82 L 62 88" stroke="#1e3a8a" strokeWidth="8" strokeLinecap="round" />
 
-          {/* Cipők 3D Hatással */}
+          {/* Cipők fényes csillogással */}
           <g>
-            <path d="M 31 85 C 31 82 46 82 46 85 C 46 88 45 93 38 93 C 31 93 31 88 31 85 Z" fill="url(#shoeGrad)" stroke="#0f172a" strokeWidth="0.5" />
-            <ellipse cx="36" cy="84" rx="4" ry="1.5" fill="#ffffff" opacity="0.15" /> {/* Cipőorr becsillanás */}
-            <path d="M 34 85 L 43 85 M 35 87 L 42 87" stroke="#1e293b" strokeWidth="0.5" fill="none" /> {/* Fűzők */}
+            <path d="M 33 86 C 33 82, 45 82, 45 86 C 45 92, 43 94, 39 94 C 33 94, 33 92, 33 86 Z" fill="url(#shoeGrad)" />
+            <path d="M 35 84.5 Q 39 83 43 84.5" stroke="#ffffff" strokeWidth="1" opacity="0.3" fill="none" strokeLinecap="round" />
           </g>
           <g>
-            <path d="M 54 85 C 54 82 69 82 69 85 C 69 88 68 93 61 93 C 54 93 54 88 54 85 Z" fill="url(#shoeGrad)" stroke="#0f172a" strokeWidth="0.5" />
-            <ellipse cx="59" cy="84" rx="4" ry="1.5" fill="#ffffff" opacity="0.15" />
-            <path d="M 57 85 L 66 85 M 58 87 L 65 87" stroke="#1e293b" strokeWidth="0.5" fill="none" />
+            <path d="M 55 86 C 55 82, 67 82, 67 86 C 67 92, 65 94, 61 94 C 55 94, 55 92, 55 86 Z" fill="url(#shoeGrad)" />
+            <path d="M 57 84.5 Q 61 83 65 84.5" stroke="#ffffff" strokeWidth="1" opacity="0.3" fill="none" strokeLinecap="round" />
           </g>
 
-          {/* Fő Test (Plüss Filterrel és 3D gradienssel) */}
-          <path
-            d="M 50 28 C 24 28 18 48 18 70 C 18 84 30 88 50 88 C 70 88 82 84 82 70 C 82 48 76 28 50 28 Z"
-            fill="url(#body3DGrad)"
-            filter="url(#fuzzTexture)"
-          />
+          {/* Fő Test - Több réteg a maximális 3D hatásért */}
+          <path id="body-shape" d="M 50 25 C 20 25, 12 50, 15 72 C 18 88, 35 90, 50 90 C 65 90, 82 88, 85 72 C 88 50, 80 25, 50 25 Z" fill="url(#bodyBaseGrad)" />
+          <path d="M 50 25 C 20 25, 12 50, 15 72 C 18 88, 35 90, 50 90 C 65 90, 82 88, 85 72 C 88 50, 80 25, 50 25 Z" fill="url(#bodyInnerShadow)" />
 
-          {/* Karszalag/Jelvény 3D ráhajlás */}
-          <path d="M 20 58 Q 18 62 21 66 Q 24 62 23 58 Z" fill="#1e1b4b" stroke="#fbbf24" strokeWidth="0.8" />
-          <path d="M 19.5 59 L 23.5 59" stroke="#ef4444" strokeWidth="1" />
-          <path d="M 19.5 60.5 L 23.5 60.5" stroke="#ffffff" strokeWidth="1" />
-          <path d="M 19.5 62 L 23.5 62" stroke="#22c55e" strokeWidth="1" />
+          {/* Arcpír */}
+          <circle cx="28" cy="62" r="6" fill="#fca5a5" opacity="0.35" filter="blur(2px)" />
+          <circle cx="72" cy="62" r="6" fill="#fca5a5" opacity="0.35" filter="blur(2px)" />
 
-          {/* Integető Kar */}
+          {/* Karszalag / Címer */}
+          <g transform="translate(14, 55) rotate(-15)">
+            <path d="M 0 0 L 8 0 L 8 6 Q 4 10 0 6 Z" fill="#1e1b4b" stroke="#fbbf24" strokeWidth="0.8" />
+            <rect x="1" y="2" width="6" height="1.5" fill="#ef4444" />
+            <rect x="1" y="3.5" width="6" height="1.5" fill="#ffffff" />
+            <rect x="1" y="5" width="6" height="1.5" fill="#22c55e" />
+          </g>
+
+          {/* Bal Kar (Integető) - Vastag vonal stroke-kal, nincs path törés */}
           <motion.g
-            animate={wave || mood === "cheering" ? { rotate: [0, -22, 14, -22, 0] } : { rotate: [0, 2, 0] }}
+            animate={wave || mood === "cheering" ? { rotate: [0, -20, 10, -20, 0] } : { rotate: [0, 2, 0] }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
-            style={{ transformOrigin: "78px 66px" }}
+            style={{ transformOrigin: "82px 65px" }}
           >
-            <path d="M 78 66 Q 89 68 87 56" stroke="url(#body3DGrad)" strokeWidth="8" strokeLinecap="round" fill="none" filter="url(#fuzzTexture)" />
+            <path d="M 82 65 Q 92 65 90 52" stroke="url(#bodyBaseGrad)" strokeWidth="11" strokeLinecap="round" fill="none" />
             {/* Kesztyű */}
-            <path d="M 83 58 Q 80 55 86 54 Q 89 57 85 59 Z" fill="url(#gloveGrad)" />
-            <rect x="83" y="46" width="3" height="8" rx="1.5" fill="url(#gloveGrad)" stroke="#94a3b8" strokeWidth="0.5" />
-            <rect x="86" y="44" width="3.5" height="10" rx="1.7" fill="url(#gloveGrad)" stroke="#94a3b8" strokeWidth="0.5" />
-            <rect x="89.5" y="46" width="3" height="8" rx="1.5" fill="url(#gloveGrad)" stroke="#94a3b8" strokeWidth="0.5" />
-            <path d="M 81 52 Q 78 50 81 48 Q 83 50 83 52 Z" fill="url(#gloveGrad)" stroke="#94a3b8" strokeWidth="0.5" />
+            <circle cx="90" cy="51" r="5" fill="url(#gloveGrad)" />
+            <path d="M 86 48 L 88 42 A 2 2 0 0 1 91 42 L 89 48" fill="url(#gloveGrad)" />
+            <path d="M 89 48 L 92 40 A 2 2 0 0 1 95 41 L 91 49" fill="url(#gloveGrad)" />
+            <path d="M 91 49 L 95 44 A 2 2 0 0 1 98 46 L 93 51" fill="url(#gloveGrad)" />
+            <path d="M 85 52 L 82 48 A 2 2 0 0 1 85 46 L 88 50" fill="url(#gloveGrad)" />
           </motion.g>
 
-          {/* Gumibotos Kar */}
+          {/* Jobb Kar (Botot tartó) */}
           <motion.g
-            animate={{ rotate: [-3, 3, -3] }}
+            animate={{ rotate: [-2, 2, -2] }}
             transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
-            style={{ transformOrigin: "22px 66px" }}
+            style={{ transformOrigin: "18px 65px" }}
           >
-            <path d="M 22 66 Q 11 64 12 52" stroke="url(#body3DGrad)" strokeWidth="8" strokeLinecap="round" fill="none" filter="url(#fuzzTexture)" />
-            {/* Kesztyű és gumibot markolat */}
-            <g transform="translate(11, 40) rotate(-12)">
-              <rect x="-4" y="8" width="8" height="10" fill="#0f172a" rx="1" />
-              {/* Bot Árnyékolás a 3D henger hatáshoz */}
-              <rect x="-4.5" y="2" width="9" height="6" fill="#f8fafc" />
-              <rect x="-4.5" y="-4" width="9" height="6" fill="#ef4444" />
-              <rect x="-4.5" y="-10" width="9" height="6" fill="#f8fafc" />
-              <rect x="-4.5" y="-16" width="9" height="6" fill="#ef4444" />
-              <rect x="-4.5" y="-22" width="9" height="6" fill="#f8fafc" />
-              <path d="M -4.5 -22 Q 0 -28 4.5 -22 Z" fill="#ef4444" />
-              {/* Henger csillogás */}
-              <rect x="-2" y="-24" width="2" height="34" fill="#ffffff" opacity="0.3" />
+            <path d="M 18 65 Q 10 65 12 55" stroke="url(#bodyBaseGrad)" strokeWidth="11" strokeLinecap="round" fill="none" />
+            
+            {/* Rendőrbot 3D henger hatással */}
+            <g transform="translate(10, 48) rotate(-15)">
+              {/* Bot árnyék/test */}
+              <rect x="-4" y="-30" width="8" height="40" fill="#0f172a" rx="2" />
+              {/* Színes sávok hengeres színátmenettel */}
+              <rect x="-4" y="0" width="8" height="6" fill="url(#batonWhite)" />
+              <rect x="-4" y="-6" width="8" height="6" fill="url(#batonRed)" />
+              <rect x="-4" y="-12" width="8" height="6" fill="url(#batonWhite)" />
+              <rect x="-4" y="-18" width="8" height="6" fill="url(#batonRed)" />
+              <rect x="-4" y="-24" width="8" height="6" fill="url(#batonWhite)" />
+              <path d="M -4 -24 Q 0 -32 4 -24 Z" fill="url(#batonRed)" />
+              {/* Csillogó fénysáv a boton a műanyag hatásért */}
+              <rect x="-1" y="-28" width="1.5" height="36" fill="#ffffff" opacity="0.4" rx="0.5" />
             </g>
-            <circle cx="12" cy="51" r="5.5" fill="url(#gloveGrad)" stroke="#94a3b8" strokeWidth="0.5" />
-            <circle cx="8" cy="50" r="2.5" fill="url(#gloveGrad)" stroke="#94a3b8" strokeWidth="0.5" />
+
+            {/* Kesztyű */}
+            <circle cx="12" cy="54" r="5.5" fill="url(#gloveGrad)" />
+            <circle cx="9" cy="52" r="2.5" fill="url(#gloveGrad)" />
+            <circle cx="15" cy="52" r="2.5" fill="url(#gloveGrad)" />
           </motion.g>
 
-          {/* Arc: Pír és Orr */}
-          <circle cx="31" cy="63" r="5" fill="#fca5a5" opacity="0.4" filter="blur(1px)" />
-          <circle cx="69" cy="63" r="5" fill="#fca5a5" opacity="0.4" filter="blur(1px)" />
-          <circle cx="50" cy="62" r="4.5" fill="url(#noseGrad)" filter="url(#fuzzTexture)" />
-          <ellipse cx="49" cy="60.5" rx="1.5" ry="1" fill="#93c5fd" opacity="0.8" /> {/* Orr csillogás */}
+          {/* Szemöldökök (Vastag, lekerekített) */}
+          <path d="M 30 43 Q 38 38 45 43" stroke="#020617" strokeWidth="3.5" strokeLinecap="round" fill="none" />
+          <path d="M 55 43 Q 62 38 70 43" stroke="#020617" strokeWidth="3.5" strokeLinecap="round" fill="none" />
 
+          {/* Arckifejezések meghívása */}
           {getEyeExpression()}
+          <circle cx="50" cy="59" r="4" fill="#3b82f6" />
+          <circle cx="49" cy="58" r="1.5" fill="#93c5fd" /> {/* Orr highlight */}
           {getMouthExpression()}
 
-          {/* Vastagabb Szemöldökök 3D árnyékkal */}
-          <path d="M 30 42 Q 38 37 45 42" stroke="#020617" strokeWidth="3" fill="none" strokeLinecap="round" />
-          <path d="M 55 42 Q 62 37 70 42" stroke="#020617" strokeWidth="3" fill="none" strokeLinecap="round" />
-
-          {/* Rendőrsapka (Nagyon részletes) */}
-          <g transform="translate(0, -3)">
-            {/* Fehér kupola */}
-            <path d="M 24 35 C 10 20 25 8 50 8 C 75 8 90 20 76 35 C 64 30 36 30 24 35 Z" fill="url(#capTopGrad)" stroke="#64748b" strokeWidth="1" />
+          {/* Rendőrsapka komplex árnyékolással */}
+          <g filter="url(#dropShadow)" transform="translate(0, -2)">
+            {/* Fehér felső rész */}
+            <path d="M 22 36 C 8 20 25 8 50 8 C 75 8 92 20 78 36 C 65 31 35 31 22 36 Z" fill="url(#capGrad)" stroke="#64748b" strokeWidth="1" />
             
             {/* Sötétkék Pánt */}
-            <path d="M 26 34 C 35 29 65 29 74 34 L 72 40 C 62 35 38 35 28 40 Z" fill="#0f172a" stroke="#020617" strokeWidth="1" />
+            <path d="M 24 35 C 35 30 65 30 76 35 L 74 41 C 65 36 35 36 26 41 Z" fill="#0f172a" />
             
-            {/* Silt (Visor) 3D becsillanással */}
-            <path d="M 25 38 Q 50 48 75 38 Q 50 41 25 38" fill="url(#visorGrad)" stroke="#000000" strokeWidth="1" />
-            <path d="M 30 39.5 Q 50 44 70 39.5" stroke="#ffffff" strokeWidth="0.8" opacity="0.2" fill="none" /> {/* Visor highlight */}
+            {/* Silt / Visor */}
+            <path d="M 22 39 Q 50 51 78 39 Q 50 43 22 39" fill="url(#visorGrad)" stroke="#000000" strokeWidth="1" />
+            {/* Visor becsillanás */}
+            <path d="M 27 40.5 Q 50 46 73 40.5" stroke="#ffffff" strokeWidth="1" opacity="0.25" fill="none" />
 
-            {/* Arany Fonott Zsinór (dupla stroke trükkel textúrázva) */}
-            <path d="M 27 37 C 36 32 64 32 73 37" stroke="#b45309" strokeWidth="3" fill="none" strokeLinecap="round" />
-            <path d="M 27 37 C 36 32 64 32 73 37" stroke="#fcd34d" strokeWidth="1.5" strokeDasharray="2 2" fill="none" strokeLinecap="round" />
-            <circle cx="27" cy="37" r="2" fill="#fbbf24" stroke="#b45309" strokeWidth="0.5" />
-            <circle cx="73" cy="37" r="2" fill="#fbbf24" stroke="#b45309" strokeWidth="0.5" />
+            {/* Arany Fonat (Dupla réteg a realisztikusságért) */}
+            <path d="M 25 38 C 35 33 65 33 75 38" stroke="#92400e" strokeWidth="3" fill="none" strokeLinecap="round" />
+            <path d="M 25 38 C 35 33 65 33 75 38" stroke="#fbbf24" strokeWidth="1.5" strokeDasharray="2.5 1.5" fill="none" strokeLinecap="round" />
+            <circle cx="25" cy="38" r="2.5" fill="#fbbf24" />
+            <circle cx="75" cy="38" r="2.5" fill="#fbbf24" />
 
-            {/* Magyar Címer */}
-            <g transform="translate(0, -1)">
-              <path d="M 47 21 Q 50 17 53 21 L 53 25 Q 50 29 47 25 Z" fill="#b91c1c" stroke="#fbbf24" strokeWidth="1" />
-              <path d="M 47.5 24 Q 50 25 52.5 24 L 52.5 24.5 Q 50 26 47.5 24.5 Z" fill="#16a34a" />
-              <path d="M 50 20 L 50 24 M 48.5 21 L 51.5 21 M 49 22.5 L 51 22.5" stroke="#f8fafc" strokeWidth="0.6" strokeLinecap="round" />
-              <path d="M 46.5 17 Q 50 15 53.5 17 L 52 18.5 Q 50 18 48 18.5 Z" fill="#fbbf24" />
-              <circle cx="50" cy="16" r="0.8" fill="#fbbf24" /> {/* Korona kereszt */}
+            {/* Magyar Címer (Optimalizált formák) */}
+            <g transform="translate(46.5, 15)">
+              <path d="M 0 5 Q 3.5 3 7 5 L 7 9 Q 3.5 13 0 9 Z" fill="#b91c1c" stroke="#fbbf24" strokeWidth="0.8" />
+              <path d="M 0.5 8 Q 3.5 9 6.5 8 L 6.5 9 Q 3.5 11 0.5 9 Z" fill="#16a34a" />
+              <path d="M 3.5 4 L 3.5 8 M 2 5 L 5 5 M 2.5 6.5 L 4.5 6.5" stroke="#f8fafc" strokeWidth="0.7" strokeLinecap="round" />
+              <path d="M -0.5 2 Q 3.5 0 7.5 2 L 6 3 Q 3.5 2.5 1 3 Z" fill="#fbbf24" />
+              <circle cx="3.5" cy="1" r="0.8" fill="#fbbf24" />
             </g>
           </g>
         </svg>
       </motion.div>
 
-      {/* Szövegbuborék maradt a régi */}
+      {/* Szövegbuborék */}
       <AnimatePresence mode="wait">
         {enableSpeechBubble && message && (
           <motion.div
@@ -272,10 +288,10 @@ export default function Mascot({ mood, message, enableSpeechBubble = true }: Mas
             animate={{ opacity: 1, scale: 1, x: 0 }}
             exit={{ opacity: 0, scale: 0.8, x: -10 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="relative bg-white text-slate-800 font-sans font-medium px-4 py-3 rounded-2xl shadow-lg border-2 border-slate-100 flex-1 min-w-0 max-w-xs md:max-w-md text-sm sm:text-base leading-snug"
+            className="relative bg-white text-slate-800 font-sans font-medium px-4 py-3 rounded-xl shadow-xl border border-slate-200 flex-1 min-w-0 max-w-xs text-sm"
           >
-            <div className="absolute left-[-8px] top-1/2 -translate-y-1/2 w-4 h-4 bg-white rotate-45 border-b-2 border-l-2 border-slate-100"></div>
-            <p className="relative z-10">{message}</p>
+            <div className="absolute left-[-6px] top-1/2 -translate-y-1/2 w-3 h-3 bg-white rotate-45 border-b border-l border-slate-200"></div>
+            <p className="relative z-10 m-0">{message}</p>
           </motion.div>
         )}
       </AnimatePresence>
