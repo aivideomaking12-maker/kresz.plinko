@@ -29,7 +29,7 @@ export default function ResultsScreen({
   const getPoliceRank = () => {
     if (percentage === 100) {
       return {
-        title: "KRESZ Kerék Bajnok",
+        title: "KRESZ Bajnok",
         description: "Tökéletes teljesítmény! Te vagy a közlekedés abszolút bajnoka! A Rendőrség büszke rád!",
         stars: 5,
         color: "text-amber-500",
