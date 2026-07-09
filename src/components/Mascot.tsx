@@ -18,7 +18,6 @@ export default function Mascot({ mood, message, enableSpeechBubble = true }: Mas
     return () => clearInterval(interval);
   }, []);
 
-  // Szemek 3D-sített üveghatással
   const getEyeExpression = () => {
     switch (mood) {
       case "happy":
@@ -39,7 +38,6 @@ export default function Mascot({ mood, message, enableSpeechBubble = true }: Mas
       default:
         return (
           <>
-            {/* Bal Szem */}
             <motion.g
               animate={{ scaleY: [1, 1, 0.1, 1, 1, 1, 0.1, 1] }}
               transition={{ repeat: Infinity, duration: 4, times: [0, 0.7, 0.72, 0.74, 0.9, 0.92, 0.94, 1] }}
@@ -49,12 +47,10 @@ export default function Mascot({ mood, message, enableSpeechBubble = true }: Mas
               <ellipse cx="39" cy="54" rx="7.5" ry="9.5" fill="url(#eyeShadow)" />
               <ellipse cx="39" cy="54.5" rx="5.5" ry="7" fill="#451a03" />
               <circle cx="39" cy="55.5" r="3.5" fill="#020617" />
-              {/* Becsillanások (Highlights) */}
               <circle cx="36.5" cy="51.5" r="2.5" fill="#ffffff" opacity="0.9" />
               <circle cx="41.5" cy="57.5" r="1" fill="#ffffff" opacity="0.8" />
             </motion.g>
 
-            {/* Jobb Szem */}
             <motion.g
               animate={{ scaleY: [1, 1, 0.1, 1, 1, 1, 0.1, 1] }}
               transition={{ repeat: Infinity, duration: 4, times: [0, 0.7, 0.72, 0.74, 0.9, 0.92, 0.94, 1] }}
@@ -98,27 +94,20 @@ export default function Mascot({ mood, message, enableSpeechBubble = true }: Mas
       >
         <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-2xl overflow-visible">
           <defs>
-            {/* Gazdag 3D test átmenetek */}
             <radialGradient id="bodyBaseGrad" cx="30%" cy="30%" r="70%">
               <stop offset="0%" stopColor="#60a5fa" />
               <stop offset="50%" stopColor="#2563eb" />
               <stop offset="90%" stopColor="#1e3a8a" />
               <stop offset="100%" stopColor="#172554" />
             </radialGradient>
-            
-            {/* Belső árnyék a gömbölydedséghez */}
             <radialGradient id="bodyInnerShadow" cx="50%" cy="50%" r="50%">
               <stop offset="70%" stopColor="#000" stopOpacity="0" />
               <stop offset="100%" stopColor="#020617" stopOpacity="0.4" />
             </radialGradient>
-
-            {/* Szem árnyékolás */}
             <radialGradient id="eyeShadow" cx="50%" cy="50%" r="50%">
               <stop offset="70%" stopColor="#000" stopOpacity="0" />
               <stop offset="100%" stopColor="#000" stopOpacity="0.2" />
             </radialGradient>
-
-            {/* Sapka anyagok */}
             <linearGradient id="capGrad" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#ffffff" />
               <stop offset="80%" stopColor="#e2e8f0" />
@@ -129,8 +118,6 @@ export default function Mascot({ mood, message, enableSpeechBubble = true }: Mas
               <stop offset="30%" stopColor="#0f172a" />
               <stop offset="100%" stopColor="#020617" />
             </linearGradient>
-
-            {/* Hengeres árnyék a batonhoz */}
             <linearGradient id="batonRed" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="#991b1b" />
               <stop offset="30%" stopColor="#ef4444" />
@@ -143,8 +130,6 @@ export default function Mascot({ mood, message, enableSpeechBubble = true }: Mas
               <stop offset="70%" stopColor="#f1f5f9" />
               <stop offset="100%" stopColor="#64748b" />
             </linearGradient>
-
-            {/* Kesztyű és Láb */}
             <radialGradient id="gloveGrad" cx="30%" cy="30%" r="70%">
               <stop offset="0%" stopColor="#ffffff" />
               <stop offset="100%" stopColor="#cbd5e1" />
@@ -154,21 +139,27 @@ export default function Mascot({ mood, message, enableSpeechBubble = true }: Mas
               <stop offset="40%" stopColor="#0f172a" />
               <stop offset="100%" stopColor="#000000" />
             </linearGradient>
-
-            {/* Sapka Árnyék Filter */}
             <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
               <feDropShadow dx="0" dy="4" stdDeviation="3" floodColor="#020617" floodOpacity="0.5"/>
             </filter>
+
+            {/* Magyar zászló hard-stop gradiens a címerhez */}
+            <linearGradient id="hunFlag" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="33%" stopColor="#ef4444" />
+              <stop offset="33.1%" stopColor="#ffffff" />
+              <stop offset="66%" stopColor="#ffffff" />
+              <stop offset="66.1%" stopColor="#22c55e" />
+            </linearGradient>
           </defs>
 
           {/* Talaj árnyék */}
           <ellipse cx="50" cy="94" rx="25" ry="4" fill="#020617" opacity="0.3" filter="blur(2px)" />
 
-          {/* Lábak (Vastag vonalakként rajzolva a dobozok elkerülése végett) */}
+          {/* Lábak */}
           <path d="M 38 82 L 38 88" stroke="#1e3a8a" strokeWidth="8" strokeLinecap="round" />
           <path d="M 62 82 L 62 88" stroke="#1e3a8a" strokeWidth="8" strokeLinecap="round" />
 
-          {/* Cipők fényes csillogással */}
+          {/* Cipők */}
           <g>
             <path d="M 33 86 C 33 82, 45 82, 45 86 C 45 92, 43 94, 39 94 C 33 94, 33 92, 33 86 Z" fill="url(#shoeGrad)" />
             <path d="M 35 84.5 Q 39 83 43 84.5" stroke="#ffffff" strokeWidth="1" opacity="0.3" fill="none" strokeLinecap="round" />
@@ -178,7 +169,7 @@ export default function Mascot({ mood, message, enableSpeechBubble = true }: Mas
             <path d="M 57 84.5 Q 61 83 65 84.5" stroke="#ffffff" strokeWidth="1" opacity="0.3" fill="none" strokeLinecap="round" />
           </g>
 
-          {/* Fő Test - Több réteg a maximális 3D hatásért */}
+          {/* Fő Test */}
           <path id="body-shape" d="M 50 25 C 20 25, 12 50, 15 72 C 18 88, 35 90, 50 90 C 65 90, 82 88, 85 72 C 88 50, 80 25, 50 25 Z" fill="url(#bodyBaseGrad)" />
           <path d="M 50 25 C 20 25, 12 50, 15 72 C 18 88, 35 90, 50 90 C 65 90, 82 88, 85 72 C 88 50, 80 25, 50 25 Z" fill="url(#bodyInnerShadow)" />
 
@@ -194,14 +185,13 @@ export default function Mascot({ mood, message, enableSpeechBubble = true }: Mas
             <rect x="1" y="5" width="6" height="1.5" fill="#22c55e" />
           </g>
 
-          {/* Bal Kar (Integető) - Vastag vonal stroke-kal, nincs path törés */}
+          {/* Bal Kar (Integető) */}
           <motion.g
             animate={wave || mood === "cheering" ? { rotate: [0, -20, 10, -20, 0] } : { rotate: [0, 2, 0] }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
             style={{ transformOrigin: "82px 65px" }}
           >
             <path d="M 82 65 Q 92 65 90 52" stroke="url(#bodyBaseGrad)" strokeWidth="11" strokeLinecap="round" fill="none" />
-            {/* Kesztyű */}
             <circle cx="90" cy="51" r="5" fill="url(#gloveGrad)" />
             <path d="M 86 48 L 88 42 A 2 2 0 0 1 91 42 L 89 48" fill="url(#gloveGrad)" />
             <path d="M 89 48 L 92 40 A 2 2 0 0 1 95 41 L 91 49" fill="url(#gloveGrad)" />
@@ -209,7 +199,7 @@ export default function Mascot({ mood, message, enableSpeechBubble = true }: Mas
             <path d="M 85 52 L 82 48 A 2 2 0 0 1 85 46 L 88 50" fill="url(#gloveGrad)" />
           </motion.g>
 
-          {/* Jobb Kar (Botot tartó) */}
+          {/* Jobb Kar (Botot tartó) - Teljesen újraírt bottal */}
           <motion.g
             animate={{ rotate: [-2, 2, -2] }}
             transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
@@ -217,69 +207,60 @@ export default function Mascot({ mood, message, enableSpeechBubble = true }: Mas
           >
             <path d="M 18 65 Q 10 65 12 55" stroke="url(#bodyBaseGrad)" strokeWidth="11" strokeLinecap="round" fill="none" />
             
-            {/* Rendőrbot 3D henger hatással */}
-            <g transform="translate(10, 48) rotate(-15)">
-              {/* Bot árnyék/test */}
-              <rect x="-4" y="-30" width="8" height="40" fill="#0f172a" rx="2" />
-              {/* Színes sávok hengeres színátmenettel */}
-              <rect x="-4" y="0" width="8" height="6" fill="url(#batonWhite)" />
-              <rect x="-4" y="-6" width="8" height="6" fill="url(#batonRed)" />
-              <rect x="-4" y="-12" width="8" height="6" fill="url(#batonWhite)" />
-              <rect x="-4" y="-18" width="8" height="6" fill="url(#batonRed)" />
-              <rect x="-4" y="-24" width="8" height="6" fill="url(#batonWhite)" />
-              <path d="M -4 -24 Q 0 -32 4 -24 Z" fill="url(#batonRed)" />
-              {/* Csillogó fénysáv a boton a műanyag hatásért */}
-              <rect x="-1" y="-28" width="1.5" height="36" fill="#ffffff" opacity="0.4" rx="0.5" />
+            <g transform="translate(12, 54) rotate(-15)">
+              {/* Markolat, amely lefelé lóg a kézből */}
+              <rect x="-4" y="0" width="8" height="14" fill="#0f172a" rx="1.5" />
+              {/* Bot színes sávjai (felfelé építkezve a kézből) */}
+              <rect x="-4" y="-6" width="8" height="6" fill="url(#batonWhite)" />
+              <rect x="-4" y="-12" width="8" height="6" fill="url(#batonRed)" />
+              <rect x="-4" y="-18" width="8" height="6" fill="url(#batonWhite)" />
+              <rect x="-4" y="-24" width="8" height="6" fill="url(#batonRed)" />
+              <rect x="-4" y="-30" width="8" height="6" fill="url(#batonWhite)" />
+              {/* Lekerekített, hibátlan piros bot-tető */}
+              <path d="M -4 -30 L -4 -33 C -4 -38, 4 -38, 4 -33 L 4 -30 Z" fill="url(#batonRed)" />
+              {/* Hosszú 3D műanyag csillogás a teljes boton */}
+              <rect x="-1" y="-35" width="1.5" height="48" fill="#ffffff" opacity="0.4" rx="0.75" />
             </g>
 
-            {/* Kesztyű */}
+            {/* Kesztyű (a botra rajzolva) */}
             <circle cx="12" cy="54" r="5.5" fill="url(#gloveGrad)" />
             <circle cx="9" cy="52" r="2.5" fill="url(#gloveGrad)" />
             <circle cx="15" cy="52" r="2.5" fill="url(#gloveGrad)" />
           </motion.g>
 
-          {/* Szemöldökök (Vastag, lekerekített) */}
           <path d="M 30 43 Q 38 38 45 43" stroke="#020617" strokeWidth="3.5" strokeLinecap="round" fill="none" />
           <path d="M 55 43 Q 62 38 70 43" stroke="#020617" strokeWidth="3.5" strokeLinecap="round" fill="none" />
 
-          {/* Arckifejezések meghívása */}
           {getEyeExpression()}
           <circle cx="50" cy="59" r="4" fill="#3b82f6" />
-          <circle cx="49" cy="58" r="1.5" fill="#93c5fd" /> {/* Orr highlight */}
+          <circle cx="49" cy="58" r="1.5" fill="#93c5fd" />
           {getMouthExpression()}
 
-          {/* Rendőrsapka komplex árnyékolással */}
+          {/* RENDŐRSAPKA - Javított, zárt ívekkel */}
           <g filter="url(#dropShadow)" transform="translate(0, -2)">
-            {/* Fehér felső rész */}
-            <path d="M 22 36 C 8 20 25 8 50 8 C 75 8 92 20 78 36 C 65 31 35 31 22 36 Z" fill="url(#capGrad)" stroke="#64748b" strokeWidth="1" />
+            {/* Fehér kupola */}
+            <path d="M 23 30 Q 50 38 77 30 C 95 12, 75 4, 50 4 C 25 4, 5 12, 23 30 Z" fill="url(#capGrad)" stroke="#64748b" strokeWidth="1" />
             
-            {/* Sötétkék Pánt */}
-            <path d="M 24 35 C 35 30 65 30 76 35 L 74 41 C 65 36 35 36 26 41 Z" fill="#0f172a" />
+            {/* Sötétkék Pánt (Pontosan csatlakozik a sültjéhez) */}
+            <path d="M 23 30 Q 50 38 77 30 L 79 36 Q 50 44 21 36 Z" fill="#0f172a" />
             
-            {/* Silt / Visor */}
-            <path d="M 22 39 Q 50 51 78 39 Q 50 43 22 39" fill="url(#visorGrad)" stroke="#000000" strokeWidth="1" />
-            {/* Visor becsillanás */}
-            <path d="M 27 40.5 Q 50 46 73 40.5" stroke="#ffffff" strokeWidth="1" opacity="0.25" fill="none" />
+            {/* Sapka sültje (Tömör, zárt forma, nincs lyuk) */}
+            <path d="M 21 36 Q 50 44 79 36 Q 50 55 21 36 Z" fill="url(#visorGrad)" stroke="#020617" strokeWidth="1" />
+            {/* Sült csillogás */}
+            <path d="M 26 38.5 Q 50 45 74 38.5" stroke="#ffffff" strokeWidth="1" opacity="0.25" fill="none" />
 
-            {/* Arany Fonat (Dupla réteg a realisztikusságért) */}
-            <path d="M 25 38 C 35 33 65 33 75 38" stroke="#92400e" strokeWidth="3" fill="none" strokeLinecap="round" />
-            <path d="M 25 38 C 35 33 65 33 75 38" stroke="#fbbf24" strokeWidth="1.5" strokeDasharray="2.5 1.5" fill="none" strokeLinecap="round" />
-            <circle cx="25" cy="38" r="2.5" fill="#fbbf24" />
-            <circle cx="75" cy="38" r="2.5" fill="#fbbf24" />
+            {/* Arany Fonat (Tökéletesen a pánt alján) */}
+            <path d="M 21 36 Q 50 44 79 36" stroke="#92400e" strokeWidth="3" fill="none" strokeLinecap="round" />
+            <path d="M 21 36 Q 50 44 79 36" stroke="#fbbf24" strokeWidth="1.5" strokeDasharray="2.5 1.5" fill="none" strokeLinecap="round" />
+            <circle cx="21" cy="36" r="2.5" fill="#fbbf24" />
+            <circle cx="79" cy="36" r="2.5" fill="#fbbf24" />
 
-            {/* Magyar Címer (Optimalizált formák) */}
-            <g transform="translate(46.5, 15)">
-              <path d="M 0 5 Q 3.5 3 7 5 L 7 9 Q 3.5 13 0 9 Z" fill="#b91c1c" stroke="#fbbf24" strokeWidth="0.8" />
-              <path d="M 0.5 8 Q 3.5 9 6.5 8 L 6.5 9 Q 3.5 11 0.5 9 Z" fill="#16a34a" />
-              <path d="M 3.5 4 L 3.5 8 M 2 5 L 5 5 M 2.5 6.5 L 4.5 6.5" stroke="#f8fafc" strokeWidth="0.7" strokeLinecap="round" />
-              <path d="M -0.5 2 Q 3.5 0 7.5 2 L 6 3 Q 3.5 2.5 1 3 Z" fill="#fbbf24" />
-              <circle cx="3.5" cy="1" r="0.8" fill="#fbbf24" />
-            </g>
+            {/* Egyszerűsített, letisztult Magyar Zászló Címer */}
+            <circle cx="50" cy="18" r="5" fill="url(#hunFlag)" stroke="#fbbf24" strokeWidth="1.5" />
           </g>
         </svg>
       </motion.div>
 
-      {/* Szövegbuborék */}
       <AnimatePresence mode="wait">
         {enableSpeechBubble && message && (
           <motion.div
