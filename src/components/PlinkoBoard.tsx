@@ -366,7 +366,7 @@ export default function PlinkoBoard({
             </radialGradient>
           </defs>
 
-          {/* 1. SOLID VIBRANT LANE STRIPES Behind Pegs (This brings back the full wheel's vibrant look!) */}
+          {/* 1. SOLID VIBRANT LANE STRIPES Behind Pegs */}
           <g>
             {CATEGORIES.map((cat, idx) => {
               const xLeft = DIVIDERS[idx];
@@ -391,7 +391,6 @@ export default function PlinkoBoard({
 
           {/* 2. Launcher Track Zone */}
           <g opacity="0.95">
-            {/* Header Track strip */}
             <rect
               x={MARGIN_LEFT}
               y="40"
@@ -403,7 +402,6 @@ export default function PlinkoBoard({
               strokeWidth="2.5"
             />
             
-            {/* Guide strip pattern */}
             <line
               x1={MARGIN_LEFT + 15}
               y1="65"
@@ -425,7 +423,7 @@ export default function PlinkoBoard({
             </text>
           </g>
 
-          {/* 3. Staggered Pegs with Vibrant Individual Lane Colors! */}
+          {/* 3. Staggered Pegs */}
           <g>
             {PEGS.map((peg) => {
               const lastHitTime = hitPegs[peg.id] || 0;
@@ -434,7 +432,6 @@ export default function PlinkoBoard({
               
               return (
                 <g key={peg.id}>
-                  {/* Hit ripple effect ring */}
                   {isHitActive && (
                     <circle
                       cx={peg.x}
@@ -445,8 +442,6 @@ export default function PlinkoBoard({
                       opacity="0.65"
                     />
                   )}
-
-                  {/* High contrast, vibrant color-matching peg studs */}
                   <circle
                     cx={peg.x}
                     cy={peg.y}
@@ -460,8 +455,6 @@ export default function PlinkoBoard({
                     }}
                     className={isHitActive ? "scale-125" : ""}
                   />
-                  
-                  {/* Pin glossy shine */}
                   <circle
                     cx={peg.x - 1.2}
                     cy={peg.y - 1.2}
@@ -474,7 +467,7 @@ export default function PlinkoBoard({
             })}
           </g>
 
-          {/* 4. Bottom Dividers & SOLID high-visibility slots with LARGE written names */}
+          {/* 4. Bottom Dividers & Slots */}
           <g>
             {CATEGORIES.map((cat, idx) => {
               const xLeft = DIVIDERS[idx];
@@ -485,7 +478,6 @@ export default function PlinkoBoard({
 
               return (
                 <g key={`slot-bg-${cat.id}`}>
-                  {/* Slot vertical container - solid bright color */}
                   <rect
                     x={xLeft + 1.5}
                     y={DIVIDER_Y}
@@ -497,12 +489,9 @@ export default function PlinkoBoard({
                     stroke={isLanded ? "#ffffff" : "rgba(255,255,255,0.4)"}
                     strokeWidth={isLanded ? "4" : "1.5"}
                     className="transition-all duration-200"
-                    style={{
-                      filter: isLanded ? "drop-shadow(0px 0px 12px rgba(255,255,255,0.6))" : "none"
-                    }}
+                    style={{ filter: isLanded ? "drop-shadow(0px 0px 12px rgba(255,255,255,0.6))" : "none" }}
                   />
 
-                  {/* Dark elegant contrast bar at the bottom */}
                   <rect
                     x={xLeft + 3}
                     y={DIVIDER_Y + SLOT_HEIGHT - 12}
@@ -513,7 +502,6 @@ export default function PlinkoBoard({
                     opacity="0.45"
                   />
 
-                  {/* Full written category name, rotated -90 degrees with large, extremely readable fonts */}
                   <g transform={`translate(${xLeft + slotW / 2}, ${DIVIDER_Y + SLOT_HEIGHT / 2})`}>
                     <text
                       transform="rotate(-90)"
@@ -534,37 +522,11 @@ export default function PlinkoBoard({
               );
             })}
 
-            {/* Vertical dividing high-contrast metallic boundary walls */}
             {DIVIDERS.map((divX, idx) => (
               <g key={`divider-${idx}`}>
-                <line
-                  x1={divX}
-                  y1={DIVIDER_Y}
-                  x2={divX}
-                  y2={DIVIDER_Y + SLOT_HEIGHT}
-                  stroke="#1e293b"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                />
-                <line
-                  x1={divX}
-                  y1={DIVIDER_Y}
-                  x2={divX}
-                  y2={DIVIDER_Y + SLOT_HEIGHT}
-                  stroke="#94a3b8"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-                
-                {/* Decorative glowing capping peg atop divider */}
-                <circle
-                  cx={divX}
-                  cy={DIVIDER_Y}
-                  r="6"
-                  fill="#f1f5f9"
-                  stroke="#0f172a"
-                  strokeWidth="2"
-                />
+                <line x1={divX} y1={DIVIDER_Y} x2={divX} y2={DIVIDER_Y + SLOT_HEIGHT} stroke="#1e293b" strokeWidth="4" strokeLinecap="round" />
+                <line x1={divX} y1={DIVIDER_Y} x2={divX} y2={DIVIDER_Y + SLOT_HEIGHT} stroke="#94a3b8" strokeWidth="1.5" strokeLinecap="round" />
+                <circle cx={divX} cy={DIVIDER_Y} r="6" fill="#f1f5f9" stroke="#0f172a" strokeWidth="2" />
               </g>
             ))}
           </g>
@@ -572,54 +534,30 @@ export default function PlinkoBoard({
           {/* 5. Physical Falling Coin/Disc */}
           <g>
             {/* Ambient drop shadow under coin */}
-            <circle
-              cx={discPos.x}
-              cy={discPos.y + 4}
-              r="14"
-              fill="#000000"
-              opacity="0.4"
-            />
+            <circle cx={discPos.x} cy={discPos.y + 4} r="14" fill="#000000" opacity="0.4" />
 
             {/* Interactive Token Face */}
             <g transform={`translate(${discPos.x}, ${discPos.y})`}>
               {/* Gold outer 3D rim */}
-              <circle
-                r="16"
-                fill="url(#gold-gradient)"
-                stroke="#78350f"
-                strokeWidth="2.2"
-              />
+              <circle r="16" fill="url(#gold-gradient)" stroke="#78350f" strokeWidth="2.2" />
               
-              {/* Concentric high-tech safety blue emblem */}
-              <circle
-                r="11.5"
-                fill="#1e40af"
-                stroke="#f59e0b"
-                strokeWidth="1.5"
-              />
+              {/* White inner center for the logo */}
+              <circle r="11.5" fill="#ffffff" stroke="#f59e0b" strokeWidth="1.5" />
               
-              {/* Minimal bicycle outline for KRESZ thematic consistency */}
-              <g stroke="#ffffff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none">
-                <circle cx="-4" cy="3" r="2.8" strokeWidth="1.2" />
-                <circle cx="4" cy="3" r="2.8" strokeWidth="1.2" />
-                
-                <line x1="-4" y1="3" x2="0" y2="-2" strokeWidth="1.2" />
-                <line x1="4" y1="3" x2="0" y2="-2" strokeWidth="1.2" />
-                <line x1="-4" y1="3" x2="1" y2="3" strokeWidth="1.2" />
-                
-                <path d="M 0 -2 H 3" strokeWidth="1" />
-              </g>
+              {/* Custom Logo Image (SVMBB.png) */}
+              <image
+                href="/SVMBB.png"
+                x="-9"
+                y="-9"
+                width="18"
+                height="18"
+                preserveAspectRatio="xMidYMid meet"
+                className="pointer-events-none select-none"
+              />
 
               {/* Glowing halo when ready to drop */}
               {!isFalling && landedSlot === null && (
-                <circle
-                  r="23"
-                  fill="none"
-                  stroke="#facc15"
-                  strokeWidth="2.5"
-                  className="animate-ping opacity-75"
-                  style={{ pointerEvents: "none" }}
-                />
+                <circle r="23" fill="none" stroke="#facc15" strokeWidth="2.5" className="animate-ping opacity-75" style={{ pointerEvents: "none" }} />
               )}
             </g>
           </g>
@@ -629,7 +567,7 @@ export default function PlinkoBoard({
         <div className="absolute inset-0 rounded-[28px] border-[10px] border-indigo-950 pointer-events-none z-20" />
       </div>
 
-      {/* --- Simple, elegant controls bar --- */}
+      {/* --- Controls bar --- */}
       <div className="flex justify-center gap-4 mt-2">
         {!isFalling && landedSlot === null && (
           <motion.button
