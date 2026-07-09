@@ -41,7 +41,7 @@ export default function Mascot({ mood, message, enableSpeechBubble = true }: Mas
             <motion.g
               animate={{ scaleY: [1, 1, 0.1, 1, 1, 1, 0.1, 1] }}
               transition={{ repeat: Infinity, duration: 4, times: [0, 0.7, 0.72, 0.74, 0.9, 0.92, 0.94, 1] }}
-              style={{ transformOrigin: "39px 54px" }}
+              style={{ transformOrigin: "39px 54px", transformBox: "view-box" }}
             >
               <ellipse cx="39" cy="54" rx="8" ry="10" fill="#ffffff" />
               <ellipse cx="39" cy="54" rx="7.5" ry="9.5" fill="url(#eyeShadow)" />
@@ -54,7 +54,7 @@ export default function Mascot({ mood, message, enableSpeechBubble = true }: Mas
             <motion.g
               animate={{ scaleY: [1, 1, 0.1, 1, 1, 1, 0.1, 1] }}
               transition={{ repeat: Infinity, duration: 4, times: [0, 0.7, 0.72, 0.74, 0.9, 0.92, 0.94, 1] }}
-              style={{ transformOrigin: "61px 54px" }}
+              style={{ transformOrigin: "61px 54px", transformBox: "view-box" }}
             >
               <ellipse cx="61" cy="54" rx="8" ry="10" fill="#ffffff" />
               <ellipse cx="61" cy="54" rx="7.5" ry="9.5" fill="url(#eyeShadow)" />
@@ -185,11 +185,11 @@ export default function Mascot({ mood, message, enableSpeechBubble = true }: Mas
             <rect x="1" y="5" width="6" height="1.5" fill="#22c55e" />
           </g>
 
-          {/* Bal Kar (Integető) */}
+          {/* Bal Kar (Integető) - A transformBox: "view-box" rögzíti a vállat fix pontként */}
           <motion.g
             animate={wave || mood === "cheering" ? { rotate: [0, -20, 10, -20, 0] } : { rotate: [0, 2, 0] }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
-            style={{ transformOrigin: "82px 65px" }}
+            style={{ transformOrigin: "82px 65px", transformBox: "view-box" }}
           >
             <path d="M 82 65 Q 92 65 90 52" stroke="url(#bodyBaseGrad)" strokeWidth="11" strokeLinecap="round" fill="none" />
             <circle cx="90" cy="51" r="5" fill="url(#gloveGrad)" />
@@ -199,30 +199,30 @@ export default function Mascot({ mood, message, enableSpeechBubble = true }: Mas
             <path d="M 85 52 L 82 48 A 2 2 0 0 1 85 46 L 88 50" fill="url(#gloveGrad)" />
           </motion.g>
 
-          {/* Jobb Kar (Botot tartó) - Teljesen újraírt bottal */}
+          {/* Jobb Kar (Botot tartó) - Itt is a váll (18px 65px) a fix forgáspont */}
           <motion.g
-            animate={{ rotate: [-2, 2, -2] }}
+            animate={{ rotate: [-3, 3, -3] }}
             transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
-            style={{ transformOrigin: "18px 65px" }}
+            style={{ transformOrigin: "18px 65px", transformBox: "view-box" }}
           >
             <path d="M 18 65 Q 10 65 12 55" stroke="url(#bodyBaseGrad)" strokeWidth="11" strokeLinecap="round" fill="none" />
             
             <g transform="translate(12, 54) rotate(-15)">
-              {/* Markolat, amely lefelé lóg a kézből */}
+              {/* Fekete Markolat */}
               <rect x="-4" y="0" width="8" height="14" fill="#0f172a" rx="1.5" />
-              {/* Bot színes sávjai (felfelé építkezve a kézből) */}
+              {/* Bot piros-fehér sávjai */}
               <rect x="-4" y="-6" width="8" height="6" fill="url(#batonWhite)" />
               <rect x="-4" y="-12" width="8" height="6" fill="url(#batonRed)" />
               <rect x="-4" y="-18" width="8" height="6" fill="url(#batonWhite)" />
               <rect x="-4" y="-24" width="8" height="6" fill="url(#batonRed)" />
               <rect x="-4" y="-30" width="8" height="6" fill="url(#batonWhite)" />
-              {/* Lekerekített, hibátlan piros bot-tető */}
               <path d="M -4 -30 L -4 -33 C -4 -38, 4 -38, 4 -33 L 4 -30 Z" fill="url(#batonRed)" />
-              {/* Hosszú 3D műanyag csillogás a teljes boton */}
-              <rect x="-1" y="-35" width="1.5" height="48" fill="#ffffff" opacity="0.4" rx="0.75" />
+              
+              {/* Javított csillogás: Csak a piros-fehér részen, nem nyúlik le a markolatra (-34-től 0-ig) */}
+              <rect x="-1.5" y="-34" width="2" height="34" fill="#ffffff" opacity="0.4" rx="1" />
             </g>
 
-            {/* Kesztyű (a botra rajzolva) */}
+            {/* Kesztyű */}
             <circle cx="12" cy="54" r="5.5" fill="url(#gloveGrad)" />
             <circle cx="9" cy="52" r="2.5" fill="url(#gloveGrad)" />
             <circle cx="15" cy="52" r="2.5" fill="url(#gloveGrad)" />
@@ -236,26 +236,18 @@ export default function Mascot({ mood, message, enableSpeechBubble = true }: Mas
           <circle cx="49" cy="58" r="1.5" fill="#93c5fd" />
           {getMouthExpression()}
 
-          {/* RENDŐRSAPKA - Javított, zárt ívekkel */}
+          {/* Rendőrsapka */}
           <g filter="url(#dropShadow)" transform="translate(0, -2)">
-            {/* Fehér kupola */}
             <path d="M 23 30 Q 50 38 77 30 C 95 12, 75 4, 50 4 C 25 4, 5 12, 23 30 Z" fill="url(#capGrad)" stroke="#64748b" strokeWidth="1" />
-            
-            {/* Sötétkék Pánt (Pontosan csatlakozik a sültjéhez) */}
             <path d="M 23 30 Q 50 38 77 30 L 79 36 Q 50 44 21 36 Z" fill="#0f172a" />
-            
-            {/* Sapka sültje (Tömör, zárt forma, nincs lyuk) */}
             <path d="M 21 36 Q 50 44 79 36 Q 50 55 21 36 Z" fill="url(#visorGrad)" stroke="#020617" strokeWidth="1" />
-            {/* Sült csillogás */}
             <path d="M 26 38.5 Q 50 45 74 38.5" stroke="#ffffff" strokeWidth="1" opacity="0.25" fill="none" />
-
-            {/* Arany Fonat (Tökéletesen a pánt alján) */}
             <path d="M 21 36 Q 50 44 79 36" stroke="#92400e" strokeWidth="3" fill="none" strokeLinecap="round" />
             <path d="M 21 36 Q 50 44 79 36" stroke="#fbbf24" strokeWidth="1.5" strokeDasharray="2.5 1.5" fill="none" strokeLinecap="round" />
             <circle cx="21" cy="36" r="2.5" fill="#fbbf24" />
             <circle cx="79" cy="36" r="2.5" fill="#fbbf24" />
-
-            {/* Egyszerűsített, letisztult Magyar Zászló Címer */}
+            
+            {/* Magyar Zászló Címer */}
             <circle cx="50" cy="18" r="5" fill="url(#hunFlag)" stroke="#fbbf24" strokeWidth="1.5" />
           </g>
         </svg>
