@@ -73,7 +73,7 @@ export default function CategoryIntro({ category, onComplete, enableAnimations }
             <circle cx="100" cy="100" r="10" fill="#334155" />
             <circle cx="100" cy="100" r="4" fill="#ffffff" />
 
-            {/* Speed Limit 50 Sign (Precíz középre igazítással) */}
+            {/* Speed Limit 50 Sign */}
             <g transform="translate(110, 110)" className="drop-shadow-md">
               <circle cx="35" cy="35" r="28" fill="#ffffff" stroke="#ef4444" strokeWidth="6" />
               <text x="35" y="35" dominantBaseline="central" textAnchor="middle" fill="#000000" className="font-sans font-black text-2xl">50</text>
@@ -99,7 +99,7 @@ export default function CategoryIntro({ category, onComplete, enableAnimations }
               <line x1="120" y1="120" x2="180" y2="120" stroke="#94a3b8" strokeWidth="1.5" />
             </motion.g>
 
-            {/* Frame - Zárt végpontokkal, hogy ne csússzon szét */}
+            {/* Frame */}
             <path d="M 50 120 L 85 80 L 130 75 L 150 120 M 85 80 L 95 120 L 130 75 M 50 120 L 95 120" stroke="#10b981" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
             
             {/* Fork and Handlebar stem */}
@@ -198,7 +198,7 @@ export default function CategoryIntro({ category, onComplete, enableAnimations }
       case "elsobbseg":
         return (
           <SvgWrapper>
-            {/* Stop Sign on the left (Felirat középre igazítva) */}
+            {/* Stop Sign on the left */}
             <g transform="translate(45, 60)" className="drop-shadow-md">
               <rect x="18" y="35" width="4" height="60" fill="#64748b" />
               <polygon points="10,0 30,0 40,10 40,30 30,40 10,40 0,30 0,10" fill="#dc2626" stroke="#ffffff" strokeWidth="2" />
@@ -337,4 +337,172 @@ export default function CategoryIntro({ category, onComplete, enableAnimations }
           <SvgWrapper>
             <line x1="20" y1="160" x2="180" y2="160" stroke="#475569" strokeWidth="6" />
             <line x1="20" y1="145" x2="180" y2="145" stroke="#475569" strokeWidth="6" />
-            {[30, 50, 70, 90, 11
+            {[30, 50, 70, 90, 110, 130, 150, 170].map((x) => (
+              <line key={x} x1={x} y1="140" x2={x} y2="165" stroke="#854d0e" strokeWidth="4" />
+            ))}
+
+            {/* Train Engine */}
+            <motion.g
+              animate={enableAnimations ? { x: [-20, 15, -20] } : {}}
+              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+              transform="translate(10, 80)"
+            >
+              <rect x="25" y="15" width="55" height="35" fill="#dc2626" rx="3" />
+              <rect x="65" y="2" width="15" height="15" fill="#1e293b" />
+              <rect x="25" y="25" width="20" height="25" fill="#334155" />
+              
+              <circle cx="35" cy="50" r="8" fill="#0f172a" />
+              <circle cx="55" cy="50" r="8" fill="#0f172a" />
+              <circle cx="75" cy="50" r="8" fill="#0f172a" />
+              
+              <rect x="48" y="20" width="15" height="12" fill="#bae6fd" />
+            </motion.g>
+
+            {/* Railway Gate */}
+            <g transform="translate(130, 60)" className="drop-shadow-md">
+              <rect x="22" y="25" width="6" height="75" fill="#64748b" />
+              <motion.g
+                animate={enableAnimations ? { rotate: [0, -60, 0] } : {}}
+                transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+                style={{ transformOrigin: "25px 50px" }}
+              >
+                <line x1="25" y1="50" x2="-60" y2="50" stroke="#ef4444" strokeWidth="6" strokeDasharray="10,10" />
+                <line x1="25" y1="50" x2="-60" y2="50" stroke="#ffffff" strokeWidth="6" strokeDasharray="10,10" strokeDashoffset="10" />
+              </motion.g>
+
+              <circle cx="12" cy="15" r="7" fill="#1e293b" />
+              <circle cx="38" cy="15" r="7" fill="#1e293b" />
+              <circle cx="25" cy="27" r="5" fill="#e2e8f0" />
+              
+              {enableAnimations && (
+                <>
+                  <motion.circle cx="12" cy="15" r="5" fill="#ef4444" animate={{ opacity: [1, 0.2, 1] }} transition={{ repeat: Infinity, duration: 0.8 }} />
+                  <motion.circle cx="38" cy="15" r="5" fill="#ef4444" animate={{ opacity: [0.2, 1, 0.2] }} transition={{ repeat: Infinity, duration: 0.8 }} />
+                </>
+              )}
+            </g>
+          </SvgWrapper>
+        );
+
+      case "kultura":
+        return (
+          <SvgWrapper>
+            <motion.path
+              d="M 100 80 Q 75 35 50 60 T 100 135 T 150 60 Q 125 35 100 80 Z"
+              fill="#f472b6"
+              opacity="0.3"
+              animate={enableAnimations ? { scale: [1, 1.05, 1] } : {}}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+              style={{ transformOrigin: "100px 80px" }}
+            />
+
+            <g transform="translate(15, 80)">
+              <rect x="10" y="15" width="45" height="16" fill="#ef4444" rx="4" stroke="#1e293b" strokeWidth="2" />
+              <path d="M 18 15 L 23 5 L 38 5 L 43 15 Z" fill="#ffffff" stroke="#1e293b" strokeWidth="2" />
+              <circle cx="20" cy="31" r="5" fill="#1e293b" stroke="#1e293b" strokeWidth="1" />
+              <circle cx="45" cy="31" r="5" fill="#1e293b" stroke="#1e293b" strokeWidth="1" />
+              <path d="M 12 25 Q 16 30 20 25" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" fill="none" />
+              <circle cx="15" cy="20" r="1.5" fill="#ffffff" />
+            </g>
+
+            <g transform="translate(125, 80)">
+              <rect x="10" y="15" width="45" height="16" fill="#3b82f6" rx="4" stroke="#1e293b" strokeWidth="2" />
+              <path d="M 18 15 L 23 5 L 38 5 L 43 15 Z" fill="#ffffff" stroke="#1e293b" strokeWidth="2" />
+              <circle cx="20" cy="31" r="5" fill="#1e293b" stroke="#1e293b" strokeWidth="1" />
+              <circle cx="45" cy="31" r="5" fill="#1e293b" stroke="#1e293b" strokeWidth="1" />
+              <path d="M 45 25 Q 49 30 53 25" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" fill="none" />
+              <circle cx="50" cy="20" r="1.5" fill="#ffffff" />
+            </g>
+
+            <motion.g
+              animate={enableAnimations ? { rotate: [-10, 15, -10, 15, -10] } : {}}
+              transition={{ repeat: Infinity, duration: 2.2 }}
+              transform="translate(85, 55)"
+              style={{ transformOrigin: "15px 35px" }}
+            >
+              <path d="M 15 35 L 15 15 C 15 10 18 10 18 15 L 18 30 M 18 15 C 18 10 21 10 21 15 L 21 30 M 21 15 C 21 10 24 10 24 15 L 24 30 M 24 17 C 24 12 27 12 27 17 L 27 32" stroke="#fdba74" strokeWidth="4.5" strokeLinecap="round" fill="none" />
+              <path d="M 10 35 L 15 35 C 15 35 15 25 10 25 C 8 25 8 28 10 29" stroke="#fdba74" strokeWidth="4.5" strokeLinecap="round" fill="none" />
+              <rect x="12" y="30" width="13" height="15" fill="#fdba74" rx="2" />
+            </motion.g>
+          </SvgWrapper>
+        );
+
+      default:
+        return (
+          <div className="w-48 h-48 bg-slate-100 rounded-full flex items-center justify-center mx-auto shadow-inner">
+            <IconComponent className="w-24 h-24 text-slate-400" />
+          </div>
+        );
+    }
+  };
+
+  return (
+    <div id="category-intro-screen" className="fixed inset-0 z-30 flex flex-col items-center justify-center bg-gradient-to-b from-[#4facfe] to-[#00f2fe] text-white p-6 overflow-hidden">
+      {/* Decorative sky background details */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#4facfe]/95 to-[#00f2fe]/95 pointer-events-none" />
+      <div className="absolute top-10 left-10 w-72 h-72 bg-white/25 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-72 h-72 bg-white/15 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="relative z-10 w-full max-w-lg text-center flex flex-col items-center space-y-6">
+        {/* Animated Badge Header */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="bg-white/25 backdrop-blur-md border border-white/40 py-2 px-5 rounded-full flex items-center gap-2"
+        >
+          <IconComponent className="w-5 h-5 text-yellow-300 drop-shadow-sm" />
+          <span className="text-xs sm:text-sm font-black tracking-widest text-white uppercase drop-shadow-sm">Kategória Sorsolva!</span>
+        </motion.div>
+
+        {/* Category Name */}
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-none px-4 drop-shadow-[0_4px_8px_rgba(0,0,0,0.15)] uppercase"
+        >
+          {category.name}
+        </motion.h1>
+
+        {/* Vector Illustration block */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5, rotate: -15 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ type: "spring", stiffness: 100, damping: 15, delay: 0.3 }}
+          className="relative py-4"
+        >
+          {renderIllustration()}
+        </motion.div>
+
+        {/* Animated Countdown bar */}
+        <div className="flex flex-col items-center space-y-2 w-full max-w-xs">
+          <p className="text-sm text-white/80 font-bold uppercase tracking-wider">A játék másodperceken belül indul...</p>
+          
+          {/* Animated counter number */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={countdown}
+              initial={{ opacity: 0, scale: 1.5, y: -10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.7, y: 10 }}
+              transition={{ duration: 0.25 }}
+              className="text-6xl font-black text-yellow-300 drop-shadow-lg"
+            >
+              {countdown}
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Graphical progress line */}
+          <div className="w-full h-2.5 bg-white/20 rounded-full overflow-hidden border border-white/10">
+            <motion.div
+              initial={{ width: "100%" }}
+              animate={{ width: "0%" }}
+              transition={{ duration: 3, ease: "linear" }}
+              className="h-full bg-gradient-to-r from-yellow-300 to-amber-400"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
