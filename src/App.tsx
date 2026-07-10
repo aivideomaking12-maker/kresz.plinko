@@ -281,6 +281,14 @@ export default function App() {
                 
                  {/* 1. Header / Title Block */}
                 <div className="text-center space-y-4">
+                  
+                  {/* SVMBB Logó beillesztve a cím fölé */}
+                  <img 
+                    src="/SVMBB.png" 
+                    alt="SVMBB Logó" 
+                    className="w-28 h-28 sm:w-36 sm:h-36 object-contain mx-auto drop-shadow-lg mb-2" 
+                  />
+
                   <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-white tracking-tighter drop-shadow-[0_5px_10px_rgba(0,0,0,0.25)] mb-2 uppercase">
                     KRESZ <span className="text-yellow-300">Plinkó</span>
                   </h1>
