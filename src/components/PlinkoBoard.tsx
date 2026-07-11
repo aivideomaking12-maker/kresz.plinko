@@ -31,7 +31,7 @@ interface Peg {
   y: number;
 }
 
-// Symmetrical, perfectly aligned staggered peg grid
+// Symmetrical, staggered peg grid
 const PEGS: Peg[] = [];
 for (let row = 0; row < ROW_COUNT; row++) {
   const y = TOP_MARGIN + row * ROW_SPACING;
@@ -44,9 +44,8 @@ for (let row = 0; row < ROW_COUNT; row++) {
       PEGS.push({ id: `peg-${row}-${i}`, x, y });
     }
   } else {
-    // 13 normal pegs
-    const count = 13;
-    for (let i = 0; i < count; i++) {
+    // 11 normal pegs (Skipped i=0 and i=12 to prevent getting stuck on the walls!)
+    for (let i = 1; i < 12; i++) {
       const x = MARGIN_LEFT + i * (PLAYABLE_WIDTH / 12);
       PEGS.push({ id: `peg-${row}-${i}`, x, y });
     }
@@ -59,21 +58,21 @@ for (let i = 0; i < 13; i++) {
   DIVIDERS.push(MARGIN_LEFT + i * (PLAYABLE_WIDTH / 12));
 }
 
-// Vibrant theme colors for each category (matching the look & feel of the classic wheel)
+// Vibrant theme colors for each category
 const getCategoryColor = (id: string) => {
   switch (id) {
-    case "sebesség": return "#ef4444"; // Red
-    case "kerekpar": return "#10b981"; // Lively Emerald Green
-    case "gyalogos": return "#0ea5e9"; // Sky Blue
-    case "jelzesek": return "#f59e0b"; // Warm Amber
-    case "elsobbseg": return "#8b5cf6"; // Royal Purple
-    case "megallas": return "#3b82f6"; // Electric Blue
-    case "mikromobilitas": return "#06b6d4"; // Vivid Cyan
-    case "haladas": return "#84cc16"; // Bright Lime Green
-    case "tablak": return "#f97316"; // Juicy Orange
-    case "lathatosag": return "#eab308"; // Glowing Yellow
-    case "vasut": return "#64748b"; // Slate Gray
-    case "kultura": return "#ec4899"; // Hot Pink
+    case "sebesség": return "#ef4444";
+    case "kerekpar": return "#10b981";
+    case "gyalogos": return "#0ea5e9";
+    case "jelzesek": return "#f59e0b";
+    case "elsobbseg": return "#8b5cf6";
+    case "megallas": return "#3b82f6";
+    case "mikromobilitas": return "#06b6d4";
+    case "haladas": return "#84cc16";
+    case "tablak": return "#f97316";
+    case "lathatosag": return "#eab308";
+    case "vasut": return "#64748b";
+    case "kultura": return "#ec4899";
     default: return "#6366f1";
   }
 };
@@ -89,14 +88,14 @@ const getPegColor = (x: number) => {
   return getCategoryColor(CATEGORIES[idx].id);
 };
 
-// Auto-scales the font size based on text length to prevent clipping in slots
+// Megnövelt betűméretek a jobb olvashatóságért
 const getFontSize = (name: string, isLanded: boolean) => {
   const len = name.length;
-  let baseSize = isLanded ? 15.5 : 12.5;
+  let baseSize = isLanded ? 18 : 14.5;
   if (len > 22) {
-    baseSize -= 3.5;
+    baseSize -= 4;
   } else if (len > 16) {
-    baseSize -= 2;
+    baseSize -= 2.5;
   }
   return `${baseSize}px`;
 };
@@ -113,17 +112,14 @@ export default function PlinkoBoard({
   const [isDragging, setIsDragging] = useState(false);
   const [landedSlot, setLandedSlot] = useState<number | null>(null);
   
-  // Track timestamps of when pegs were hit to animate them
   const [hitPegs, setHitPegs] = useState<{ [key: string]: number }>({});
   
   const svgRef = useRef<SVGSVGElement>(null);
 
-  // Synchronize audio preference
   useEffect(() => {
     soundManager.setEnabled(enableSFX);
   }, [enableSFX]);
 
-  // Handle automatic or parent-initiated drop triggers
   useEffect(() => {
     if (isSpinning && !isFalling && landedSlot === null) {
       handleDrop();
@@ -138,13 +134,12 @@ export default function PlinkoBoard({
     let localPos = { ...discPos };
     let localVel = { ...discVel };
     
-    // Safety guard to prevent infinite loops or getting stuck
     let ticksInSamePlace = 0;
     let lastY = localPos.y;
 
     const tick = () => {
       // 1. Physical forces (gravity and subtle drag)
-      localVel.y += 0.28; // gravity force
+      localVel.y += 0.28;
       localVel.x *= 0.99;
       localVel.y *= 0.99;
 
@@ -152,18 +147,18 @@ export default function PlinkoBoard({
       localPos.x += localVel.x;
       localPos.y += localVel.y;
 
-      // 3. Keep within side wall boundaries
-      const discR = 12;
+      // 3. Keep within side wall boundaries (Nagyobb disc radius: 14)
+      const discR = 14; 
       const leftBoundary = MARGIN_LEFT + 2;
       const rightBoundary = BOARD_WIDTH - MARGIN_RIGHT - 2;
 
       if (localPos.x - discR < leftBoundary) {
         localPos.x = leftBoundary + discR;
-        localVel.x = -localVel.x * 0.55;
+        localVel.x = Math.abs(localVel.x) * 0.55 + 0.5; // push inward
         soundManager.play("spin");
       } else if (localPos.x + discR > rightBoundary) {
         localPos.x = rightBoundary - discR;
-        localVel.x = -localVel.x * 0.55;
+        localVel.x = -Math.abs(localVel.x) * 0.55 - 0.5; // push inward
         soundManager.play("spin");
       }
 
@@ -178,42 +173,35 @@ export default function PlinkoBoard({
         if (dist < minDist) {
           hitPegId = peg.id;
           
-          // Vector math for physical normal reflections
           const nx = dx / dist;
           const ny = dy / dist;
 
-          // Push disc out of peg to prevent clipping
           const overlap = minDist - dist;
           localPos.x += nx * overlap;
           localPos.y += ny * overlap;
 
-          // Compute reflection velocity vectors
           const velAlongNormal = localVel.x * nx + localVel.y * ny;
           if (velAlongNormal < 0) {
-            // High bounciness restitution
             const restitution = 0.52 + Math.random() * 0.15;
             const impulse = -(1 + restitution) * velAlongNormal;
             
             localVel.x += impulse * nx;
             localVel.y += impulse * ny;
 
-            // Lateral jitter prevents boring static drop paths
             localVel.x += (Math.random() - 0.5) * 0.6;
             
-            // Speed limits
             localVel.x = Math.max(-5.5, Math.min(5.5, localVel.x));
             localVel.y = Math.max(-3, Math.min(8, localVel.y));
           }
         }
       }
 
-      // Register peg hits for visual feedback and sound
       if (hitPegId) {
         setHitPegs((prev) => ({ ...prev, [hitPegId!]: Date.now() }));
         soundManager.play("spin");
       }
 
-      // 5. Bottom slot dividers collision (when passing down through them)
+      // 5. Bottom slot dividers collision
       if (localPos.y > DIVIDER_Y - 5 && localPos.y < DIVIDER_Y + SLOT_HEIGHT) {
         for (const divX of DIVIDERS) {
           const dx = localPos.x - divX;
@@ -228,10 +216,9 @@ export default function PlinkoBoard({
       // Stuck recovery helper
       if (Math.abs(localPos.y - lastY) < 0.05) {
         ticksInSamePlace++;
-        if (ticksInSamePlace > 25) {
-          // Push down and nudge horizontally
+        if (ticksInSamePlace > 20) {
           localVel.y = 2;
-          localVel.x = (Math.random() - 0.5) * 2;
+          localVel.x = (Math.random() - 0.5) * 3;
           ticksInSamePlace = 0;
         }
       } else {
@@ -239,7 +226,6 @@ export default function PlinkoBoard({
       }
       lastY = localPos.y;
 
-      // Update positions
       setDiscPos({ x: localPos.x, y: localPos.y });
       setDiscVel({ x: localVel.x, y: localVel.y });
 
@@ -247,7 +233,6 @@ export default function PlinkoBoard({
       let currentSlot = Math.floor((localPos.x - MARGIN_LEFT) / slotWidth);
       currentSlot = Math.max(0, Math.min(11, currentSlot));
 
-      // Check if settled at the bottom of a slot
       if (localPos.y >= DIVIDER_Y + SLOT_HEIGHT - discR - 6) {
         const finalY = DIVIDER_Y + SLOT_HEIGHT - discR - 6;
         setDiscPos({ x: localPos.x, y: finalY });
@@ -257,7 +242,6 @@ export default function PlinkoBoard({
         setLandedSlot(currentSlot);
         soundManager.play("correct");
 
-        // Delay transition so user appreciates physical landing
         setTimeout(() => {
           onSpinComplete(CATEGORIES[currentSlot]);
         }, 1200);
@@ -297,9 +281,8 @@ export default function PlinkoBoard({
     const scaleX = BOARD_WIDTH / rect.width;
     let x = clientX * scaleX;
 
-    // Constrain launcher area horizontally
-    const minX = MARGIN_LEFT + 15;
-    const maxX = BOARD_WIDTH - MARGIN_RIGHT - 15;
+    const minX = MARGIN_LEFT + 18;
+    const maxX = BOARD_WIDTH - MARGIN_RIGHT - 18;
     x = Math.max(minX, Math.min(maxX, x));
 
     setDiscPos({ x, y: 65 });
@@ -312,7 +295,6 @@ export default function PlinkoBoard({
     setIsFalling(true);
     setIsSpinning(true);
     
-    // Add a tiny starting nudge so it doesn't fall completely straight
     setDiscVel({
       x: (Math.random() - 0.5) * 0.4,
       y: 1.5,
@@ -328,18 +310,15 @@ export default function PlinkoBoard({
   };
 
   return (
-    <div className="flex flex-col items-center w-full max-w-xl mx-auto space-y-6">
+    <div className="w-full relative max-w-xl mx-auto">
       
       {/* Interactive Plinko Canvas Container */}
-      <div className="relative w-full aspect-[600/780] bg-slate-950 rounded-[36px] shadow-[0_25px_60px_rgba(0,0,0,0.8)] border-8 border-indigo-500 overflow-hidden select-none">
+      <div className="relative w-full aspect-[600/780] bg-slate-950 rounded-[36px] shadow-[0_25px_60px_rgba(0,0,0,0.8)] border-8 border-indigo-500 overflow-hidden select-none z-10">
         
-        {/* Deep starry/roadway background space */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-black" />
         
-        {/* Zebra pedestrian crossing motif behind the bottom slots */}
         <div className="absolute bottom-0 inset-x-0 h-44 bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0.08),rgba(255,255,255,0.08)_24px,transparent_24px,transparent_48px)] pointer-events-none" />
 
-        {/* Dynamic Canvas SVG */}
         <svg
           ref={svgRef}
           viewBox={`0 0 ${BOARD_WIDTH} ${BOARD_HEIGHT}`}
@@ -348,9 +327,7 @@ export default function PlinkoBoard({
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
         >
-          {/* Gradients */}
           <defs>
-            {/* Premium Gold Coin Gradient */}
             <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#fde047" />
               <stop offset="30%" stopColor="#ca8a04" />
@@ -359,7 +336,6 @@ export default function PlinkoBoard({
               <stop offset="100%" stopColor="#eab308" />
             </linearGradient>
 
-            {/* Peg hits glow radial filter */}
             <radialGradient id="peg-glow" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stopColor="#fef08a" stopOpacity="0.8" />
               <stop offset="100%" stopColor="#ca8a04" stopOpacity="0" />
@@ -423,7 +399,7 @@ export default function PlinkoBoard({
             </text>
           </g>
 
-          {/* 3. Staggered Pegs */}
+          {/* 3. Staggered Pegs (Akadályok) */}
           <g>
             {PEGS.map((peg) => {
               const lastHitTime = hitPegs[peg.id] || 0;
@@ -432,14 +408,16 @@ export default function PlinkoBoard({
               
               return (
                 <g key={peg.id}>
+                  {/* Villanás effekt KÖZÉPRE igazítva a transformOrigin segítségével */}
                   {isHitActive && (
                     <circle
                       cx={peg.x}
                       cy={peg.y}
-                      r="18"
+                      r="20"
                       fill="url(#peg-glow)"
                       className="animate-ping"
                       opacity="0.65"
+                      style={{ transformOrigin: `${peg.x}px ${peg.y}px` }}
                     />
                   )}
                   <circle
@@ -503,6 +481,7 @@ export default function PlinkoBoard({
                   />
 
                   <g transform={`translate(${xLeft + slotW / 2}, ${DIVIDER_Y + SLOT_HEIGHT / 2})`}>
+                    {/* Megnövelt kategória betűméret */}
                     <text
                       transform="rotate(-90)"
                       textAnchor="middle"
@@ -512,7 +491,7 @@ export default function PlinkoBoard({
                       style={{
                         fontSize: getFontSize(cat.name, isLanded),
                         fontWeight: "900",
-                        textShadow: "0px 1.5px 3px rgba(0,0,0,0.95), 0px 0px 8px rgba(0,0,0,0.4)"
+                        textShadow: "0px 2px 4px rgba(0,0,0,0.95), 0px 0px 10px rgba(0,0,0,0.6)"
                       }}
                     >
                       {cat.name}
@@ -531,54 +510,46 @@ export default function PlinkoBoard({
             ))}
           </g>
 
-          {/* 5. Physical Falling Coin/Disc */}
+          {/* 5. Physical Falling Coin/Disc (Megnövelt méret) */}
           <g>
-            {/* Ambient drop shadow under coin */}
-            <circle cx={discPos.x} cy={discPos.y + 4} r="14" fill="#000000" opacity="0.4" />
+            <circle cx={discPos.x} cy={discPos.y + 4} r="16" fill="#000000" opacity="0.4" />
 
-            {/* Interactive Token Face */}
             <g transform={`translate(${discPos.x}, ${discPos.y})`}>
-              {/* Gold outer 3D rim */}
-              <circle r="16" fill="url(#gold-gradient)" stroke="#78350f" strokeWidth="2.2" />
+              <circle r="18" fill="url(#gold-gradient)" stroke="#78350f" strokeWidth="2.5" />
+              <circle r="13" fill="#ffffff" stroke="#f59e0b" strokeWidth="1.5" />
               
-              {/* White inner center for the logo */}
-              <circle r="11.5" fill="#ffffff" stroke="#f59e0b" strokeWidth="1.5" />
-              
-              {/* Custom Logo Image (SVMBB.png) */}
               <image
                 href="/SVMBB.png"
-                x="-9"
-                y="-9"
-                width="18"
-                height="18"
+                x="-10"
+                y="-10"
+                width="20"
+                height="20"
                 preserveAspectRatio="xMidYMid meet"
                 className="pointer-events-none select-none"
               />
 
-              {/* Glowing halo when ready to drop */}
               {!isFalling && landedSlot === null && (
-                <circle r="23" fill="none" stroke="#facc15" strokeWidth="2.5" className="animate-ping opacity-75" style={{ pointerEvents: "none" }} />
+                <circle r="25" fill="none" stroke="#facc15" strokeWidth="3" className="animate-ping opacity-75" style={{ pointerEvents: "none" }} />
               )}
             </g>
           </g>
         </svg>
 
-        {/* Glossy overlay edge frame */}
         <div className="absolute inset-0 rounded-[28px] border-[10px] border-indigo-950 pointer-events-none z-20" />
       </div>
 
-      {/* --- Controls bar --- */}
-      <div className="flex justify-center gap-4 mt-2">
+      {/* --- Controls bar: Asztali gépen jobb oldalt lebeg, mobilon alul marad --- */}
+      <div className="mt-6 flex justify-center lg:absolute lg:top-1/2 lg:-right-8 lg:translate-x-full lg:-translate-y-1/2 lg:mt-0 z-30">
         {!isFalling && landedSlot === null && (
           <motion.button
             id="plinko-drop-btn"
             onClick={handleDrop}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-10 py-4 bg-gradient-to-r from-emerald-400 to-teal-500 hover:from-emerald-500 hover:to-teal-600 text-white font-black text-base tracking-widest uppercase rounded-2xl border-b-4 border-emerald-700 shadow-lg cursor-pointer flex items-center gap-2 active:translate-y-[2px] active:border-b-2"
+            className="px-10 py-5 bg-gradient-to-r from-emerald-400 to-teal-500 hover:from-emerald-500 hover:to-teal-600 text-white font-black text-lg tracking-widest uppercase rounded-2xl border-b-4 border-emerald-700 shadow-[0_10px_30px_rgba(16,185,129,0.5)] cursor-pointer flex items-center gap-2 active:translate-y-[2px] active:border-b-2"
           >
             <span>Engedd Le!</span>
-            <Icons.ChevronDownSquare className="w-5 h-5 stroke-[2.5]" />
+            <Icons.ChevronDownSquare className="w-6 h-6 stroke-[2.5]" />
           </motion.button>
         )}
 
@@ -588,10 +559,10 @@ export default function PlinkoBoard({
             onClick={handleResetBoard}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 bg-slate-700 hover:bg-slate-600 text-white font-black text-sm tracking-widest uppercase rounded-2xl border-b-4 border-slate-900 shadow-md cursor-pointer flex items-center gap-2"
+            className="px-8 py-5 bg-slate-700 hover:bg-slate-600 text-white font-black text-sm tracking-widest uppercase rounded-2xl border-b-4 border-slate-900 shadow-xl cursor-pointer flex items-center gap-2"
           >
             <span>Újra sorsol</span>
-            <Icons.RotateCcw className="w-4 h-4" />
+            <Icons.RotateCcw className="w-5 h-5" />
           </motion.button>
         )}
       </div>
