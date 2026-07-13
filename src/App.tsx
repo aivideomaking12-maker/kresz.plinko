@@ -233,6 +233,7 @@ export default function App() {
       {/* Dynamic Background Elements: Floating Clouds for Playful atmosphere */}
       {settings.enableAnimations && currentScreen === "home" && (
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+          
           {/* Cloud 1 */}
           <motion.div
             animate={{ x: ["-10vw", "110vw"] }}
