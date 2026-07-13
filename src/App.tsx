@@ -217,15 +217,11 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col relative bg-gradient-to-b from-[#4facfe] to-[#00f2fe] text-slate-800 overflow-x-hidden">
+    <div 
+      className="min-h-screen flex flex-col relative text-slate-800 overflow-x-hidden bg-cover bg-center bg-no-repeat bg-fixed"
+      style={{ backgroundImage: "url('/city-background.png')" }}
+    >
       
-      {/* Vibrant Palette Blur Blobs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-12 left-10 w-48 h-16 bg-white/60 rounded-full blur-md" />
-        <div className="absolute top-32 right-12 w-64 h-20 bg-white/40 rounded-full blur-xl" />
-        <div className="absolute bottom-20 left-20 w-80 h-24 bg-white/30 rounded-full blur-2xl" />
-      </div>
-
       {/* Dynamic Background Elements: Floating Clouds for Playful atmosphere */}
       {settings.enableAnimations && currentScreen === "home" && (
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
@@ -414,10 +410,12 @@ export default function App() {
 
       {/* --- Footer Kiosk notice --- */}
       {currentScreen === "home" && (
-        <footer className="py-4 border-t border-slate-200/50 text-center text-[10px] text-slate-400 font-medium tracking-wider z-10 bg-white/40 backdrop-blur-sm">
+        <footer className="py-4 border-t border-slate-200/50 text-center text-[10px] text-slate-800 font-medium tracking-wider z-10 bg-white/40 backdrop-blur-sm shadow-sm">
           KRESZ PLINKÓ OKTATÓ JÁTÉK • SOMOGY VÁRMEGYEI BALESETMEGELŐZÉSI BIZOTTSÁG
         </footer>
       )}
     </div>
   );
 }
+
+```
