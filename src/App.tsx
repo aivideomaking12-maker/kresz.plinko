@@ -216,12 +216,20 @@ export default function App() {
     setCurrentScreen("results");
   };
 
-  return (
-    <div 
-      className="min-h-screen flex flex-col relative text-slate-800 overflow-x-hidden bg-cover bg-center bg-no-repeat bg-fixed"
-      style={{ backgroundImage: "url('/city-background.png')" }}
-    >
+ return (
+    {/* 1. A fő div-ből kivettük a háttérkép beállítást */}
+    <div className="min-h-screen flex flex-col relative text-slate-800 overflow-x-hidden">
       
+      {/* --- ÚJ: KÜLÖNÁLLÓ HOMÁLYOS HÁTTÉR RÉTEG --- */}
+      <div 
+        className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat blur-[6px] scale-105"
+        style={{ backgroundImage: "url('/city-background.png')" }}
+      />
+      
+      {/* Opcionális: Egy leheletnyi áttetsző fehér (vagy sötét) réteg a háttérre, hogy a szövegek és a tábla még jobban olvasható legyen */}
+      <div className="fixed inset-0 -z-10 bg-white/10" />
+      {/* ------------------------------------------- */}
+
       {/* Dynamic Background Elements: Floating Clouds for Playful atmosphere */}
       {settings.enableAnimations && currentScreen === "home" && (
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
