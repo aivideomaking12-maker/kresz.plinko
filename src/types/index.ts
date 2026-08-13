@@ -20,6 +20,8 @@ export interface GameSettings {
   enableMusic: boolean;
   enableSFX: boolean;
   timerDuration: number; // 0 (OFF), 20, 30, 45, 60 seconds
+  childDifficulties: Difficulty[]; // Questions available for child players
+  adultDifficulties: Difficulty[]; // Questions available for adult players
 }
 
 export interface CategoryInfo {
