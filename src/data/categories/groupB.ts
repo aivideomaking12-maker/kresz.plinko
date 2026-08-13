@@ -8,12 +8,12 @@ export const groupBQuestions: Question[] = [
     difficulty: "easy",
     question: "Mit kell tenned, ha a közúti jelzőlámpa PIROS jelzést mutat?",
     answers: [
-      "Lassan továbbhaladhatsz",
-      "Meg kell állnod a stopvonal előtt.",
-      "Ha nem jön senki, átmehetsz – az adott körülmények között",
-      "Csak kerékpárral mehetsz át"
+      "Meg kell állnod a kijelölt stopvonal előtt.",
+      "Ha a keresztforgalom engedi, átmehetsz.",
+      "Fokozott óvatossággal, lassan továbbhaladhatsz.",
+      "Csak kerékpárral és gyalogosan haladhatsz át."
     ],
-    correctAnswer: 1,
+    correctAnswer: 0,
     explanation: "A piros lámpa határozott és kötelező megállási parancsot jelent minden járműnek és gyalogosnak."
   },
   {
@@ -22,26 +22,26 @@ export const groupBQuestions: Question[] = [
     difficulty: "easy",
     question: "Mit jelent a villogó sárga fény a közlekedési jelzőlámpánál?",
     answers: [
-      "Mindenkinek meg kell állnia",
-      "Sietni kell, mert mindjárt piros lesz",
-      "Fokozott óvatossággal kell továbbhaladni.",
-      "Személyautóval szabad, busszal tilos haladni"
+      "Mindenkinek kötelezően meg kell állnia.",
+      "Sietni kell, mert mindjárt piros jelzés következik.",
+      "Kizárólag a tömegközlekedési eszközök haladhatnak.",
+      "Fokozott óvatossággal kell továbbhaladni."
     ],
-    correctAnswer: 2,
+    correctAnswer: 3,
     explanation: "A villogó sárga fény veszélyre hívja fel a figyelmet, és jelzi, hogy a lámpa nem szabályozza az áthaladást (ilyenkor az elsőbbséget szabályozó táblák érvényesek)."
   },
   {
     id: "jel_3",
     category: "jelzesek",
     difficulty: "medium",
-    question: "Mit kell tenned, ha a rendőr neked hátat fordít, vagy szemből áll veled kinyújtott karral?",
+    question: "Mit kell tenned, ha a forgalmat irányító rendőr neked hátat fordít, vagy szemből áll veled kinyújtott karral?",
     answers: [
-      "Ingetni kell neki",
-      "Elkanyarodhatsz jobbra",
-      "Gyorsan át kell menned előtte",
-      "Meg kell állnod."
+      "Jobbra kis ívben bekanyarodhatsz.",
+      "Meg kell állnod és várnod a jelzésre.",
+      "Csak egyenesen haladhatsz át a kereszteződésen.",
+      "Lassítva, de megállás nélkül mehetsz tovább."
     ],
-    correctAnswer: 3,
+    correctAnswer: 1,
     explanation: "Ha a forgalmat irányító rendőr szemből vagy hátulról látható, az megállási kötelezettséget ('tilos') jelent számodra."
   },
   {
@@ -50,12 +50,12 @@ export const groupBQuestions: Question[] = [
     difficulty: "medium",
     question: "Melyik irányból érkezőnek szabad áthaladnia, ha a rendőr oldala mutat feléd (hosszirányban áll az úton)?",
     answers: [
-      "Szabad az út.",
-      "Senkinek sem",
-      "Csak a buszoknak",
-      "Annak, akivel szemben áll"
+      "Kizárólag a kanyarodó járművek haladhatnak.",
+      "A forgalom számára szabad az út.",
+      "Csak a gyalogosok kelhetnek át az úton.",
+      "Meg kell állni, és várni a következő jelzésre."
     ],
-    correctAnswer: 0,
+    correctAnswer: 1,
     explanation: "Ha a rendőr válla mutat feléd (oldalról látod őt), az szabad utat jelent ('zöld fény'), így óvatosan továbbhaladhatsz."
   },
   {
@@ -64,12 +64,12 @@ export const groupBQuestions: Question[] = [
     difficulty: "easy",
     question: "Mit jelent a sárga folyamatos fény a jelzőlámpán a piros után (piros és sárga együtt világít)?",
     answers: [
-      "A lámpa kikapcsol",
-      "Készülj a zöld jelzésre.",
-      "Vissza kell tolatni",
-      "Azonnal indulhatsz gázzal"
+      "A lámpa hamarosan teljesen kikapcsol.",
+      "Azonnal, lendületesen elindulhatsz.",
+      "Fel kell készülni a zöld jelzésre.",
+      "Fokozott óvatossággal behajthatsz."
     ],
-    correctAnswer: 1,
+    correctAnswer: 2,
     explanation: "A piros és sárga együttes fény azt jelzi, hogy mindjárt zöld fény következik, de elindulni csak a zöld megjelenésekor szabad!"
   },
   {
@@ -78,12 +78,12 @@ export const groupBQuestions: Question[] = [
     difficulty: "easy",
     question: "Milyen burkolati jel jelzi az úttesten a gyalogosok átkelőhelyét?",
     answers: [
-      "Piros háromszögek",
-      "Sárga cikkcakkos vonal",
-      "A zebra.",
-      "Egyetlen fehér folytonos vonal"
+      "Folyamatos sárga cikkcakkos vonal.",
+      "Párhuzamos fehér sávok (zebra).",
+      "Keresztirányú szaggatott fehér vonal.",
+      "Egymás mellé festett piros háromszögek."
     ],
-    correctAnswer: 2,
+    correctAnswer: 1,
     explanation: "Az úttesten lévő párhuzamos fehér sávok a kijelölt gyalogos-átkelőhelyet, közismert nevén a zebrát jelölik."
   },
   {
@@ -92,12 +92,12 @@ export const groupBQuestions: Question[] = [
     difficulty: "medium",
     question: "Mit jelent az úttest közepén lévő zárt, dupla folytonos fehér vonal?",
     answers: [
-      "Ott kell parkolni",
-      "Csak biciklivel szabad átlépni",
-      "Bármikor átléphető előzésnél",
-      "Tilos átlépni vagy ráhajtani."
+      "Biztonságos előzés esetén átléphető.",
+      "Csak a megkülönböztető jelzésűek léphetik át.",
+      "Tilos átlépni vagy ráhajtani.",
+      "Kizárólag kerékpárral szabad átlépni."
     ],
-    correctAnswer: 3,
+    correctAnswer: 2,
     explanation: "A folytonos vonalat (legyen az szimpla vagy dupla) semmilyen járművel nem szabad átlépni, sem ráhajtani."
   },
   {
@@ -106,13 +106,13 @@ export const groupBQuestions: Question[] = [
     difficulty: "easy",
     question: "Milyen színű lámpája van a vasúti átjárónak, ha szabad az áthaladás?",
     answers: [
-      "Fehér villogó",
-      "Zöld villogó",
-      "Kék folyamatos",
-      "Sárga villogó"
+      "Zölden villogó fényjelzés.",
+      "Folyamatosan világító sárga fény.",
+      "Villogó fehér fényjelzés.",
+      "Két felváltva villogó kék fény."
     ],
-    correctAnswer: 0,
-    explanation: "A vasúti átjáróban lévő fénysorompó villogó fehér jelzése jelzi, hogy a berendezés működik, és szabad az áthaladás."
+    correctAnswer: 2,
+    explanation: "A vasúti átjáróban lévő fénysorompó villogó fehér jelzése mutatja, hogy a berendezés működik, és szabad az áthaladás."
   },
   {
     id: "jel_9",
@@ -120,12 +120,12 @@ export const groupBQuestions: Question[] = [
     difficulty: "easy",
     question: "Milyen színű fény világít a fénysorompón, ha jön a vonat?",
     answers: [
-      "Folyamatos kék",
       "Két felváltva villogó piros fény.",
-      "Egy piros villogó",
-      "Zöld és sárga együtt – a megadott helyzetben"
+      "Egyetlen folyamatosan világító piros fény.",
+      "Gyorsan villogó sárga fényjelzés.",
+      "Piros és sárga fény együttes világítása."
     ],
-    correctAnswer: 1,
+    correctAnswer: 0,
     explanation: "Ha jön a vonat, a fénysorompón két piros fény villog felváltva. Ilyenkor szigorúan tilos az átjáróba hajtani vagy lépni!"
   },
   {
@@ -134,10 +134,10 @@ export const groupBQuestions: Question[] = [
     difficulty: "easy",
     question: "Mit jelent a szaggatott fehér vonal az úton?",
     answers: [
-      "Ott kell megállni",
-      "Tilos rajta átmenni",
-      "Átléphető terelővonal.",
-      "A gyalogosok átkelőhelyét"
+      "Tilos rajta bármilyen járművel átmenni.",
+      "A gyalogosok számára fenntartott átkelőhelyet.",
+      "Átléphető terelővonalat jelez a sávok között.",
+      "Megállási és várakozási tilalmat jelöl az úton."
     ],
     correctAnswer: 2,
     explanation: "A szaggatott fehér terelővonal az úttesten sávokat választ el, és a biztonsági szabályok betartásával szabadon átléphető."
@@ -148,24 +148,24 @@ export const groupBQuestions: Question[] = [
     difficulty: "medium",
     question: "Mit jelezhet az ideiglenes forgalmi rendnél alkalmazott sárga útburkolati jel?",
     answers: [
-      "Ideiglenes forgalmi jel.",
-      "Mindig iskolát",
-      "Mindig kerékpárutat",
-      "Mindig parkolóhelyet – az adott körülmények között"
+      "Kizárólag fizetős parkolóövezetet jelöl.",
+      "Ideiglenes forgalmi rendet jelez az úton.",
+      "Kiemelt gyermekintézmény (iskola) közelségét.",
+      "Kötelező kerékpáros útvonalat jelez előre."
     ],
-    correctAnswer: 0,
-    explanation: "Ideiglenes forgalomszabályozásnál sárga útburkolati jeleket is alkalmazhatnak; ezek az ideiglenes rend részét képezik."
+    correctAnswer: 1,
+    explanation: "Ideiglenes forgalomszabályozásnál (pl. útépítés) sárga útburkolati jeleket is alkalmazhatnak; ezek az ideiglenes rend részét képezik és felülírják a fehér vonalakat."
   },
   {
     id: "jel_12",
     category: "jelzesek",
     difficulty: "hard",
-    question: "Mit jelent a nyíl alakú zöld fényjelzés?",
+    question: "Mit jelent a nyíl alakú zöld fényjelzés a kereszteződésben?",
     answers: [
-      "Meg kell állni",
-      "A nyíl irányában.",
-      "Csak a gyalogosok haladhatnak",
-      "Minden irányban szabad haladni"
+      "Bármelyik szabadon választott irányba mehetsz.",
+      "A nyíl által mutatott irányban szabad továbbhaladni.",
+      "Meg kell állni, amíg a kiegészítő lámpa bekapcsol.",
+      "Kizárólag a megkülönböztetett járművek haladhatnak."
     ],
     correctAnswer: 1,
     explanation: "A nyíl alakú zöld fényjelzés a nyíl által jelzett irányban engedélyezi a továbbhaladást; a kapcsolódó elsőbbségi szabályokat továbbra is alkalmazni kell."
@@ -176,13 +176,13 @@ export const groupBQuestions: Question[] = [
     difficulty: "easy",
     question: "Mit jelöl az úttesten felfestett kerékpáros piktogram?",
     answers: [
-      "Parkolóhelyet",
-      "Buszmegállót",
-      "Kerékpáros felület.",
-      "Megállási tilalmat – az adott körülmények között"
+      "Gépjárművek számára fenntartott parkolóhelyet.",
+      "Menetrend szerinti autóbusz megállóhelyét.",
+      "Veszélyes, csúszós útburkolatra figyelmeztet.",
+      "Kerékpáros közlekedésre kijelölt vagy ajánlott felületet."
     ],
-    correctAnswer: 2,
-    explanation: "A kerékpáros piktogram a kerékpáros közlekedésre kijelölt vagy ajánlott útfelület jelölésére szolgál, a konkrét burkolati jeltől függően."
+    correctAnswer: 3,
+    explanation: "A kerékpáros piktogram a kerékpáros közlekedésre kijelölt vagy ajánlott útfelület (pl. nyitott kerékpársáv, kerékpáros nyom) jelölésére szolgál."
   },
   {
     id: "jel_14",
@@ -190,13 +190,13 @@ export const groupBQuestions: Question[] = [
     difficulty: "medium",
     question: "Mit jelent a forgalomirányító rendőr függőlegesen feltartott karja?",
     answers: [
-      "Nincs jelentősége",
-      "Mindenkinek gyorsítania kell",
-      "Csak a kerékpárosoknak kell megállniuk",
-      "Tilos továbbhaladni."
+      "A forgalom megállítására, a rend változására figyelmeztet.",
+      "Minden résztvevőnek azonnal fel kell gyorsítania.",
+      "Csak a kanyarodó járműveknek kell kötelezően megállniuk.",
+      "A forgalomirányítás végét és a táblák érvényességét jelzi."
     ],
-    correctAnswer: 3,
-    explanation: "A függőlegesen feltartott kar a forgalom megállítására, illetve a forgalmi rend változására figyelmeztető jelzés."
+    correctAnswer: 0,
+    explanation: "A függőlegesen feltartott kar a forgalom megállítására, illetve a forgalmi rend változására figyelmeztető jelzés. Jelentése egyenértékű a sárga lámpával."
   },
   {
     id: "jel_15",
@@ -204,40 +204,40 @@ export const groupBQuestions: Question[] = [
     difficulty: "medium",
     question: "Mit jelent a zebra előtt lévő sárga villogó fényű lámpa egy oszlopon?",
     answers: [
-      "Fokozott óvatosságra figyelmeztet.",
-      "Azt, hogy piros a lámpa",
-      "Hogy ingyen lehet parkolni",
-      "Hogy tilos a gyalogos átkelés – az adott körülmények között"
+      "A gyalogosok átkelése azon a szakaszon szigorúan tilos.",
+      "Fokozott óvatosságra inti az arra haladó autósokat.",
+      "Azt jelzi, hogy a következő lámpa biztosan piros lesz.",
+      "A közelben lévő ingyenes várakozóhelyre hívja fel a figyelmet."
     ],
-    correctAnswer: 0,
-    explanation: "A sárga villogó lámpa a zebra felett fokozott óvatosságra inti az autósokat, jelezve, hogy gyalogosok kelhetnek át az úton."
+    correctAnswer: 1,
+    explanation: "A sárga villogó lámpa a zebra felett vagy előtt fokozott óvatosságra inti az autósokat, jelezve, hogy gyalogosok kelhetnek át az úton."
   },
   {
     id: "jel_16",
     category: "jelzesek",
     difficulty: "easy",
-    question: "Melyik jelzés a legerősebb a kereszteződésben a KRESZ hierarchia szerint?",
+    question: "Melyik jelzés a legerősebb egy kereszteződésben a KRESZ hierarchia szerint?",
     answers: [
-      "A táblák",
-      "A rendőr kézi irányítása",
-      "A jelzőlámpa",
-      "A jobbkéz-szabály – az adott körülmények között"
+      "A kihelyezett közúti jelzőtáblák.",
+      "A működő fényjelző készülékek.",
+      "A forgalomirányító rendőr jelzése.",
+      "Az általános jobbkéz-szabály."
     ],
-    correctAnswer: 1,
+    correctAnswer: 2,
     explanation: "A rendőr utasítása a legerősebb! Ha a rendőr szabad utat mutat, de a lámpa piros, akkor is át kell menni a rendőr jelzése szerint."
   },
   {
     id: "jel_17",
     category: "jelzesek",
     difficulty: "hard",
-    question: "Ha a rendőr karjait vízszintesen kinyújtja, melyik irányból jövőknek van piros jelzés?",
+    question: "Ha a rendőr karjait vízszintesen kinyújtja, melyik irányból jövőknek van piros (megállj) jelzés?",
     answers: [
-      "Senkinek",
-      "Mindenkinek",
-      "Akik a rendőr melle és háta felől érkeznek",
-      "Akiknek a kinyújtott karok irányából jönnek"
+      "Azoknak, akik a kinyújtott karok irányából (oldalról) érkeznek.",
+      "Azoknak, akik a rendőr melle és háta felől érkeznek.",
+      "Az adott kereszteződésben mindenkinek meg kell állnia.",
+      "Senkinek sem jelent megállást, mindenki óvatosan haladhat."
     ],
-    correctAnswer: 2,
+    correctAnswer: 1,
     explanation: "A rendőr kinyújtott karja egy sorompót mintáz. Aki a rendőr arcával vagy hátával találkozik, annak meg kell állnia (piros), aki az oldalánál van, az mehet."
   },
   {
@@ -246,42 +246,43 @@ export const groupBQuestions: Question[] = [
     difficulty: "medium",
     question: "Mit jelentenek a zebra mellett felfestett fehér kis négyzetek sorban az úton?",
     answers: [
-      "Díszítést",
-      "Hogy ott tilos megállni",
-      "Gyalogosok várakozóhelyét – az adott körülmények között",
-      "Kerékpáros átvezetést jelez."
+      "Megállási és várakozási tilalmat jelöl az adott szakaszon.",
+      "A gyalogosok számára fenntartott biztonsági szigetet.",
+      "A kerékpárút úttesten történő átvezetését jelöli.",
+      "Figyelmeztetés egy közeledő vasúti átjáróra."
     ],
-    correctAnswer: 3,
+    correctAnswer: 2,
     explanation: "A kis fehér négyzetekből álló dupla szaggatott vonal a kerékpárút átvezetését jelöli az úttesten keresztül."
   },
   {
     id: "jel_19",
     category: "jelzesek",
     difficulty: "medium",
-    question: "Mit kell tenned, ha zöld a jelzőlámpa, de a kereszteződésben torlódás van és nem tudnál áthaladni?",
+    question: "Mit kell tenned, ha zöld a jelzőlámpa, de a kereszteződésben torlódás van, és biztosan nem tudnál áthaladni?",
     answers: [
-      "Nem hajtasz be, ha nem tudsz továbbhaladni.",
-      "Dudálsz folyamatosan",
-      "Biciklivel felmész a járdára",
-      "Behajtasz és megállsz a kereszteződés közepén"
+      "Behajtasz, de szigorúan a kereszteződés közepén várakozol.",
+      "Folyamatos hangjelzéssel ösztönzöd a többieket haladásra.",
+      "Nem hajtasz be, ha várhatóan nem tudsz továbbhaladni.",
+      "Csak abban az esetben hajtasz be, ha jobbra kanyarodsz."
     ],
-    correctAnswer: 0,
-    explanation: "Zöld lámpa esetén sem szabad behajtani a kereszteződésbe, ha ott forgalmi torlódás van, mert elzárnád a keresztirányú forgalmat, amikor nekik lesz zöld."
+    correctAnswer: 2,
+    explanation: "Zöld lámpa esetén sem szabad behajtani a kereszteződésbe, ha ott forgalmi torlódás van, mert elzárnád a keresztirányú forgalmat, amikor nekik zöldre vált a lámpa."
   },
   {
     id: "jel_20",
     category: "jelzesek",
     difficulty: "easy",
-    question: "Milyen megkülönböztető fényjelzés jellemző a rendőrségi járművekre?",
+    question: "Milyen megkülönböztető fényjelzés jellemző a vonuló rendőrségi járművekre?",
     answers: [
-      "Zöld villogó fény",
-      "Sárga villogó fény",
-      "Fehér folyamatos fény",
+      "Sárga villogó fény.",
+      "Fehér folyamatos fény.",
+      "Zöld villogó fény.",
       "Kék villogó fény."
     ],
     correctAnswer: 3,
-    explanation: "A rendőrségi járművek megkülönböztető fényjelzése kék villogó fény."
+    explanation: "A rendőrségi (valamint a mentő és tűzoltó) járművek megkülönböztető fényjelzése a kék (vagy kék és piros) villogó fény."
   },
+
   // --- ELSŐBBSÉG (20 questions) ---
   {
     id: "els_1",
@@ -289,12 +290,12 @@ export const groupBQuestions: Question[] = [
     difficulty: "easy",
     question: "Mit kell tenned az 'Állj! Elsőbbségadás kötelező' (STOP) táblánál?",
     answers: [
-      "Dudálsz egyet és áthajtasz",
-      "Biciklivel nem kell megállnod",
-      "Lassítasz, és ha üres az út, megállás nélkül továbbmész",
-      "Meg kell állni, majd elsőbbséget kell adni."
+      "Lassítasz, és ha üres az út, megállás nélkül továbbmész.",
+      "Teljesen megállsz, és elsőbbséget adsz a védett úton haladóknak.",
+      "Hangjelzést adsz, majd fokozott óvatossággal áthajtasz.",
+      "Csak abban az esetben állsz meg, ha teherautó közeledik."
     ],
-    correctAnswer: 3,
+    correctAnswer: 1,
     explanation: "A STOP táblánál a jármű kerekének teljesen meg kell állnia (0 km/h-ra), és csak az elsőbbség megadása után szabad továbbmenni."
   },
   {
@@ -303,13 +304,13 @@ export const groupBQuestions: Question[] = [
     difficulty: "easy",
     question: "Mit jelent a 'jobbkéz-szabály' egy egyenrangú útkereszteződésben?",
     answers: [
-      "Elsőbbséget kell adni a jobbról érkező járműnek",
-      "Azt, hogy csak jobbra szabad kanyarodni",
-      "Aki jobb kézzel integet, az mehet először",
-      "Azt, hogy mindig a jobb oldali sávban kell haladni"
+      "Mindig az egyenesen haladó járműveknek van elsőbbségük.",
+      "Csak a jobbra kanyarodó járművek mehetnek tovább elsőként.",
+      "Egyenrangú útkereszteződésben a jobbról érkezőnek van elsőbbsége.",
+      "Aki hamarabb érkezik a kereszteződésbe, az mehet tovább."
     ],
-    correctAnswer: 0,
-    explanation: "Egyenrangú útkereszteződésben (ahol nincs tábla vagy lámpa) mindig a jobbról érkező járműnek van elsőbbsége."
+    correctAnswer: 2,
+    explanation: "Egyenrangú útkereszteződésben (ahol nincs elsőbbséget szabályozó tábla vagy lámpa) mindig a jobbról érkező járműnek van elsőbbsége."
   },
   {
     id: "els_3",
@@ -317,55 +318,55 @@ export const groupBQuestions: Question[] = [
     difficulty: "easy",
     question: "Kinek van elsőbbsége a kijelölt gyalogos-átkelőhelyen (zebrán)?",
     answers: [
-      "Annak, aki hangosabb",
-      "A gyalogosnak.",
-      "Az autósnak, mert ő a gyorsabb",
-      "A kerékpárosnak, ha teker a zebrán"
+      "Annak a járműnek, amelyik már megkezdte a gyorsítást.",
+      "A gyalogosnak, aki a zebrán kel át vagy oda lelépni készül.",
+      "Kizárólag a kerékpárosoknak, ha a zebrán tekerve haladnak.",
+      "Annak a közlekedőnek, aki egyértelműen jobbról érkezik."
     ],
     correctAnswer: 1,
-    explanation: "A kijelölt gyalogos-átkelőhelyen a gyalogosnak abszolút elsőbbsége van a közeledő járművekkel szemben."
+    explanation: "A kijelölt gyalogos-átkelőhelyen a gyalogosnak abszolút elsőbbsége van az úttesten közeledő járművekkel szemben."
   },
   {
     id: "els_4",
     category: "elsobbseg",
     difficulty: "medium",
-    question: "Ha kerékpárral egy kapuból vagy földútról hajtasz ki a szilárd burkolatú útra, kinek kell elsőbbséget adnod?",
+    question: "Ha egy kapuból vagy földútról hajtasz ki a szilárd burkolatú útra, kinek kell elsőbbséget adnod?",
     answers: [
-      "Csak a buszoknak",
-      "Csak a gyalogosoknak",
-      "Az úton haladóknak.",
-      "Senkinek, neked van elsőbbséged"
+      "Az úton haladó járműveknek és a járdán közlekedő gyalogosoknak.",
+      "A kihajtó járműnek, mert a forgalomba való becsatlakozást segíteni kell.",
+      "Kizárólag a menetrend szerint közlekedő tömegközlekedési eszközöknek.",
+      "Csak a tőle jobbra haladó járműveknek kell elsőbbséget adnia."
     ],
-    correctAnswer: 2,
-    explanation: "Ingatlanból vagy földútról szilárd burkolatú útra való ráhajtáskor mindig elsőbbséget kell adni az úton közlekedő járműveknek."
+    correctAnswer: 0,
+    explanation: "Ingatlanból (kapuból) vagy földútról szilárd burkolatú útra való ráhajtáskor mindig elsőbbséget kell adni az úton közlekedő valamennyi járműnek és gyalogosnak."
   },
   {
     id: "els_5",
     category: "elsobbseg",
     difficulty: "medium",
-    question: "Mi az elsőbbségi szabály a körforgalom olyan bejáratánál, ahol Elsőbbségadás kötelező tábla van?",
+    question: "Mi az elsőbbségi szabály a körforgalom olyan bejáratánál, ahol 'Elsőbbségadás kötelező' tábla is van?",
     answers: [
-      "A nagyobb járműé",
-      "A belépő járműé",
-      "Aki gyorsabban ér oda – az adott forgalmi helyzetben",
-      "A körforgalomban haladó járműé."
+      "A körforgalomba éppen belépő, egyenesen haladó járműnek.",
+      "Kizárólag a nagyobb méretű gépjárműveknek (teherautó, busz).",
+      "Annak a járműnek, amelyik már bent halad a körforgalomban.",
+      "A jobbkéz-szabály alapján a jobbról érkező járműveknek."
     ],
-    correctAnswer: 3,
-    explanation: "A bejáratnál elhelyezett Elsőbbségadás kötelező tábla miatt a körforgalomban már haladó járműnek kell elsőbbséget adni."
+    correctAnswer: 2,
+    explanation: "A bejáratnál elhelyezett 'Elsőbbségadás kötelező' tábla miatt a körforgalomban már haladó járműnek kell elsőbbséget adni."
   },
   {
     id: "els_6",
     category: "elsobbseg",
     difficulty: "easy",
-    question: "Mit kell biztosítani az olyan megkülönböztető jelzést használó járműnek, amely elsőbbséget élvez?",
+    question: "Mit kell biztosítani a szirénázó, megkülönböztető jelzést használó járműnek?",
     answers: [
-      "Elsőbbséget kell biztosítani neki.",
-      "Semmit, ha zöld a lámpa",
-      "Csak a buszokat kell elengedni – a megadott helyzetben",
-      "Csak a dudálást kell figyelni"
+      "Tilos lehúzódni, a saját sávunkban kell egyenletesen haladni.",
+      "Lassítani kell, de elsőbbséget csak a kereszteződésben kell adni.",
+      "Minden helyzetben elsőbbséget kell adni, szükség esetén megállással.",
+      "Csak abban az esetben kell elengedni, ha a mi lámpánk is piros."
     ],
-    correctAnswer: 0,
-    explanation: "A megkülönböztető jelzést használó jármű továbbhaladását az egyéb közlekedőknek lehetőség szerint biztosítaniuk kell, és szükség esetén meg kell állniuk."
+    correctAnswer: 2,
+    explanation: "A megkülönböztető jelzést használó jármű továbbhaladását az egyéb közlekedőknek minden helyzetben biztosítaniuk kell, és szükség esetén le kell húzódniuk vagy meg kell állniuk."
   },
   {
     id: "els_7",
@@ -373,10 +374,10 @@ export const groupBQuestions: Question[] = [
     difficulty: "medium",
     question: "Ha balra kanyarodsz egy kereszteződésben, kinek kell elsőbbséget adnod a kanyarodási szabály szerint?",
     answers: [
-      "Senkinek",
-      "A szemből egyenesen vagy jobbra haladónak.",
-      "Csak a gyalogosoknak – az adott körülmények között",
-      "Mögötted haladóknak"
+      "A mögöttünk haladó, velünk azonos irányba kanyarodóknak.",
+      "A szemből érkező, egyenesen haladó vagy jobbra kanyarodó járműveknek.",
+      "A balról érkező, egyenesen áthaladó összes gépjárműnek.",
+      "Senkinek, a balra kanyarodó járműnek mindig elsőbbsége van."
     ],
     correctAnswer: 1,
     explanation: "Balra kanyarodáskor elsőbbséget kell adni a szemből érkező, egyenesen továbbhaladó vagy jobbra kanyarodó járműveknek."
@@ -385,15 +386,15 @@ export const groupBQuestions: Question[] = [
     id: "els_8",
     category: "elsobbseg",
     difficulty: "easy",
-    question: "Mit jelent a csúcsára állított háromszög alakú jelzőtábla ('Elsőbbségadás kötelező')?",
+    question: "Mit jelent a csúcsára állított háromszög alakú jelzőtábla?",
     answers: [
-      "Sátorozóhelyet jelöl",
-      "Azt, hogy az út véget ér",
-      "Elsőbbséget kell adni.",
-      "Hogy neked van elsőbbséged"
+      "A kereszteződésben nekünk van elsőbbségünk a többiekkel szemben.",
+      "Megállni kötelező, még akkor is, ha teljesen üres a kereszteződés.",
+      "A védett úton érkező járművek részére elsőbbséget kell adni.",
+      "Egyenrangú útkereszteződést jelez, ahol a jobbkéz-szabály érvényes."
     ],
     correctAnswer: 2,
-    explanation: "A háromszög alakú táblánál elsőbbséget kell adnod, de nem kötelező megállnod, ha megállás nélkül is biztonságosan látható, hogy nem jön senki."
+    explanation: "A fordított háromszög az 'Elsőbbségadás kötelező' tábla. Itt elsőbbséget kell adnod a keresztező úton érkezőknek, de nem kötelező megállnod, ha biztonságosan belátod az utat és nem jön senki."
   },
   {
     id: "els_9",
@@ -401,26 +402,26 @@ export const groupBQuestions: Question[] = [
     difficulty: "medium",
     question: "Kinek van elsőbbsége a kanyarodó jármű és az úttesten átkelő gyalogos között, ha a jármű arról az útról kanyarodik le, amelyen a gyalogos átkel?",
     answers: [
-      "A gyorsabbnak",
-      "Nincs szabályozva",
-      "A kanyarodó járműnek",
-      "A gyalogosnak."
+      "A gyalogosnak, aki azon az úton kel át, amelyre a jármű rákanyarodik.",
+      "A járműnek, mivel az úttest elsősorban a gépesített forgalmat szolgálja.",
+      "Annak, aki hamarabb érkezik a kereszteződés geometriai középpontjába.",
+      "Mindig a gépjárműnek, kivéve, ha a gyalogos egy kerékpárt is tol."
     ],
-    correctAnswer: 3,
-    explanation: "Bekanyarodáskor mindig elsőbbséget kell adni az úttesten átkelő gyalogosoknak azon az úton, amelyre ráfordulunk."
+    correctAnswer: 0,
+    explanation: "Bekanyarodáskor mindig elsőbbséget kell adni az úttesten átkelő gyalogosoknak azon az úton, amelyre ráfordulunk (akkor is, ha nincs ott zebra)."
   },
   {
     id: "els_10",
     category: "elsobbseg",
     difficulty: "easy",
-    question: "Mit jelent a sárga színű, négyzet alakú tábla, aminek vastag fekete kerete és fehér szegélye van (főútvonal tábla)?",
+    question: "Mit jelent a sárga színű, négyzet alakú tábla vastag fekete kerettel és fehér szegéllyel?",
     answers: [
-      "A főútvonalon haladónak.",
-      "Iskolaövezet",
-      "Tilos a behajtás",
-      "Balesetveszélyes hely – az adott körülmények között"
+      "Veszélyes útszakaszt jelez, ahol a sebességet jelentősen csökkenteni kell.",
+      "Az ezen az úton haladóknak elsőbbségük van a keresztező mellékutakkal szemben.",
+      "Behajtani tilos jelzés a tehergépkocsik és a nehéz mezőgazdasági vontatók számára.",
+      "Egyenrangú utak kereszteződését jelzi, ahol a jobbkéz-szabály a mérvadó."
     ],
-    correctAnswer: 0,
+    correctAnswer: 1,
     explanation: "A Főútvonal tábla azt jelzi, hogy az ezen az úton haladóknak elsőbbségük van a keresztező mellékutakról érkező járművekkel szemben."
   },
   {
@@ -429,69 +430,69 @@ export const groupBQuestions: Question[] = [
     difficulty: "medium",
     question: "Mit kell tenned egyenrangú kereszteződésben, ha balról érkezik egy kerékpáros?",
     answers: [
-      "Megállsz és elengeded",
-      "Dudálsz, hogy álljon meg",
-      "Neked van elsőbbséged.",
-      "Biciklivel mindig el kell engedni mindenkit"
+      "Meg kell állnod és el kell engedned a kerékpárost a védtelensége miatt.",
+      "Hangjelzést kell adnod, hogy a kerékpáros biztosan megálljon előtted.",
+      "A jobbkéz-szabály alapján neked van elsőbbséged a balról érkezővel szemben.",
+      "Egyszerre kell behajtanotok a kereszteződésbe, nagy óvatossággal."
     ],
     correctAnswer: 2,
-    explanation: "Mivel te vagy jobbkéz felől a kerékpároshoz képest, egyenrangú kereszteződésben neked van elsőbbséged vele szemben."
+    explanation: "Mivel te vagy jobbkéz felől a kerékpároshoz képest, egyenrangú kereszteződésben a jobbkéz-szabály alapján neked van elsőbbséged."
   },
   {
     id: "els_12",
     category: "elsobbseg",
     difficulty: "hard",
-    question: "Kinek van elsőbbsége: a villamosnak vagy az autónak egy egyenrangú kereszteződésben, ha a villamos balról érkezik?",
+    question: "Kinek van elsőbbsége egyenrangú kereszteződésben: a villamosnak vagy az autónak, ha a villamos balról érkezik?",
     answers: [
-      "Aki először dudál",
-      "Annak, amelyik gyorsabb",
-      "Az autónak, mert a villamos balról jön",
-      "A villamosnak."
+      "A személyautónak van elsőbbsége, mivel a villamos a bal oldalról érkezik.",
+      "A villamosnak van elsőbbsége a nem sínpályás járművekkel szemben, függetlenül az iránytól.",
+      "Az áthaladás sorrendjét a járművek érkezési sebessége és mérete határozza meg.",
+      "A villamosvezetőnek meg kell állnia, és le kell mondania az elsőbbségéről."
     ],
-    correctAnswer: 3,
+    correctAnswer: 1,
     explanation: "A villamos különleges jármű: egyenrangú kereszteződésben a villamosnak balról érkezve is elsőbbsége van a nem sínpályás járművekkel (autó, bicikli) szemben."
   },
   {
     id: "els_13",
     category: "elsobbseg",
     difficulty: "hard",
-    question: "Ha a főútvonal kanyarodik, és te a főútvonalon maradsz, kinek kell elsőbbséget adnod?",
+    question: "Ha a főútvonal kanyarodik, és te a kanyarodó főútvonalon maradsz, kinek kell elsőbbséget adnod?",
     answers: [
-      "A mellékútról érkező járműveknek.",
-      "A gyalogosoknak soha",
-      "A mellékútról érkező járműveknek",
-      "Senkinek, mert a főút mindig mindenkivel szemben elsőbbséget ad"
+      "Neked kell elsőbbséget adnod a mellékútról egyenesen érkező járművek számára.",
+      "Senkinek, a főútvonalon haladó jármű minden más iránnyal szemben elsőbbséget élvez.",
+      "Csak a szemből érkező, egyenesen továbbhaladó forgalomnak kell elsőbbséget adni.",
+      "Elsőbbséged van a mellékutakról érkezőkkel szemben, mivel a főútvonalon maradsz."
     ],
-    correctAnswer: 0,
-    explanation: "A kanyarodó főútvonalon maradó jármű a mellékútról érkezőkkel szemben az elsőbbségi szabály szerint haladhat, de a gyalogosokra és a kanyarodás egyéb szabályaira is figyelemmel kell lenni."
+    correctAnswer: 3,
+    explanation: "A kanyarodó főútvonalon maradó jármű az elsőbbségi szabály szerint haladhat a mellékútról érkezőkkel szemben (persze a gyalogosokra és az egyéb szabályokra ügyelni kell)."
   },
   {
     id: "els_14",
     category: "elsobbseg",
     difficulty: "medium",
-    question: "Kinek van elsőbbsége szűk úton (ahol nem fér el két autó egyszerre), ha az egyik oldalon akadály (pl. parkoló autó) van?",
+    question: "Kinek van elsőbbsége szűk úton (ahol nem fér el két autó), ha az egyik oldalon akadály (pl. parkoló autó) van?",
     answers: [
-      "Aki bátrabb",
-      "Annak, akinek az oldala szabad.",
-      "A nagyobb autónak",
-      "Annak, akinek az oldalán az akadály van"
+      "Annak a járműnek kell megállnia, amelyiknek az oldalán az akadály található.",
+      "A nagyobb és nehezebb járműnek mindig elsőbbsége van a szűk útszakaszokon.",
+      "A szemből érkezőnek kell megvárnia, amíg te kikerülöd a saját oldaladon lévő akadályt.",
+      "Az haladhat át először, aki hamarabb elkezdte a szűkület megközelítését."
     ],
-    correctAnswer: 1,
-    explanation: "Ha az te oldaladon van az akadály, neked kell megállnod és megvárnod, amíg a szemből jövő elhalad, mert neki van elsőbbsége."
+    correctAnswer: 0,
+    explanation: "Ha a te oldaladon van az akadály, neked kell megállnod és megvárnod, amíg a szemből jövő elhalad, mert az ő oldala szabad."
   },
   {
     id: "els_15",
     category: "elsobbseg",
     difficulty: "easy",
-    question: "Kinek van elsőbbsége a kijelölt gyalogos-átkelőhelyen: a kerékpárt TOLÓ gyalogosnak vagy a száguldó autónak?",
+    question: "Kinek van elsőbbsége a kijelölt gyalogos-átkelőhelyen: a kerékpárt TOLÓ gyalogosnak vagy az érkező autónak?",
     answers: [
-      "Az autónak",
-      "Aki gyorsabb – az adott körülmények között",
-      "A kerékpárt toló gyalogosnak.",
-      "A rendőrnek"
+      "Az autónak, mert a kerékpárt toló személy nem minősül egyszerű gyalogosnak.",
+      "A kerékpárt toló gyalogosnak van elsőbbsége a kijelölt gyalogos-átkelőhelyen.",
+      "Az haladhat át hamarabb, aki gyorsabb tempóban éri el a zebrát az úton.",
+      "A gyalogosnak vissza kell húzódnia a járdára, amíg a gépjármű elhalad."
     ],
-    correctAnswer: 2,
-    explanation: "A kerékpárt toló személy gyalogosnak minősül, így a zebrán abszolút elsőbbsége van az autókkal szemben."
+    correctAnswer: 1,
+    explanation: "A kerékpárt toló személy a KRESZ szerint gyalogosnak minősül, így a zebrán abszolút elsőbbsége van az autókkal szemben."
   },
   {
     id: "els_16",
@@ -499,70 +500,71 @@ export const groupBQuestions: Question[] = [
     difficulty: "hard",
     question: "Ha kerékpársávban haladsz egyenesen, és melletted egy autó jobbra akar kanyarodni (keresztezve a sávodat), kinek van elsőbbsége?",
     answers: [
-      "Az autónak, mert nagyobb",
-      "A jobbkéz-szabály dönt",
-      "Mindkettő egyszerre mehet",
-      "A kerékpárosnak."
+      "Az autónak van elsőbbsége, mivel a nagyobb járművek fordulókörét biztosítani kell.",
+      "A kereszteződésben a jobbkéz-szabály dönt a kanyarodó gépjármű és a biciklis között.",
+      "Mindkét jármű egyszerre mehet, ha a sebességüket kölcsönösen összehangolják.",
+      "Az egyenesen haladó kerékpárosnak elsőbbsége van a jobbra kanyarodó autóval szemben."
     ],
     correctAnswer: 3,
-    explanation: "Az egyenesen haladó kerékpárosnak elsőbbsége van a vele párhuzamosan haladó és jobbra kanyarodó autóval szemben."
+    explanation: "Az egyenesen haladó járműnek (így a kerékpárosnak is a kerékpársávon) elsőbbsége van az irányt változtató (jobbra kanyarodó és így a sávot keresztező) autóval szemben."
   },
   {
     id: "els_17",
     category: "elsobbseg",
     difficulty: "easy",
-    question: "A rendőr jelzései felülírják-e a közúti jelzőtáblák utasításait?",
+    question: "A rendőr forgalomirányító jelzései felülírják-e a közúti jelzőtáblák utasításait?",
     answers: [
-      "Igen, a rendőri jelzés az irányadó.",
-      "Csak hétvégén",
-      "Csak autópályán",
-      "Nem, a táblák fontosabbak – az adott körülmények között"
+      "A jelzőtáblák mindig fontosabbak, a rendőr csak a forgalom sebességét felügyeli.",
+      "A rendőri karjelzés a hierarchia csúcsán áll, felülírja a táblák utasításait.",
+      "Kizárólag a fényjelző készülékek meghibásodása esetén vehetők figyelembe.",
+      "A rendőri jelzés csak a tehergépjárművekre és a buszokra vonatkozik kötelezően."
     ],
-    correctAnswer: 0,
-    explanation: "A rendőri forgalomirányítás áll a KRESZ hierarchia csúcsán, azaz minden más jelzést felülbírál."
+    correctAnswer: 1,
+    explanation: "A rendőri forgalomirányítás áll a KRESZ hierarchia csúcsán, azaz minden más jelzést és szabályt felülbírál."
   },
   {
     id: "els_18",
     category: "elsobbseg",
     difficulty: "medium",
-    question: "Elinduláskor (pl. járda széléről való elindulás) kinek kell elsőbbséget adni?",
+    question: "Elinduláskor (pl. járda széléről a forgalomba való becsatlakozáskor) kinek kell elsőbbséget adni?",
     answers: [
-      "Csak a buszoknak",
-      "A már úton haladó járműveknek",
-      "Csak a gyalogosoknak",
-      "Senkinek, az elindulónak van elsőbbsége"
+      "Csak a jobbról érkező gépjárműveknek kell elsőbbséget adni elinduláskor.",
+      "Az elinduló járműnek van elsőbbsége, a többieknek lassítaniuk kell mögötte.",
+      "Minden, már az úttesten haladó jármű részére elsőbbséget kell adni.",
+      "Kizárólag a megkülönböztető jelzést használó járműveket kell elengedni."
     ],
-    correctAnswer: 1,
+    correctAnswer: 2,
     explanation: "Az út széléről való elindulás előtt meg kell győződni a biztonságról, irányjelezni kell, és elsőbbséget kell adni a már úton haladó járműveknek."
   },
   {
     id: "els_19",
     category: "elsobbseg",
     difficulty: "easy",
-    question: "Mit jelent a szűkületnél alkalmazott, szembejövő forgalommal szembeni elsőbbséget jelző tábla?",
+    question: "Mit jelent a szűkületnél alkalmazott, szembejövő forgalommal szembeni elsőbbséget jelző tábla (kék négyzetben két nyíl)?",
     answers: [
-      "Tilos behajtani",
-      "Csak teherautó haladhat át",
-      "Neked van elsőbbséged a szűkületben.",
-      "Elsőbbséget kell adnod a szembejövőnek"
+      "Azt jelzi, hogy a szűkületben neked van elsőbbséged a szembejövő forgalommal szemben.",
+      "Behajtani tilos jelzés a nagyobb tehergépkocsik és autóbuszok számára.",
+      "Azt jelenti, hogy elsőbbséget kell adnod a szűkületben szemből érkező járműveknek.",
+      "Azt jelöli, hogy az adott útszakaszon mindkét irányból tilos a továbbhaladás."
     ],
-    correctAnswer: 2,
-    explanation: "A jelzés azt mutatja, hogy a szűkületben az adott irányból érkező járműnek elsőbbsége van a szembejövővel szemben."
+    correctAnswer: 0,
+    explanation: "A kék alapú tábla fehér (és piros) nyíllal azt mutatja, hogy a szűkületben a te irányodból érkező járműnek elsőbbsége van a szembejövővel szemben."
   },
   {
     id: "els_20",
     category: "elsobbseg",
     difficulty: "easy",
-    question: "Melyik járműnek van elsőbbsége egyenrangú kereszteződésben a kanyarodási szabály szerint, ha mindkettő egyenesen haladna egymással szemben?",
+    question: "Melyik járműnek van elsőbbsége egyenrangú kereszteződésben, ha mindkét egymással szemben érkező jármű egyenesen szeretne továbbhaladni?",
     answers: [
-      "A jobbkéz-szabály dönt",
-      "Egyszerre haladhatnak át.",
-      "A kék autó haladhat át először",
-      "A piros autó haladhat át először"
+      "A jobbkéz-szabály alapján a jobbra húzódó jármű mehet át elsőként.",
+      "Az egyenesen haladó járművek nem keresztezik egymás útját, így egyszerre áthaladhatnak.",
+      "A nagyobb sebességgel érkező járműnek kell elsőként áthaladnia a csomóponton.",
+      "Annak van elsőbbsége, aki először adott hangjelzést a kereszteződésbe érve."
     ],
     correctAnswer: 1,
     explanation: "Mivel mindkét jármű egyenesen halad egymással szemben, az útjaik nem keresztezik egymást, így egyszerre, biztonságosan áthaladhatnak."
   },
+
   // --- MEGÁLLÁS ÉS VÁRAKOZÁS (20 questions) ---
   {
     id: "meg_1",
@@ -570,27 +572,27 @@ export const groupBQuestions: Question[] = [
     difficulty: "easy",
     question: "Szabad-e megállni gépjárművel közvetlenül a kijelölt gyalogos-átkelőhelyen (zebrán)?",
     answers: [
-      "Igen, ha csak egy percre állunk meg",
-      "Biciklivel szabad a zebrán parkolni",
-      "A zebra előtt 5 méteren belül sem.",
-      "Igen, ha bekapcsoljuk a vészvillogót"
+      "Igen, de kizárólag abban az esetben, ha a jármű vezetője bekapcsolja a vészvillogót.",
+      "A zebrán, valamint a zebra előtti 5 méteres útszakaszon szigorúan tilos megállni.",
+      "Igen, ha a megállás csak a csomagok kirakodásának rövid idejére (pár percre) szól.",
+      "A zebrán nem, de közvetlenül előtte fél méterrel már szabályosan meg lehet állni."
     ],
-    correctAnswer: 2,
-    explanation: "A zebrán és közvetlenül előtte 5 méteres távolságon belül tilos megállni, mert a parkoló autó eltakarná az átkelni szándékozó gyalogosokat."
+    correctAnswer: 1,
+    explanation: "A zebrán és közvetlenül előtte 5 méteres távolságon belül tilos megállni, mert a parkoló autó eltakarná az átkelni szándékozó gyalogosokat az érkező forgalom elől."
   },
   {
     id: "meg_2",
     category: "megallas",
     difficulty: "easy",
-    question: "Mi a KRESZ szerinti megállás egyik tipikus esete?",
+    question: "Mi a KRESZ szerinti 'megállás' egyik tipikus esete?",
     answers: [
-      "Csak a piros lámpánál való állás",
-      "Kizárólag öt percnél hosszabb állás",
-      "A jármű tetszőleges hosszú parkolása – az adott forgalmi helyzetben",
-      "Be- vagy kiszállás, illetve rakodás miatti rövid megállás."
+      "Csak az olyan parkolás, amely a forgalmi lámpa piros jelzése miatt következik be.",
+      "A jármű őrizetlenül hagyása több mint 15 percre a kijelölt várakozóhelyeken.",
+      "A be- és kiszállás, vagy a folyamatos fel- és lerakodás idejére történő egy helyben állás.",
+      "Bármilyen forgalmi okból történő megállás az autópálya leállósávjában."
     ],
-    correctAnswer: 3,
-    explanation: "Megállásnak minősül többek között a be- és kiszálláshoz, a folyamatos fel- és lerakodáshoz, illetve meghatározott rövid idejű várakozáshoz kapcsolódó állás; a fogalmat a KRESZ pontosan meghatározza."
+    correctAnswer: 2,
+    explanation: "Megállásnak minősül többek között a be- és kiszálláshoz, a folyamatos fel- és lerakodáshoz, illetve meghatározott (rövid) idejű várakozáshoz kapcsolódó állás."
   },
   {
     id: "meg_3",
@@ -598,24 +600,24 @@ export const groupBQuestions: Question[] = [
     difficulty: "easy",
     question: "Szabad-e úgy megállni vagy várakozni kapubejáró előtt, hogy az akadályozza a be- vagy kihajtást?",
     answers: [
-      "Nem, ha akadályozza a kapubejárót.",
-      "Csak éjszaka",
-      "Igen, ha rövid ideig tart",
-      "Igen, ha vészvillogót használunk – a megadott helyzetben"
+      "Igen, amennyiben a jármű vezetője a közelben tartózkodik, és azonnal el tud állni.",
+      "Igen, ha a kapunál lévő ingatlan a jármű tulajdonosának saját birtokában van.",
+      "Tilos úgy megállni, hogy azzal a kapubejárón a járművek ki- és behajtását akadályozzuk.",
+      "Csak az esti órákban, 22:00 és 06:00 között szabad a kapubejárókat elfoglalni."
     ],
-    correctAnswer: 0,
-    explanation: "Tilos úgy megállni vagy várakozni, hogy a kapubejáróhoz kapcsolódó be- vagy kihajtást akadályozzuk."
+    correctAnswer: 2,
+    explanation: "Szigorúan tilos úgy megállni vagy várakozni, hogy a kapubejáróhoz kapcsolódó be- vagy kihajtást akadályozzuk."
   },
   {
     id: "meg_4",
     category: "megallas",
     difficulty: "medium",
-    question: "Szabad-e megállni olyan útszakaszon, ahol 'Megállni tilos' tábla van elhelyezve?",
+    question: "Szabad-e megállni olyan útszakaszon, ahol 'Megállni tilos' (piros kör kék alapon keresztben áthúzva) tábla van?",
     answers: [
-      "Csak vasárnap szabad",
-      "Nem.",
-      "Csak kerékpárral szabad",
-      "Igen, ha bent ül a sofőr"
+      "Csak abban az esetben, ha a vezető a járműben marad, és a motor továbbra is jár.",
+      "A tábla hatálya alatt semmilyen járművel nem szabad önkéntesen megállni.",
+      "Igen, ha a megállás célja egy gyors utasfelvétel, amely nem tart tovább egy percnél.",
+      "A tilalom kizárólag a tehergépjárművekre és az autóbuszokra vonatkozik."
     ],
     correctAnswer: 1,
     explanation: "A 'Megállni tilos' tábla hatálya alatt semmilyen járművel nem szabad önkéntesen megállni (kivéve a forgalmi okból vagy műszaki hiba miatti megállást)."
@@ -626,27 +628,27 @@ export const groupBQuestions: Question[] = [
     difficulty: "medium",
     question: "Mit jelent a 'Várakozni tilos' tábla (kék körben piros keret és egyetlen átlós piros vonal)?",
     answers: [
-      "Csak kék autóknak tilos",
-      "Szabad parkolni 2 órán át",
-      "Megállni szabad, várakozni tilos.",
-      "Egyáltalán nem szabad megállni – az adott forgalmi helyzetben"
+      "A megállás megengedett (pl. rakodásig), de a hosszabb távú várakozás tilos.",
+      "Szigorúan tilos bármilyen okból, akár csak egyetlen másodpercre is megállni.",
+      "Megengedett a várakozás, feltéve, hogy a sofőr fizet az adott zónában a parkolásért.",
+      "Csak a mozgáskorlátozottakat szállító járművek számára tiltja a megállást."
     ],
-    correctAnswer: 2,
-    explanation: "A várakozni tilos tábla engedélyezi a rövid megállást (pl. csomag kirakodása), de tiltja a tartós parkolást."
+    correctAnswer: 0,
+    explanation: "A 'Várakozni tilos' tábla engedélyezi a rövid megállást (pl. utasok kiszállása, csomag kirakodása), de tiltja a jármű tartós ott hagyását."
   },
   {
     id: "meg_6",
     category: "megallas",
     difficulty: "easy",
-    question: "Szabad-e gépjárművel megállni autóbuszöbölben?",
+    question: "Szabad-e gépjárművel megállni a menetrend szerinti járatok számára fenntartott autóbuszöbölben?",
     answers: [
-      "Csak éjszaka",
-      "Igen, ha nincs autóbusz",
-      "Igen, ha csak egy percig tart",
-      "Nem."
+      "Igen, ha a menetrend szerint éppen nem várható a busz érkezése az adott megállóba.",
+      "Csak az éjszakai órákban, amikor a helyi tömegközlekedés már egyáltalán nem üzemel.",
+      "Gépjárművel az autóbuszöbölben megállni vagy várakozni minden esetben tilos.",
+      "Igen, de legfeljebb 5 percig, és csak akkor, ha a vészvillogó be van kapcsolva."
     ],
-    correctAnswer: 3,
-    explanation: "Autóbuszöbölben gépjárművel megállni tilos."
+    correctAnswer: 2,
+    explanation: "Autóbuszöbölben az egyéb gépjárművekkel megállni tilos, mert akadályozzák a tömegközlekedést."
   },
   {
     id: "meg_7",
@@ -654,13 +656,13 @@ export const groupBQuestions: Question[] = [
     difficulty: "medium",
     question: "Mikor szabad gépjárművel a járdán megállni?",
     answers: [
-      "Csak engedéllyel, a KRESZ feltételeivel.",
-      "Csak hétvégén",
-      "Mindig, ha marad hely",
-      "Soha, még jelzés esetén sem – az adott körülmények között"
+      "Mindig szabályos, ha a jármű mellett legalább 1 méter hely marad a gyalogosoknak.",
+      "Kizárólag akkor, ha jelzőtábla vagy útburkolati jel azt kifejezetten megengedi.",
+      "Bármikor megengedett, ha a járdaszegély nem magasabb 10 centiméternél.",
+      "Szigorúan tilos minden esetben, még kiegészítő tábla jelenlétekor sem szabad."
     ],
-    correctAnswer: 0,
-    explanation: "A járdán történő megállás csak akkor megengedett, ha azt jelzés lehetővé teszi, és az előírt feltételek – például a gyalogosok számára szükséges hely – teljesülnek."
+    correctAnswer: 1,
+    explanation: "A járdán történő megállás csak akkor megengedett, ha azt jelzés lehetővé teszi, és az előírt feltételek – például a gyalogosok számára szükséges 1,5 méter hely – teljesülnek."
   },
   {
     id: "meg_8",
@@ -668,13 +670,13 @@ export const groupBQuestions: Question[] = [
     difficulty: "easy",
     question: "Szabad-e kerékpárral a járdán megállni?",
     answers: [
-      "Csak éjszaka",
-      "Igen, ha nem akadályozza a gyalogosokat.",
-      "Csak piros lámpánál",
-      "Nem, semmilyen körülmények között – az adott forgalmi helyzetben"
+      "Szabályos, feltéve, hogy a jármű elhelyezése a gyalogosok közlekedését nem akadályozza.",
+      "Szigorúan tilos, a kerékpárokat kizárólag a kiépített kerékpártárolókban szabad hagyni.",
+      "Csak akkor engedélyezett, ha a kerékpárt szorosan az úttest felőli peremhez támasztják.",
+      "Bármikor szabad, mivel a kerékpár nem minősül gépjárműnek, így nem vonatkozik rá tiltás."
     ],
-    correctAnswer: 1,
-    explanation: "A kerékpár járdán való elhelyezése csak akkor szabályos, ha a gyalogosok közlekedését nem akadályozza és az elhelyezésre vonatkozó egyéb szabályok is teljesülnek."
+    correctAnswer: 0,
+    explanation: "A kerékpár (és a kétkerekű segédmotor) járdán való elhelyezése megengedett, ha a gyalogosok közlekedését nem akadályozza (tehát nem feltétel a tábla, mint az autóknál)."
   },
   {
     id: "meg_9",
@@ -682,83 +684,83 @@ export const groupBQuestions: Question[] = [
     difficulty: "medium",
     question: "Hány méterre szabad megállni egy útkereszteződéstől a KRESZ szerint?",
     answers: [
-      "Közvetlenül mellette",
-      "Bármilyen távolságra",
-      "Legalább 5 méterre.",
-      "Legalább 10 méter távolságra"
+      "Az útkereszteződésben és annak sarkától számított 5 méteren belül tilos megállni.",
+      "Bármilyen közel meg lehet állni, ha a parkoló jármű nem lóg be közvetlenül a sávba.",
+      "Az útkereszteződés sarkától számított legalább 15 méteres távolságot kell tartani.",
+      "Közvetlenül a kereszteződés vonalánál is meg lehet állni, ha nincs zebrázás felfestve."
     ],
-    correctAnswer: 2,
-    explanation: "Kereszteződésekben és azok sarkától számított 5 méteren belül tilos megállni a beláthatóság biztosítása érdekében."
+    correctAnswer: 0,
+    explanation: "Kereszteződésekben és azok sarkától számított 5 méteren belül tilos megállni a kereszteződés megfelelő beláthatóságának biztosítása érdekében."
   },
   {
     id: "meg_10",
     category: "megallas",
     difficulty: "easy",
-    question: "Szabad-e megállni úgy, hogy a jármű eltakarja a közúti jelzőtáblát vagy jelzőlámpát?",
+    question: "Szabad-e megállni úgy, hogy a jármű eltakarja a közúti jelzőtáblát vagy a jelzőlámpát a többi közlekedő elől?",
     answers: [
-      "Csak éjszaka",
-      "Csak rövid időre",
-      "Igen, ha vészvillogót használunk",
-      "Nem."
+      "Megengedett, ha a jármű nem magasabb egy átlagos méretű személygépkocsinál.",
+      "Csak akkor tilos, ha a tábla sebességkorlátozásra vagy veszélyre hívja fel a figyelmet.",
+      "Igen, amennyiben a megállás mindössze az utasok kiszállásának idejéig tart.",
+      "Tilos olyan helyen megállni, ahol a jármű a közúti jelzések észlelhetőségét akadályozza."
     ],
     correctAnswer: 3,
-    explanation: "Tilos olyan helyen megállni, ahol a jármű a közúti jelzések észlelhetőségét akadályozza."
+    explanation: "Szigorúan tilos olyan helyen megállni, ahol a jármű a közúti jelzések (táblák, lámpák) észlelhetőségét akadályozza vagy eltakarja."
   },
   {
     id: "meg_11",
     category: "megallas",
     difficulty: "hard",
-    question: "Mekkora szabad helynek kell maradnia az úttest másik oldalán lévő záróvonalig, ha a járműved megáll?",
+    question: "Mekkora szabad helynek kell maradnia az úttest másik oldalán lévő záróvonalig, ha az úttest jobb szélén megállsz?",
     answers: [
-      "1 méter",
-      "Legalább 3 méter.",
-      "5 méter",
-      "Nem kell szabad hely"
+      "A megálló jármű és a záróvonal között legalább 3 méter széles helyet kell hagyni.",
+      "Elegendő 1,5 méter helyet hagyni, hogy egy átlagos személyautó még éppen elférjen.",
+      "Nincs konkrét előírás a távolságra, a lényeg, hogy a forgalom lépésben haladni tudjon.",
+      "A megálló jármű kereke akár a záróvonalon is állhat, ha az út egyébként túl keskeny."
     ],
-    correctAnswer: 1,
-    explanation: "A jármű elhelyezésekor legalább 3 méter széles helyet kell hagyni a forgalom számára, ha záróvonal mellett állsz."
+    correctAnswer: 0,
+    explanation: "A jármű elhelyezésekor legalább 3 méter széles helyet kell hagyni a saját sávban (a záróvonalig) az elhaladó forgalom számára."
   },
   {
     id: "meg_12",
     category: "megallas",
     difficulty: "medium",
-    question: "Szabad-e önkéntesen megállni vasúti átjáróban vagy attól 30 méteren belül?",
+    question: "Szabad-e önkéntesen megállni a vasúti átjáróban, vagy annak közvetlen közelében?",
     answers: [
-      "Csak nappal",
-      "Csak kerékpárral",
-      "Nem.",
-      "Igen, ha nem jön vonat"
+      "A fénysorompótól számított 10 méteren túl már teljesen szabályos a várakozás.",
+      "Csak akkor tilos, ha a fénysorompó pirosan villog és közeledik a vasúti szerelvény.",
+      "Vasúti átjáróban és attól számított 30 méteres távolságon belül önkéntesen megállni tilos.",
+      "Engedélyezett a megállás, feltéve, hogy a jármű semmilyen részével nem lóg a sínekre."
     ],
     correctAnswer: 2,
-    explanation: "Önkéntesen megállni vasúti átjáróban és attól 30 méteren belül tilos."
+    explanation: "Önkéntesen megállni vasúti átjáróban és az attól számított 30 méteren belül balesetveszélyes, és a KRESZ szigorúan tiltja."
   },
   {
     id: "meg_13",
     category: "megallas",
     difficulty: "easy",
-    question: "Hogyan kell elhelyezni a járművet az úttest jobb szélén, ha megállunk?",
+    question: "Hogyan kell szabályosan elhelyezni a járművet az úttesten, ha parkolni szeretnénk (és nincs egyéb tábla)?",
     answers: [
-      "Az út közepén",
-      "Átlósan, elzárva a sávot",
-      "Az úttestre merőlegesen, bárhol – az adott körülmények között",
-      "A jobb oldalon, az úttesttel párhuzamosan."
+      "A járdára félig felállva, függetlenül attól, hogy van-e ezt engedélyező tábla az utcában.",
+      "A menetirány szerinti jobb oldalon, az útszegéllyel párhuzamosan, szorosan a szélre húzódva.",
+      "Bármilyen szögben megengedett, ami a legkevesebb helyet veszi el a széles úttestből.",
+      "Az úttestre merőlegesen orral beállva, hogy a ki- és beszállás a lehető legkényelmesebb legyen."
     ],
-    correctAnswer: 3,
-    explanation: "Főszabályként a menetirány szerinti jobb oldalon, az útszegéllyel párhuzamosan, szorosan a jobb szélre húzódva kell megállni."
+    correctAnswer: 1,
+    explanation: "Főszabályként a menetirány szerinti jobb oldalon, az útszegéllyel (járdával) párhuzamosan, egy sorban, szorosan a jobb szélre húzódva kell megállni."
   },
   {
     id: "meg_14",
     category: "megallas",
     difficulty: "easy",
-    question: "Melyik helyet nem foglalhatod el jogosultság nélkül?",
+    question: "Ki állhat meg a kerekesszékes piktogrammal megjelölt, mozgáskorlátozottak számára fenntartott parkolóhelyen?",
     answers: [
-      "A mozgáskorlátozottak kijelölt helyét.",
-      "Taxihelyet",
-      "Buszmegállót",
-      "Kerékpártárolót – az adott körülmények között"
+      "A mozgáskorlátozottak számára kijelölt parkolóhelyet csak az arra jogosult használhatja.",
+      "Bárki megállhat ott egy rövid időre, amíg az arra jogosult jármű nem érkezik meg.",
+      "Ünnepnapokon és hétvégéken bárki számára ingyenesen használhatóvá válik a hely.",
+      "Kizárólag éjszaka tilos ott parkolni, napközben a felfestés csak ajánlást jelent."
     ],
     correctAnswer: 0,
-    explanation: "A mozgáskorlátozott személyek számára kijelölt parkolóhelyet csak az arra jogosult jármű használhatja."
+    explanation: "A mozgáskorlátozott személyek számára kijelölt parkolóhelyet csak a megfelelő érvényes igazolvánnyal (kártyával) rendelkező jogosult jármű használhatja."
   },
   {
     id: "meg_15",
@@ -766,41 +768,41 @@ export const groupBQuestions: Question[] = [
     difficulty: "medium",
     question: "Szabad-e önkéntesen megállni hídon, aluljáróban vagy alagútban?",
     answers: [
-      "Igen",
-      "Nem.",
-      "Csak éjszaka",
-      "Csak vészvillogóval"
+      "Szabályos, ha a híd vagy alagút szélessége legalább két forgalmi sávot tesz ki irányonként.",
+      "Igen, de a várakozó jármű mögött legalább 50 méterre el kell helyezni az elakadásjelzőt.",
+      "Hídon, aluljáróban, alagútban, valamint ezek ki- és bejáratánál az önkéntes megállás tilos.",
+      "Csak a motorkerékpárok és a kerékpárok számára engedélyezett az út szélén való megállás."
     ],
-    correctAnswer: 1,
-    explanation: "Hídon, aluljáróban, alagútban és ezek be- és kijáratánál az önkéntes megállás tilos."
+    correctAnswer: 2,
+    explanation: "Hídon, aluljáróban, alagútban és ezek be- és kijáratánál az önkéntes megállás a szűk keresztmetszet és a fokozott balesetveszély miatt tilos."
   },
   {
     id: "meg_16",
     category: "megallas",
     difficulty: "easy",
-    question: "Mit ellenőrizz az ajtó kinyitása előtt az út szélén?",
+    question: "Mit kell ellenőrizned az út szélén parkoló járműved ajtajának kinyitása előtt?",
     answers: [
-      "Semmit",
-      "Csak a járdát",
-      "A mögöttes forgalmat.",
-      "Csak az út előttünk lévő részét"
+      "Csak azt, hogy a járdán nem tartózkodik-e gyalogos, akit a nyíló ajtó esetleg megüthet.",
+      "Az ajtó kinyitása előtt meg kell győződni arról, hogy az nem veszélyezteti a hátulról érkező forgalmat.",
+      "Nincs különösebb teendő, az ajtót nyitó autósnak elsőbbsége van a hátulról érkezőkkel szemben.",
+      "Elegendő a vészvillogót bekapcsolni, így a közeledők már messziről látni fogják a manővert."
     ],
-    correctAnswer: 2,
-    explanation: "Az ajtó kinyitása előtt meg kell győződni arról, hogy ezzel a közlekedés biztonságát nem veszélyeztetjük, különösen a hátulról érkező kerékpárosokat."
+    correctAnswer: 1,
+    explanation: "Az ajtó kinyitása előtt kötelezően meg kell győződni arról (tükörből és hátranézéssel), hogy ezzel a közlekedés biztonságát nem veszélyeztetjük (különösen a hátulról érkező kerékpárosokat)."
   },
   {
     id: "meg_17",
     category: "megallas",
     difficulty: "hard",
-    question: "Szabad-e megállni kerékpársávon gépjárművel?",
+    question: "Szabad-e megállni kijelölt kerékpársávon személygépkocsival?",
     answers: [
-      "Csak taxival",
-      "Csak ha nincs ott biciklis",
-      "Igen, ha csak csomagot rakodunk ki",
-      "Nem."
+      "Szabályos, de a jármű vezetőjének a gépkocsi mellett kell maradnia a rakodás alatt.",
+      "Megengedett abban az esetben, ha a kerékpáros forgalom az adott időszakban minimális.",
+      "Kizárólag a taxik és a futárszolgálatok számára engedélyezett maximum 5 perces időtartamra.",
+      "A kerékpársávon gépjárművel megállni tilos, mert a bicikliseket az autók közé kényszerítené."
     ],
     correctAnswer: 3,
-    explanation: "A kijelölt kerékpársávon a gépjárműveknek még egy másodpercre is tilos megállniuk, mert ezzel a kerékpárosokat az úttest belső sávjába kényszerítenék."
+    explanation: "A kijelölt kerékpársávon a gépjárműveknek még egy másodpercre is tilos megállniuk."
   },
   {
     id: "meg_18",
@@ -808,40 +810,40 @@ export const groupBQuestions: Question[] = [
     difficulty: "medium",
     question: "Mit jelent a sárga színű folyamatos vonal az úttest jobb szélén (az útpadka mellett)?",
     answers: [
-      "Megállási tilalmat.",
-      "Díszítést",
-      "Kerékpársávot",
-      "Hogy ott lehet parkolni"
+      "A járdán való parkolás lehetőségét és a megengedett tengelyterhelést mutatja.",
+      "Megállási tilalmat jelöl az adott útszakaszon az úttest jobb szélén.",
+      "Azt jelzi, hogy a parkolás az adott zónában díjköteles és időhöz kötött.",
+      "Kijelölt kerékpáros felületet jelez, ahol csak egy nyomon haladó járművek mehetnek."
     ],
-    correctAnswer: 0,
-    explanation: "Az úttest szélén lévő sárga folytonos vonal útburkolati jelként Megállási tilalmat jelez."
+    correctAnswer: 1,
+    explanation: "Az úttest szélén lévő sárga folytonos vonal útburkolati jelként a Megállási tilalmat jelzi az adott oldalon."
   },
   {
     id: "meg_19",
     category: "megallas",
     difficulty: "hard",
-    question: "Mit kell tenni a várakozó járművel a KRESZ szerint?",
+    question: "Mit kell kötelezően megtenni a várakozó (parkoló) járművel a KRESZ előírásai szerint?",
     answers: [
-      "Semmit",
-      "Elgurulás ellen biztosítani és a motort leállítani.",
-      "Szabadon kell hagyni elgurulni",
-      "Csak az első kereket kell rögzíteni – az adott körülmények között"
+      "Elegendő csak a kéziféket behúzni, a motor járatható a fűtés fenntartása érdekében.",
+      "A kormányt mindig teljesen balra kell tekerni, függetlenül az út lejtésétől vagy emelkedésétől.",
+      "A járművet elgurulás ellen biztosítani kell (fék, sebességváltó), és a motort le kell állítani.",
+      "Csak a lejtős utakon kötelező a jármű rögzítése, sík terepen a sebességváltó üresben maradhat."
     ],
-    correctAnswer: 1,
-    explanation: "A várakozó járművet elgurulás ellen biztosítani kell, és a motorját a KRESZ-ben meghatározott kivételektől eltekintve le kell állítani."
+    correctAnswer: 2,
+    explanation: "A várakozó járművet elgurulás ellen fizikai rögzítéssel biztosítani kell, és a motorját (kivéve a megengedett speciális eseteket) le kell állítani."
   },
   {
     id: "meg_20",
     category: "megallas",
     difficulty: "easy",
-    question: "Mi a legfontosabb teendő, ha a jármű műszaki hiba miatt az úttesten marad?",
+    question: "Mi a legfontosabb teendő, ha a jármű műszaki hiba miatt hirtelen az úttesten marad és nem tud továbbhaladni?",
     answers: [
-      "A veszélyt jelezni kell.",
-      "A járműben ülve semmit sem tenni",
-      "Elhagyni a helyszínt jelzés nélkül",
-      "A járművet egyedül az autópályán tolni"
+      "A járművet haladéktalanul ki kell világítani, és a szabályoknak megfelelően elakadásjelzővel biztosítani.",
+      "A járművet azonnal el kell hagyni, és a helyszíntől legalább 100 méterre eltávolodva kell várakozni.",
+      "Szorosan a jármű mögött kell állni, és karjelzésekkel kell terelni a közeledő gyorsforgalmat.",
+      "Meg kell várni a rendőrség kiérkezését, addig semmilyen jelzést nem szabad a jármű körül elhelyezni."
     ],
     correctAnswer: 0,
-    explanation: "Műszaki hiba esetén a veszélyeztetés csökkentése, a jármű kivilágítása és a szükséges elakadásjelzés a szabályok szerint kötelező. A részletszabályok a megállás helyétől és körülményeitől függnek."
+    explanation: "Műszaki hiba esetén a veszélyeztetés csökkentése érdekében a jármű kivilágítása (vészvillogó) és a helyzettől függően az elakadásjelző háromszög kihelyezése kötelező."
   }
 ];
