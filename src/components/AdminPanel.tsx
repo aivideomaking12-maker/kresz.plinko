@@ -442,6 +442,8 @@ export default function AdminPanel({ settings, onSaveSettings }: AdminPanelProps
                               updateSetting("enableMusic", true);
                               updateSetting("enableSFX", true);
                               updateSetting("timerDuration", 0);
+                              updateSetting("childDifficulties", ["easy", "medium"]);
+                              updateSetting("adultDifficulties", ["hard"]);
                             }}
                             className="text-xs text-slate-500 hover:text-indigo-600 flex items-center gap-1 cursor-pointer font-bold"
                           >
@@ -473,7 +475,66 @@ export default function AdminPanel({ settings, onSaveSettings }: AdminPanelProps
                           </div>
                         </div>
 
-                        {/* 2. Timer Setup */}
+                        {/* 2. Difficulty profiles */}
+                        <div className="space-y-4 rounded-2xl border border-slate-200 bg-slate-50/80 p-4">
+                          <div>
+                            <h3 className="text-sm font-black text-slate-800">Kérdésnehézség játékosonként</h3>
+                            <p className="text-xs text-slate-500 mt-1">
+                              Itt állíthatod be, hogy a Gyerek és a Felnőtt profil milyen nehézségű kérdéseket kaphat.
+                            </p>
+                          </div>
+
+                          {([
+                            ["childDifficulties", "🧒 Gyerek", "Kezdő és közepes alapbeállítás"],
+                            ["adultDifficulties", "🧑 Felnőtt", "Nehéz alapbeállítás"],
+                          ] as const).map(([key, label, hint]) => {
+                            const selected = settings[key];
+                            const toggleDifficulty = (difficulty: Difficulty) => {
+                              const next = selected.includes(difficulty)
+                                ? selected.filter((d) => d !== difficulty)
+                                : [...selected, difficulty];
+
+                              // Never allow an empty profile: at least one difficulty must remain.
+                              if (next.length > 0) {
+                                updateSetting(key, next);
+                              }
+                            };
+
+                            return (
+                              <div key={key} className="bg-white rounded-xl border border-slate-200 p-3">
+                                <div className="flex items-center justify-between gap-3 mb-2">
+                                  <span className="font-black text-sm text-slate-700">{label}</span>
+                                  <span className="text-[10px] font-bold text-slate-400">{hint}</span>
+                                </div>
+                                <div className="grid grid-cols-3 gap-2">
+                                  {([
+                                    ["easy", "Könnyű"],
+                                    ["medium", "Közepes"],
+                                    ["hard", "Nehéz"],
+                                  ] as const).map(([difficulty, name]) => {
+                                    const active = selected.includes(difficulty);
+                                    return (
+                                      <button
+                                        key={difficulty}
+                                        type="button"
+                                        onClick={() => toggleDifficulty(difficulty)}
+                                        className={`py-2.5 px-2 rounded-xl text-xs font-black border transition-all cursor-pointer ${
+                                          active
+                                            ? "bg-indigo-600 text-white border-indigo-600 shadow-sm"
+                                            : "bg-slate-50 text-slate-500 border-slate-200 hover:bg-slate-100"
+                                        }`}
+                                      >
+                                        {name}
+                                      </button>
+                                    );
+                                  })}
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+
+                        {/* 3. Timer Setup */}
                         <div className="space-y-2">
                           <label className="text-sm font-bold text-slate-700 flex justify-between">
                             <span>Kérdés időkorlát (időzítő):</span>
