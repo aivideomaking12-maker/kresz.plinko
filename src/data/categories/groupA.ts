@@ -8,12 +8,12 @@ export const groupAQuestions: Question[] = [
     difficulty: "easy",
     question: "Mennyi a megengedett legnagyobb sebesség kerékpárral lakott területen kívül, ha a kerékpáros fejvédő sisakot visel és utast nem szállít?",
     answers: [
-      "30 km/h",
-      "40 km/h",
-      "50 km/h",
-      "60 km/h"
+      "50 km/h, amennyiben fejvédő sisakot visel és utast sem szállít a járművön.",
+      "40 km/h, mert lakott területen kívül a kerékpárosokra ez az általános határ.",
+      "60 km/h, ha az útvonal teljesen belátható és nincsenek gyalogosok a közelben.",
+      "30 km/h, mivel a kerékpárosok biztonsága érdekében a sebesség szigorúan limitált."
     ],
-    correctAnswer: 2,
+    correctAnswer: 0,
     explanation: "Ha sisakot viselsz és nem szállítasz utast, lakott területen kívül legfeljebb 50 km/h-val tekerhetsz. Sisak nélkül a határ 40 km/h."
   },
   {
@@ -22,12 +22,12 @@ export const groupAQuestions: Question[] = [
     difficulty: "easy",
     question: "Lakott területen belül (városban, faluban) általában mennyi a gépjárművek maximális sebességhatára?",
     answers: [
-      "30 km/h",
-      "70 km/h",
-      "90 km/h",
-      "50 km/h"
+      "60 km/h, amennyiben az úttest legalább két forgalmi sávval rendelkezik az adott irányba.",
+      "40 km/h, ha nincsen külön sebességet szabályozó jelzőtábla kihelyezve az útszakaszon.",
+      "50 km/h, ez az általános megengedett sebességhatár a biztonságos közlekedés érdekében.",
+      "70 km/h, amennyiben a forgalom ritmusa ezt megkívánja és a látási viszonyok kedvezőek."
     ],
-    correctAnswer: 3,
+    correctAnswer: 2,
     explanation: "Lakott területen belül a gépjárművek általános sebességhatára 50 km/h a biztonságos együttélés érdekében."
   },
   {
@@ -36,812 +36,814 @@ export const groupAQuestions: Question[] = [
     difficulty: "medium",
     question: "Mennyi a megengedett legnagyobb sebesség kerékpárral gyalog- és kerékpárúton?",
     answers: [
-      "20 km/h",
-      "10 km/h",
-      "30 km/h",
-      "40 km/h"
+      "10 km/h, pontosan ugyanannyi, mint amennyivel a járdán szabadna haladnia a kerékpárosnak.",
+      "30 km/h, abban az esetben, ha a kerékpárúton éppen nem tartózkodnak gyalogosok.",
+      "40 km/h, megegyezően az úttesten megengedett maximális kerékpáros sebességhatárral.",
+      "20 km/h, a gyalogosok biztonsága és a közös felület zavartalan használata érdekében."
     ],
-    correctAnswer: 0,
+    correctAnswer: 3,
     explanation: "Gyalog- és kerékpárúton a kerékpárral közlekedő jármű legfeljebb 20 km/h sebességgel haladhat."
   },
   {
     id: "seb_4",
     category: "sebesség",
     difficulty: "easy",
-    question: "Mennyi a kerékpár általános megengedett legnagyobb sebessége kerékpársávon, ha más szabály nem állapít meg eltérő korlátozást?",
+    question: "Mennyi a kerékpár megengedett legnagyobb sebessége kerékpársávon (amely az úttest része lakott területen), ha más szabály nem állapít meg eltérő korlátozást?",
     answers: [
-      "20 km/h",
-      "40 km/h",
-      "30 km/h",
-      "50 km/h"
+      "50 km/h, mivel a kerékpársáv az úttest része, így a gépjárművekkel azonos határ érvényes.",
+      "40 km/h, ez a kerékpárosokra vonatkozó általános sebességhatár lakott területen belül.",
+      "30 km/h, a szorosan mellettük haladó gépjárművek okozta balesetveszély csökkentése miatt.",
+      "20 km/h, megegyezően a gyalog- és kerékpárutakon előírt biztonságos maximális tempóval."
     ],
     correctAnswer: 1,
-    explanation: "A kerékpár általános megengedett legnagyobb sebessége 40 km/h; a helyi jelzések és az adott útfelület szabályai további korlátozást írhatnak elő."
+    explanation: "A kerékpár általános megengedett legnagyobb sebessége lakott területen 40 km/h. Mivel a kerékpársáv az úttest része, ez az érték a mérvadó."
   },
   {
     id: "seb_5",
     category: "sebesség",
     difficulty: "medium",
-    question: "Ha kerékpárral a járdán vagy kénytelen haladni (mert az úttest alkalmatlan), mekkora a megengedett legnagyobb sebességed?",
+    question: "Ha kerékpárral a járdán vagy kénytelen haladni (mert az úttest kerékpározásra alkalmatlan), mekkora a megengedett legnagyobb sebességed?",
     answers: [
-      "5 km/h",
-      "20 km/h",
-      "10 km/h",
-      "15 km/h"
+      "Legfeljebb 10 km/h, és a kerékpáros a gyalogosok forgalmát egyáltalán nem zavarhatja.",
+      "Maximum 5 km/h, vagyis szigorúan csak a gyalogosok szokásos sétatempójában haladhat.",
+      "Legfeljebb 15 km/h, amennyiben a járda kellően széles és nincsenek rajta járókelők.",
+      "Maximum 20 km/h, ahogyan az a kijelölt gyalog- és kerékpárutakon is szabályos lenne."
     ],
-    correctAnswer: 2,
+    correctAnswer: 0,
     explanation: "A járdán csak a gyalogosok zavarása nélkül, maximum 10 km/h sebességgel szabad kerékpározni, ha az úttest kerékpározásra alkalmatlan."
   },
   {
     id: "seb_6",
     category: "sebesség",
     difficulty: "easy",
-    question: "Miért fontos betartani a sebességkorlátozásokat az iskola környékén?",
+    question: "Miért kritikus fontosságú betartani a sebességkorlátozásokat az iskola és óvoda környékén?",
     answers: [
-      "Hogy ne csapjunk zajt",
-      "Hogy ne kapjon büntetést az autós",
-      "Mert az iskolások nem ismerik a KRESZ-t",
-      "A kisebb sebesség csökkenti a fékutat."
+      "Azért, hogy a szülők kényelmesen és nyugodtan tudjanak parkolni a reggeli csúcsforgalomban.",
+      "Hogy a gépjárművek motorzaja ne zavarja a pedagógusokat és a diákokat a tanítási órák alatt.",
+      "A kisebb sebesség drasztikusan csökkenti a fékutat, így elkerülhető egy esetleges baleset.",
+      "Kizárólag azért, mert ezeken a területeken a leggyakoribb a rendőrségi sebességmérés."
     ],
-    correctAnswer: 3,
+    correctAnswer: 2,
     explanation: "Kisebb sebességnél a reakcióidő alatt megtett út és a fékút is sokkal rövidebb, így elkerülhető a baleset, ha egy kisgyerek hirtelen az útra lép."
   },
   {
     id: "seb_7",
     category: "sebesség",
     difficulty: "easy",
-    question: "Melyik közlekedhet szabályosan az alábbiak közül autópályán?",
+    question: "Melyik jármű közlekedhet szabályosan a felsoroltak közül az autópályán?",
     answers: [
-      "Személygépkocsi",
-      "Traktor",
-      "Kerékpár",
-      "Segédmotoros kerékpár"
+      "Lassú jármű és mezőgazdasági vontató, ha a szállított rakomány ezt szükségessé teszi.",
+      "Személygépkocsi, valamint minden olyan motoros jármű, ami sík úton legalább 60 km/h-val képes haladni.",
+      "Segédmotoros kerékpár és kerékpár, de kizárólag a leállósávban és fényvisszaverő mellényben.",
+      "Minden olyan gépjármű, amely képes önerőből tartósan legalább 50 km/h sebességgel haladni."
     ],
-    correctAnswer: 0,
-    explanation: "Az autópályára a kerékpár, a segédmotoros kerékpár és a traktor nem hajthat fel; a személygépkocsi igen."
+    correctAnswer: 1,
+    explanation: "Az autópályára csak olyan gépjármű hajthat fel, amely sík úton legalább 60 km/h sebességgel képes haladni. A kerékpár és a traktor ki van tiltva."
   },
   {
     id: "seb_8",
     category: "sebesség",
     difficulty: "medium",
-    question: "Lakott területen kívüli országúton mennyi az autók általános sebességhatára?",
+    question: "Lakott területen kívüli egyéb úton (országúton) mennyi a személygépkocsik általános maximális sebességhatára?",
     answers: [
-      "50 km/h",
-      "90 km/h",
-      "70 km/h",
-      "110 km/h"
+      "110 km/h, abban az esetben, ha az út fizikailag osztott (például szalagkorláttal elválasztott).",
+      "80 km/h, ami megegyezik a tehergépkocsikra és autóbuszokra vonatkozó országúti limittel.",
+      "90 km/h, amennyiben az időjárási, út- és látási viszonyok ezt biztonságosan lehetővé teszik.",
+      "70 km/h, ha az útszakasz minősége nem megfelelő, vagy a forgalom sűrűsége megkívánja."
     ],
-    correctAnswer: 1,
-    explanation: "Országúton, lakott területen kívül a személygépkocsik maximális megengedett sebessége 90 km/h."
+    correctAnswer: 2,
+    explanation: "Országúton, lakott területen kívül a személygépkocsik és motorkerékpárok maximális megengedett sebessége általánosan 90 km/h."
   },
   {
     id: "seb_9",
     category: "sebesség",
     difficulty: "easy",
-    question: "Mit jelent az 'ajánlott sebesség' jelzőtábla (kék négyzetben fehér szám)?",
+    question: "Mit jelent pontosan az 'Ajánlott sebesség' jelzőtábla (kék négyzetben fehér szám)?",
     answers: [
-      "Kötelező annyival menni",
-      "Tilos annál lassabban menni",
-      "A megjelölt sebességet javasolja.",
-      "Tilos annál gyorsabban menni – a megadott helyzetben"
+      "A táblán megjelölt sebességgel kötelező haladni, az annál gyorsabb vagy lassabb tempó szabálytalan.",
+      "A táblán lévő sebességet javasolja a biztonságos haladás érdekében, de jogilag nem kötelező érvényű.",
+      "A megjelölt sebességnél gyorsabban haladni tilos, ez gyakorlatilag egy sebességkorlátozó tábla.",
+      "Tilos annál lassabban menni, ha a forgalom és az útviszonyok egyébként engednék a gyorsabb haladást."
     ],
-    correctAnswer: 2,
-    explanation: "Az ajánlott sebesség tábla nem kötelez, de azt javasolja, hogy a megjelölt sebességgel (pl. 40 km/h) közlekedj a biztonság érdekében."
+    correctAnswer: 1,
+    explanation: "Az ajánlott sebesség tábla nem kötelez, de azt javasolja, hogy kedvező viszonyok között a megjelölt sebességgel közlekedj a biztonság érdekében."
   },
   {
     id: "seb_10",
     category: "sebesség",
     difficulty: "medium",
-    question: "Mi befolyásolja a biztonságos sebesség megválasztását (relatív sebességtúllépés elkerülése)?",
+    question: "Mi befolyásolja leginkább a biztonságos sebesség megválasztását (a relatív sebességtúllépés elkerülése érdekében)?",
     answers: [
-      "Csak a benzin ára",
-      "A gépjármű színe",
-      "Csak az, hogy sietünk-e – az adott körülmények között",
-      "Az időjárás, látási, út- és forgalmi viszonyok."
+      "Kizárólag az útburkolat minősége, az évszakok változása és a gépjármű műszaki állapota.",
+      "Az aktuális időjárási, látási, út- és forgalmi viszonyok folyamatos és együttes mérlegelése.",
+      "A megengedett maximális sebességhatár táblája és a sofőr személyes vezetési rutinja.",
+      "Csak az a tény, hogy az adott útszakaszon telepítettek-e rögzített sebességmérő kamerákat."
     ],
-    correctAnswer: 3,
+    correctAnswer: 1,
     explanation: "A sebességet mindig az útviszonyokhoz (pl. eső, jég, köd) és a forgalomhoz kell igazítani. Rossz időben lassabban kell menni a táblán megengedettnél is!"
   },
   {
     id: "seb_11",
     category: "sebesség",
     difficulty: "medium",
-    question: "Mennyivel mehet egy kerékpáros lakott területen kívül fejvédő sisak NÉLKÜL?",
+    question: "Mennyivel közlekedhet egy kerékpáros lakott területen kívül, ha NEN visel fejvédő sisakot?",
     answers: [
-      "30 km/h",
-      "40 km/h",
-      "50 km/h",
-      "60 km/h"
+      "30 km/h, mivel a sisak hiánya fokozott balesetveszélyt jelent a nagyobb sebességeknél.",
+      "25 km/h, ahogyan az elektromos rásegítésű kerékpárok motoros hajtására is vonatkozik.",
+      "50 km/h, ugyanannyival, mint azok a kerékpárosok, akik rendelkeznek bukósisakkal.",
+      "40 km/h, ez az előírt sebességlimit a fejvédő sisak nélkül közlekedő biciklisek számára."
     ],
-    correctAnswer: 1,
+    correctAnswer: 3,
     explanation: "Lakott területen kívül, ha nem viselsz sisakot, a megengedett legnagyobb sebességed kerékpárral 40 km/h."
   },
   {
     id: "seb_12",
     category: "sebesség",
     difficulty: "easy",
-    question: "Mit kell tenned gépjárművel vagy biciklivel a 'Sebességkorlátozás 30' tábla után?",
+    question: "Mit kell tenned gépjárművel vagy biciklivel a 'Sebességkorlátozás 30' tábla észlelése után?",
     answers: [
-      "Legalább 30 km/h-val kell haladni",
-      "Figyelmen kívül hagyhatod, ha üres az út",
-      "Legfeljebb 30 km/h-val szabad haladni",
-      "Pontosan 30-cal kell menni, se többel, se kevesebbel"
+      "Kereken 30 km/h-val kell haladnod, se többel, se kevesebbel, hogy ne tartsd fel a forgalmat.",
+      "Legfeljebb 30 km/h-val szabad haladnod az adott útszakaszon a tábla hatályának végéig.",
+      "Legalább 30 km/h-val kötelező haladnod a forgalom folyamatosságának fenntartása érdekében.",
+      "Figyelmen kívül hagyhatod, ha éppen nincsenek gyalogosok vagy más zavaró tényezők az úton."
     ],
-    correctAnswer: 2,
-    explanation: "A sebességkorlátozó tábla azt jelzi, hogy legfeljebb a táblán megjelölt sebességgel (itt 30 km/h) szabad közlekedni."
+    correctAnswer: 1,
+    explanation: "A sebességkorlátozó tábla (piros karikában lévő szám) azt jelzi, hogy legfeljebb a táblán megjelölt sebességgel szabad közlekedni."
   },
   {
     id: "seb_13",
     category: "sebesség",
     difficulty: "hard",
-    question: "Mennyi a megengedett legnagyobb sebesség kerékpárral lakott területen?",
+    question: "Mennyi a megengedett legnagyobb sebesség kerékpárral lakott területen belül (városokban)?",
     answers: [
-      "20 km/h",
-      "30 km/h",
-      "50 km/h",
-      "40 km/h"
+      "50 km/h, amennyiben a gépjárműforgalom is ekkora sebességgel haladhat a főútvonalon.",
+      "20 km/h, megegyezően a kijelölt gyalog- és kerékpárutakon érvényes sebességkorlátozással.",
+      "40 km/h, ez a kerékpárosokra vonatkozó legfelső megengedett határ lakott területen.",
+      "30 km/h, a gyalogosok fokozott védelme és a kereszteződések beláthatósága érdekében."
     ],
-    correctAnswer: 3,
-    explanation: "Lakott területen kerékpárral legfeljebb 40 km/h sebességgel szabad közlekedni."
+    correctAnswer: 2,
+    explanation: "Lakott területen kerékpárral - még az úttesten is - legfeljebb 40 km/h sebességgel szabad közlekedni."
   },
   {
     id: "seb_14",
     category: "sebesség",
     difficulty: "easy",
-    question: "Mit csinál az autó fékútja, ha megduplázzuk a sebességet?",
+    question: "Hogyan változik meg egy jármű fékútja, ha a haladási sebességét a kétszeresére növeljük (pl. 40-ről 80-ra)?",
     answers: [
-      "Körülbelül négyszeresére nő.",
-      "Megduplázódik",
-      "Ugyanakkora marad – az adott körülmények között",
-      "A felére csökken"
+      "Pontosan a kétszeresére nő, mivel az egyenes arányosság törvényei érvényesülnek a fizikában.",
+      "Nagyjából a felére csökken a modern, blokkolásgátlóval (ABS) felszerelt fékrendszerek miatt.",
+      "Nem változik jelentősen, ha jó állapotúak az abroncsok és száraz az aszfaltburkolat.",
+      "Körülbelül a négyszeresére nő, mivel a fékút a sebesség négyzetével arányosan növekszik."
     ],
-    correctAnswer: 0,
+    correctAnswer: 3,
     explanation: "A fékút a sebesség négyzetével arányos, így kétszeres sebességnél a fékút a négyszeresére nő! Ezért nagyon veszélyes a gyorshajtás."
   },
   {
     id: "seb_15",
     category: "sebesség",
     difficulty: "medium",
-    question: "Mennyi a megengedett legnagyobb sebesség gyalogos-övezetbe engedéllyel behajtó járművel?",
+    question: "Mennyi a megengedett legnagyobb sebesség a 'Gyalogos övezet' (sétálóutca) területére engedéllyel behajtó járművel?",
     answers: [
-      "20 km/h",
-      "10 km/h",
-      "30 km/h",
-      "40 km/h"
+      "Maximum 5 km/h, vagyis szigorúan csak a gyalogosok sétatempójában szabad haladni.",
+      "Legfeljebb 10 km/h, és a jármű a gyalogosok forgalmát egyáltalán nem veszélyeztetheti.",
+      "20 km/h, ami pontosan megegyezik a lakó-pihenő övezetben alkalmazott sebességlimittel.",
+      "30 km/h, a járműforgalom zavartalansága és a terület gyors elhagyása érdekében."
     ],
     correctAnswer: 1,
-    explanation: "A gyalogos-övezetbe engedéllyel behajtó jármű legfeljebb 10 km/h-val közlekedhet, és a gyalogosoknak elsőbbséget kell adnia."
+    explanation: "A gyalogos övezetbe engedéllyel behajtó jármű legfeljebb 10 km/h-val közlekedhet, és a gyalogosoknak minden körülmények között elsőbbséget kell adnia."
   },
   {
     id: "seb_16",
     category: "sebesség",
     difficulty: "easy",
-    question: "Hogyan mérheti a rendőrség a sebességet?",
+    question: "Milyen módon mérheti és rögzítheti a rendőrség hivatalosan a közlekedők sebességét?",
     answers: [
-      "Csak szemmel követve",
-      "A motor hangja alapján",
-      "Sebességmérő eszközzel.",
-      "Stopperórával mérve a távolságot"
+      "Hitelesített, modern radaros vagy lézeres sebességmérő berendezések (trafipax) alkalmazásával.",
+      "A rendőrautó sebességmérő műszerének leolvasásával és annak fedélzeti kamerás rögzítésével.",
+      "Kizárólag vizuális becsléssel, abban az esetben, ha a sebességtúllépés mértéke egyértelmű.",
+      "Kézi stopperórával mérve az időt két előre meghatározott és felfestett útburkolati jel között."
     ],
-    correctAnswer: 2,
-    explanation: "A rendőrség modern lézeres és radaros sebességmérő eszközöket (trafipaxot) használ a sebesség pontos mérésére a biztonság érdekében."
+    correctAnswer: 0,
+    explanation: "A rendőrség hitelesített lézeres és radaros sebességmérő eszközöket használ a sebesség pontos, jogilag elfogadott mérésére."
   },
   {
     id: "seb_17",
     category: "sebesség",
     difficulty: "hard",
-    question: "Mennyi a megengedett legnagyobb sebesség lakó-pihenő övezetben?",
+    question: "Mennyi a megengedett legnagyobb sebesség a kék táblával jelzett lakó-pihenő övezetben?",
     answers: [
-      "10 km/h",
-      "30 km/h",
-      "40 km/h",
-      "20 km/h"
+      "Maximum 10 km/h, mivel itt az úttesten a gyermekek is játszhatnak és szaladgálhatnak.",
+      "30 km/h, ahogyan az a csillapított forgalmú, egyenrangú útkereszteződésekben is megszokott.",
+      "Legfeljebb 20 km/h sebességgel szabad az ilyen zónákban bármilyen járművel közlekedni.",
+      "40 km/h, feltéve, hogy a sofőr meggyőződött arról, hogy nincsenek gyalogosok a közelben."
     ],
-    correctAnswer: 3,
-    explanation: "Lakó-pihenő övezetben a megengedett legnagyobb sebesség 20 km/h."
+    correctAnswer: 2,
+    explanation: "Lakó-pihenő övezetben (ahol a gyalogosok az úttestet teljes szélességében használhatják) a megengedett legnagyobb sebesség 20 km/h."
   },
   {
     id: "seb_18",
     category: "sebesség",
     difficulty: "easy",
-    question: "Miért veszélyes, ha túl lassan halad egy autó az országúton indokolatlanul?",
+    question: "Miért veszélyes, ha egy autó ok nélkül, indokolatlanul lassan halad az országúton?",
     answers: [
-      "Veszélyes előzéshez és torlódáshoz vezethet.",
-      "Mert elalszik a sofőr",
-      "Mert lemerül az akkumulátor",
-      "Nem veszélyes, a lassúság mindig biztonságos"
+      "Mert a motor túlzottan felmelegedhet a megfelelő menetszél és hűtés hiánya miatt.",
+      "Egyáltalán nem hordoz veszélyt, a lassú haladás minden körülmények között biztonságos.",
+      "Mivel az indokolatlanul lassú haladás torlódást és veszélyes, agresszív előzéseket válthat ki.",
+      "A modern gépjárművek biztonsági elektronikája letilthat a tartósan alacsony tempótól."
     ],
-    correctAnswer: 0,
-    explanation: "Az indokolatlanul lassú haladás is balesetveszélyes, mert türelmetlenséget és veszélyes előzési manővereket válthat ki a többi sofőrből."
+    correctAnswer: 2,
+    explanation: "Az indokolatlanul lassú haladás balesetveszélyes, mert feltartja a forgalmat, türelmetlenséget és meggondolatlan előzési manővereket válthat ki a többi sofőrből."
   },
   {
     id: "seb_19",
     category: "sebesség",
     difficulty: "medium",
-    question: "Mennyivel mehet egy autó 'Gyalog- és kerékpárút' tábla után, ha engedéllyel behajthat?",
+    question: "Mekkora sebességgel mehet egy gépjármű a 'Gyalog- és kerékpárút' tábla után, ha kivételes engedéllyel oda behajthat?",
     answers: [
-      "10 km/h",
-      "20 km/h",
-      "30 km/h",
-      "50 km/h"
+      "Maximum 10 km/h sebességgel, csak gyalogos tempóban, a forgalmat nem zavarva.",
+      "30 km/h sebességgel, ha az útburkolat szélessége és minősége ezt megengedi számára.",
+      "Ugyanannyival, mint a lakott területen belüli utakon általában megengedett (50 km/h).",
+      "Legfeljebb 20 km/h sebességgel haladhat a gyalogosok és kerékpárosok veszélyeztetése nélkül."
     ],
-    correctAnswer: 1,
+    correctAnswer: 3,
     explanation: "Ha egy gépjármű engedéllyel behajthat a gyalog- és kerékpárútra, ott legfeljebb 20 km/h sebességgel közlekedhet."
   },
   {
     id: "seb_20",
     category: "sebesség",
     difficulty: "easy",
-    question: "Mi a teendőnk, ha kerékpárral lejtőn lefelé haladunk és nagyon felgyorsulunk?",
+    question: "Mi a helyes teendő, ha kerékpárral egy meredek lejtőn lefelé haladunk és a jármű túlságosan felgyorsul?",
     answers: [
-      "Óvatosan fékezz mindkét fékkel.",
-      "Örülünk a sebességnek és nem fékezünk",
-      "Létesszük a lábunkat a földre fék gyanánt",
-      "Hirtelen behúzzuk az első féket teljes erőből"
+      "Kizárólag a hátsó féket használjuk a lassításra, mivel az első fék behúzása szigorúan tilos.",
+      "Mindkét fék (első és hátsó) egyidejű és óvatos adagolásával folyamatosan lassítjuk a kerékpárt.",
+      "Kizárólag az első féket húzzuk be hirtelen és teljes erőből a maximális fékhatás eléréséhez.",
+      "A cipőtalpunkat szorosan a talajhoz dörzsölve próbáljuk megfékezni a felgyorsult biciklit."
     ],
-    correctAnswer: 0,
-    explanation: "Lejtőn lefelé mindig óvatosan kell fékezni mindkét fékkel. A hirtelen első fék használat miatt átbukhatunk a kormányon!"
+    correctAnswer: 1,
+    explanation: "Lejtőn lefelé mindig mindkét féket egyszerre, óvatosan kell használni. A hirtelen első fék használata miatt átbukhatunk a kormányon!"
   },
+
   // --- KERÉKPÁROS KÖZLEKEDÉS (20 questions) ---
   {
     id: "ker_1",
     category: "kerekpar",
     difficulty: "easy",
-    question: "Melyik kötelező tartozéka a kerékpárnak a következők közül?",
+    question: "Melyik felsorolás tartalmazza helyesen a kerékpár KRESZ által előírt kötelező tartozékait?",
     answers: [
-      "Az előírt világítás és fényvisszaverők.",
-      "Kulacstartó",
-      "Kilométeróra",
-      "Sárvédő és csomagtartó – a megadott helyzetben"
+      "Kilométeróra, visszapillantó tükör, láncvédő burkolat és legalább egy darab fék.",
+      "Láthatósági mellény, sárvédő, csomagtartó és egy akkumulátoros, erős fényű első lámpa.",
+      "Két független fék, csengő, fehér és piros lámpa, valamint a megfelelő fényvisszaverők.",
+      "Bukósisak, kulacstartó, első kosár és két darab, egymástól teljesen független fékrendszer."
     ],
-    correctAnswer: 0,
-    explanation: "A kerékpár kötelező felszerelése: egy első fehér és egy hátsó piros lámpa, küllőprizmák, csengő és két egymástól független fék."
+    correctAnswer: 2,
+    explanation: "A kerékpár kötelező felszerelése: egy első fehér és egy hátsó piros lámpa, küllőprizmák, csengő és két egymástól függetlenül működő fék."
   },
   {
     id: "ker_2",
     category: "kerekpar",
     difficulty: "easy",
-    question: "Hány éves kortól szabad főútvonalon kerékpározni önállóan?",
+    question: "Hány éves kortól szabad főútvonalon (lakott területen kívül vagy belül) kerékpározni teljesen önállóan?",
     answers: [
-      "10 év",
-      "12 év",
-      "14 év",
-      "16 év"
+      "10 éves kortól, feltéve, hogy a gyermek már biztonságosan ismeri a közlekedési szabályokat.",
+      "14 éves kortól, amikor a fiatal már jogosult lehet megszerezni a segédmotoros jogosítványt.",
+      "12 éves kortól megengedett az önálló kerékpározás a forgalmasabb főútvonalakon is.",
+      "Bármilyen életkorban, ha a kerékpár megfelelően fel van szerelve és jó műszaki állapotú."
     ],
-    correctAnswer: 1,
-    explanation: "Főútvonalon csak a 12. életévét betöltött személy kerékpározhat önállóan, mivel a főutak forgalmasak és veszélyesek."
+    correctAnswer: 2,
+    explanation: "Főútvonalon csak a 12. életévét betöltött személy kerékpározhat önállóan, mivel a főutak forgalmasak és összetettebb helyzeteket teremtenek."
   },
   {
     id: "ker_3",
     category: "kerekpar",
     difficulty: "easy",
-    question: "Ha az út mellett kijelölt kerékpárút van, mi a főszabály?",
+    question: "Mi a teendő, ha az úttest mellett egyértelműen kijelölt és táblával jelzett kerékpárút fut?",
     answers: [
-      "A járdát kell használni",
-      "Csak az úttesten szabad haladni",
-      "A kerékpárutat kell használni",
-      "Bármelyik felület választható"
+      "A kerékpáros választhat, hogy a kerékpárúton vagy az úttest jobb szélén szeretne-e haladni.",
+      "Kötelező a kerékpárutat használni, az úttesten ilyen esetben kerékpárral közlekedni tilos.",
+      "A járdát kell használnia, mert az sokszor biztonságosabb a kiépített kerékpárutaknál is.",
+      "Csak akkor kötelező ráhajtani, ha a kerékpárúton egyáltalán nincsen zavaró gyalogosforgalom."
     ],
-    correctAnswer: 2,
-    explanation: "Ha a közlekedési szabályok szerint kijelölt kerékpárút áll rendelkezésre, azt kell igénybe venni; a konkrét helyi jelzéseket és kivételeket is figyelembe kell venni."
+    correctAnswer: 1,
+    explanation: "Ha az úttest mellett kijelölt kerékpárút áll rendelkezésre, azt a kerékpárosoknak kötelező használniuk, az úttesten nem haladhatnak."
   },
   {
     id: "ker_4",
     category: "kerekpar",
     difficulty: "medium",
-    question: "Hogyan kell jelezni a kerékpárosnak, ha jobbra vagy balra szeretne kanyarodni?",
+    question: "Hogyan kell szabályosan jeleznie a kerékpárosnak, ha a kereszteződésben jobbra vagy balra szeretne kanyarodni?",
     answers: [
-      "Kiabálással",
-      "A fejünk biccentésével",
-      "Nem kell jelezni, az autósoknak figyelniük kell ránk",
-      "A megfelelő oldali kar vízszintes kinyújtásával"
+      "Az irányváltoztatást a megfelelő oldali kar jól látható, vízszintes kinyújtásával kell jelezni.",
+      "Hangjelzéssel (folyamatos csengőhasználattal) kell felhívnia a figyelmet a bekanyarodásra.",
+      "A fejének és felsőtestének megfelelő irányba történő erőteljes elfordításával jelzi a szándékot.",
+      "Nem kötelező jeleznie, de a kanyarodás előtt köteles hátranézni, hogy ellenőrizze a forgalmat."
     ],
-    correctAnswer: 3,
-    explanation: "Irányváltoztatási szándékunkat mindig időben, jól látható módon kell jeleznünk a megfelelő karunk oldalra kinyújtásával."
+    correctAnswer: 0,
+    explanation: "Irányváltoztatási szándékunkat mindig időben, jól látható módon kell jeleznünk a megfelelő karunk oldalra (vízszintesen) kinyújtásával."
   },
   {
     id: "ker_5",
     category: "kerekpar",
     difficulty: "easy",
-    question: "Kétkerekű kerékpáron hány éves kortól szállítható legfeljebb egy, 10 évesnél fiatalabb gyermek?",
+    question: "Milyen feltételekkel szállítható gyermek kétkerekű kerékpáron a KRESZ előírásai szerint?",
     answers: [
-      "16 éves kortól, gyermeküléssel.",
-      "21 éves kortól – az adott körülmények között",
-      "14 éves kortól",
-      "18 éves kortól"
+      "Bármilyen felnőtt személy szállíthat két gyermeket is, ha van elég hely a hátsó csomagtartón.",
+      "Legalább 14 éves személy szállíthat egy kisgyermeket a kormányra rögzített fonott kosárban.",
+      "Egy legalább 16 éves személy szállíthat egyetlen, 10 évnél fiatalabb gyermeket a pótülésen.",
+      "Kizárólag 18 éves kortól megengedett, és a gyermeknek is viselnie kell a láthatósági mellényt."
     ],
-    correctAnswer: 0,
-    explanation: "Kétkerekű kerékpáron egy legalább 16 éves személy egy, 10 évesnél fiatalabb gyermeket szállíthat megfelelő gyermekülésen."
+    correctAnswer: 2,
+    explanation: "Kétkerekű kerékpáron kizárólag a 16. életévét betöltött személy szállíthat egy darab, 10 évesnél fiatalabb gyermeket megfelelő gyermekülésen."
   },
   {
     id: "ker_6",
     category: "kerekpar",
     difficulty: "easy",
-    question: "Milyen színűnek kell lennie a kerékpár első lámpájának?",
+    question: "Milyen színűnek kell lennie a szabályosan felszerelt kerékpár ELSŐ lámpájának?",
     answers: [
-      "Kék",
-      "Fehér vagy kadmiumsárga.",
-      "Zöld",
-      "Piros – az adott forgalmi helyzetben"
+      "Bármilyen színű lehet, a legfontosabb, hogy sötétben jól látható villogó fényt bocsásson ki.",
+      "Kizárólag fehér vagy kadmiumsárga fényt adó világítóberendezés használata engedélyezett.",
+      "Zöld vagy kék színűnek, hogy a kerékpáros egyértelműen megkülönböztethető legyen az autóktól.",
+      "Piros színűnek kell lennie, hogy sűrű ködben vagy esőben is a lehető legmesszebbről látszódjon."
     ],
     correctAnswer: 1,
-    explanation: "A kerékpár első lámpájának fehérnek vagy kadmiumsárgának kell lennie, míg a hátsó lámpa kizárólag piros lehet."
+    explanation: "A kerékpár első lámpájának előre fehér vagy kadmiumsárga fényt kell adnia, míg a hátsó lámpa kizárólag piros fényt sugározhat."
   },
   {
     id: "ker_7",
     category: "kerekpar",
     difficulty: "easy",
-    question: "Melyik kötelező hangjelző eszköz a kerékpáron?",
+    question: "Mi a kerékpáron hivatalosan elfogadott, kötelezően előírt hangjelző eszköz?",
     answers: [
-      "Duda",
-      "Síp",
-      "Csengő",
-      "Sziréna"
+      "Egy kellően hangos tülkölő vagy duda, amely képes elnyomni a városi forgalom zaját.",
+      "Elektronikus sziréna berendezés, amely folyamatos sípoló hangot ad a veszély jelzésére.",
+      "Kizárólag a jól hallható, mechanikus csengő használata szabályos a hangjelzés leadására.",
+      "Egy sportbírói síp, amelyet a kerékpárosnak a nyakában kell hordania a biztonság kedvéért."
     ],
     correctAnswer: 2,
-    explanation: "A kerékpáron kötelező felszerelés a hangjelzésre szolgáló csengő. A duda vagy síp használata nem helyettesíti ezt."
+    explanation: "A kerékpáron kötelező felszerelés a hangjelzésre szolgáló csengő. A hangos duda, kürt vagy síp használata szabálytalan."
   },
   {
     id: "ker_8",
     category: "kerekpar",
     difficulty: "medium",
-    question: "Mit kell tenni, ha kerékpárral kijelölt gyalogos-átkelőhelyhez (zebrához) érsz, és át akarsz kelni rajta?",
+    question: "Mit kell tenned, ha kerékpárral egy kijelölt gyalogos-átkelőhelyhez (zebrához) érsz, és az úttest túloldalára szeretnél átjutni?",
     answers: [
-      "Gyorsan áttekersz rajta",
-      "Csöngetsz, hogy az autók álljanak meg",
-      "Lassan, kanyarogva tekersz át a gyalogosok között",
-      "Leszállsz a kerékpárról és gyalogosan tolod át"
+      "Folyamatos csengetés mellett, lassított tempóban szabályosan áttekerhetsz az úttesten a zebrán.",
+      "Le kell szállnod a kerékpárról, és gyalogosként, a biciklit magad mellett tolva kell áthaladnod.",
+      "Gyalogos tempóban, a járókelőket gondosan kerülgetve megengedett az áttekerés az autók előtt.",
+      "Ugyanolyan sebességgel haladhatsz át, mintha egyszerűen az úttesten haladnál tovább egyenesen."
     ],
-    correctAnswer: 3,
-    explanation: "A zebrán a kerékpárosnak nincs elsőbbsége. Le kell szállni a bicikliről és gyalogosan, tolva kell átkelni rajta."
+    correctAnswer: 1,
+    explanation: "A zebrán a kerékpárosnak nincs elsőbbsége. Le kell szállni a bicikliről és gyalogosan, tolva kell átkelni rajta, ekkor már gyalogosnak számítasz."
   },
   {
     id: "ker_9",
     category: "kerekpar",
     difficulty: "easy",
-    question: "Mikor kötelező a kerékpárosnak fényvisszaverő ruházatot viselnie?",
+    question: "Mely esetekben teszi kötelezővé a KRESZ a kerékpáros számára a fényvisszaverő ruházat (pl. sárga mellény) viselését?",
     answers: [
-      "Fényvisszaverő ruházat.",
-      "Csak esőben",
-      "Csak városban",
-      "Mindenhol nappal – az adott forgalmi helyzetben"
+      "Minden esetben, ha a kerékpáros felhajt az úttestre, függetlenül a lakott területtől és napszaktól.",
+      "Kizárólag sűrű ködben vagy heves esőzés esetén, de csak abban az esetben, ha a kerékpár lámpája rossz.",
+      "Csak a 18 év alatti, kezdő kerékpárosok számára előírás a viselése sötétedés után az úttesten.",
+      "Lakott területen kívül az úttesten vagy leállósávban éjszaka, illetve korlátozott látási viszonyok között."
     ],
-    correctAnswer: 0,
-    explanation: "Lakott területen kívül az úttesten éjszaka vagy korlátozott látási viszonyok között a kerékpárosnak fényvisszaverő ruházatot kell viselnie."
+    correctAnswer: 3,
+    explanation: "A fényvisszaverő mellény (ruházat) lakott területen kívül, éjszaka és rossz látási viszonyok között kötelező a kerékpárosnak."
   },
   {
     id: "ker_10",
     category: "kerekpar",
     difficulty: "medium",
-    question: "Szabad-e elengedett kormánnyal kerékpározni az úton?",
+    question: "Megengedi-e a KRESZ, hogy elengedett kormánnyal, úgynevezett 'kéz nélkül' kerékpározzunk az úttesten?",
     answers: [
-      "Csak akkor, ha nem jön autó",
-      "Nem, legalább egy kézzel fogni kell.",
-      "Igen, de csak a kerékpárúton",
-      "Igen, ha már nagyon jól tudunk egyensúlyozni"
+      "Igen, de kizárólag a kiépített kerékpárutakon, ahol egyáltalán nincsenek gépjárművek a közelben.",
+      "Nem, a szabályok szerint a kerékpárt legalább az egyik kézzel folyamatosan és stabilan fogni kell.",
+      "Kizárólag lakott területen kívüli, teljesen egyenes és messziről belátható aszfaltos útszakaszokon.",
+      "Igen, abban az esetben, ha a kerékpárosnak éppen kétkezes karjelzést kell adnia a mögöttes forgalomnak."
     ],
     correctAnswer: 1,
-    explanation: "A KRESZ előírja, hogy a kerékpárt legalább egy kézzel folyamatosan fogni kell. Elengedett kormánnyal tekerni szigorúan tilos és veszélyes!"
+    explanation: "A KRESZ szigorúan előírja, hogy a kerékpárt legalább egy kézzel folyamatosan fogni kell. Elengedett kormánnyal tekerni balesetveszélyes és tilos."
   },
   {
     id: "ker_11",
     category: "kerekpar",
     difficulty: "easy",
-    question: "Ha az úttest jobb oldalán álló akadályt kell kikerülnöd kerékpárral, hogyan jársz el?",
+    question: "Ha az úttest jobb oldalán egy parkoló autó vagy egyéb akadály állja utadat, hogyan kell szabályosan kikerülnöd azt?",
     answers: [
-      "Átvágsz rajta",
-      "Jobbról kerülöd ki",
-      "Megállsz és mindig leszállsz – a megadott helyzetben",
-      "Balra, ellenőrzés és irányjelzés után."
+      "Balra tartva kerülöd ki, miután hátratekintettél és karjelzéssel jelezted a sávváltási szándékodat.",
+      "Lassítás nélkül felhajtasz a mellette lévő járdára, és onnan kerülöd ki a parkoló járművet.",
+      "Meg kell állnod, és türelmesen megvárni, amíg a sofőr eláll az autóval, vagy valaki eltávolítja az akadályt.",
+      "Szorosan az akadály mellett, irányjelzés nélkül húzódsz el mellette, nehogy megzavard az autókat."
     ],
-    correctAnswer: 3,
-    explanation: "A jobb oldalon lévő akadály kikerüléséhez a bal oldali irányváltoztatást az előírások szerint jelezni kell, és meg kell győződni a manőver veszélytelenségéről."
+    correctAnswer: 0,
+    explanation: "A kikerülés egy balra történő irányváltoztatás, amit hátranézéssel ellenőrizni, majd kinyújtott karral jelezni kell a mögöttes forgalomnak."
   },
   {
     id: "ker_12",
     category: "kerekpar",
     difficulty: "medium",
-    question: "Hogyan kell kerékpárral az úttesten haladni, ha nincs erre kijelölt kerékpáros létesítmény?",
+    question: "Hol kell haladni a kerékpárral az úttesten, ha nincsen kijelölt kerékpárút vagy kerékpársáv?",
     answers: [
-      "A menetirány szerinti jobb oldalon.",
-      "A járdán",
-      "Az úttest bal szélén",
-      "Középen, a sáv tengelyében – a megadott helyzetben"
+      "Pontosan a forgalmi sáv legközepén, hogy az autósok véletlenül se tudjanak veszélyesen megelőzni.",
+      "Az úttest menetirány szerinti jobb szélén, a lehetőséghez képest minél jobban oda húzódva.",
+      "Mindig a járdán kell haladni, kivéve, ha az túlságosan zsúfolt a gyalogosforgalom miatt.",
+      "Az úttest bal oldalán, hogy a kerékpáros szemből is jól láthassa a feléje közeledő gépjárműveket."
     ],
-    correctAnswer: 0,
-    explanation: "A kerékpárosra is vonatkozik a jobbra tartási kötelezettség: az úttest menetirány szerinti jobb oldalán, a lehetőséghez képest a széléhez húzódva kell haladni."
+    correctAnswer: 1,
+    explanation: "A kerékpárosra is vonatkozik a jobbra tartási kötelezettség: az úttest menetirány szerinti jobb oldalán, szorosan a széléhez húzódva kell haladni."
   },
   {
     id: "ker_13",
     category: "kerekpar",
     difficulty: "easy",
-    question: "Szabad-e kerékpárral autópályán vagy autóúton közlekedni?",
+    question: "Szabad-e kerékpárral autópályán vagy autóúton közlekedni a hazai szabályozás szerint?",
     answers: [
-      "Csak nappal, jó időben",
-      "Nem.",
-      "Igen, ha nincs nagy forgalom",
-      "Igen, ha a leállósávban megyünk"
+      "Igen, de kizárólag a leállósávban, folyamatosan fényvisszaverő mellényt viselve a láthatóságért.",
+      "Igen, abban az esetben, ha a kerékpáros képes tartósan legalább 40 km/h sebességgel haladni.",
+      "Szigorúan tilos, az autópályákon és az autóutakon tilos bármilyen kerékpárral közlekedni.",
+      "Csak vasárnapokon és nemzeti ünnepnapokon, amikor a nehéz tehergépjárművek forgalma korlátozott."
     ],
-    correctAnswer: 1,
-    explanation: "Autópályán és autóúton tilos kerékpározni, mert a járművek nagy sebessége miatt ez életveszélyes."
+    correctAnswer: 2,
+    explanation: "Autópályán és autóúton tilos kerékpározni, mert a járművek nagy sebessége miatt az életveszélyes lenne."
   },
   {
     id: "ker_14",
     category: "kerekpar",
     difficulty: "medium",
-    question: "Szabad-e kerékpárral kutyát sétáltatni pórázon tekerés közben?",
+    question: "Szabad-e kerékpárral tekerés közben háziállatot (például kutyát pórázon) sétáltatni?",
     answers: [
-      "Igen, ha a kutya fegyelmezett",
-      "Csak kis testű kutyát szabad",
-      "Nem, állatot vezetni tilos.",
-      "Igen, de csak füves területen"
+      "Igen, de csak abban az esetben, ha a kutya kisméretű és nagyon fegyelmezetten halad a bicikli mellett.",
+      "Kizárólag a forgalomtól elzárt, kijelölt kerékpárutakon, ha a kutyapóráz kellően hosszú és rugalmas.",
+      "Igen, amennyiben a kerékpáros a jobb kezében stabilan tartja a pórázt, a balban pedig a kormányt.",
+      "Nem, a jogszabályok szerint kerékpározás közben bármilyen állatot vezetni balesetveszélyes és tilos."
     ],
-    correctAnswer: 2,
-    explanation: "A KRESZ tiltja, hogy kerékpárral állatot vezessünk. A kutya hirtelen rántása súlyos esést és balesetet okozhat."
+    correctAnswer: 3,
+    explanation: "A KRESZ tiltja, hogy kerékpárral állatot vezessünk. A kutya hirtelen irányváltása vagy rántása súlyos esést és balesetet okozhat."
   },
   {
     id: "ker_15",
     category: "kerekpar",
     difficulty: "medium",
-    question: "Mit jelent a kerékpáros fejvédő sisak viselése?",
+    question: "Mik a pontos szabályok a kerékpáros fejvédő bukósisak viselésével kapcsolatban?",
     answers: [
-      "Melegíti a fejet télen",
-      "Csak dísz, nem nyújt védelmet",
-      "Csak versenyzőknek kötelező",
-      "Védi a fejet."
+      "Használata lakott területen kívül 40 km/h feletti tempónál kötelező, egyébként erősen ajánlott védelem.",
+      "Minden kerékpáros számára életkortól függetlenül szigorúan kötelező lakott területen belül és kívül is.",
+      "Csak a sportkerékpárokat (pl. országúti versenybringákat) használók számára előírás a viselése.",
+      "Viselése teljesen felesleges, amennyiben a kerékpár fel van szerelve a megfelelő világítóberendezésekkel."
     ],
-    correctAnswer: 3,
-    explanation: "Bár lakott területen belül nem kötelező, a sisak viselése erősen ajánlott, mert eséskor életet menthet és megvédi a fejet a sérüléstől."
+    correctAnswer: 0,
+    explanation: "Lakott területen kívül 40 km/h felett (max 50 km/h-ig) a sisak kötelező. Egyéb esetben nem kötelező, de az esések során szerzett fejsérülések ellen erősen ajánlott."
   },
   {
     id: "ker_16",
     category: "kerekpar",
     difficulty: "easy",
-    question: "Hány féknek kell lennie a kerékpáron a szabályok szerint?",
+    question: "Hány darab működőképes fékkel kell felszerelni a kerékpárt a közúti közlekedéshez?",
     answers: [
-      "Két egymástól független fék.",
-      "Egy fék elég",
-      "Három féknek",
-      "Nem kötelező a fék, ha lábbal tudunk fékezni"
+      "Elegendő egyetlen, megfelelően karbantartott és erős fékhatású hátsó fék a kerékpár lassításához.",
+      "Csak az elektromos rásegítésű (e-bike) kerékpárokon teszi kötelezővé a jogszabály a dupla fékrendszert.",
+      "Két darab, egymástól teljesen függetlenül működtethető (egy első és egy hátsó) fékberendezéssel.",
+      "Nem kötelező egyetlen fék sem, amennyiben a kerékpáros örökhajtós (fixi) biciklit használ az utakon."
     ],
-    correctAnswer: 0,
-    explanation: "A kerékpárt fel kell szerelni két, egymástól függetlenül működő (egy első és egy hátsó) fékkel, amelyek biztonságosan lassítják a biciklit."
+    correctAnswer: 2,
+    explanation: "A kerékpárt kötelező felszerelni két, egymástól függetlenül működő (egy első és egy hátsó) fékkel."
   },
   {
     id: "ker_17",
     category: "kerekpar",
     difficulty: "hard",
-    question: "Hol haladhatnak a kerékpárosok egymás mellett?",
+    question: "Mely esetekben haladhatnak szabályosan egymás mellett (párhuzamosan) a kerékpárosok?",
     answers: [
-      "Sehol",
-      "Kijelölt kerékpáros létesítményen, ahol engedett.",
-      "Csak autópályán",
-      "Az úttesten minden esetben – a megadott helyzetben"
+      "Bármelyik kisforgalmú utcában megtehetik, feltéve, hogy a beszélgető kerékpárosok nem zavarják az autókat.",
+      "Önálló kerékpárúton, illetve ott, ahol ezt kiegészítő jelzőtábla az úttesten kifejezetten megengedi.",
+      "Szigorúan tilos, a kerékpárosok soha, semmilyen körülmények között nem haladhatnak egymás mellett.",
+      "Az úttest jobb szélén bármikor nyugodtan megtehetik, ha ezzel nem lépik át a felezővonalat."
     ],
     correctAnswer: 1,
-    explanation: "Az úttesten általában egy sorban kell kerékpározni; a KRESZ egyes kerékpáros létesítményeken lehetővé teszi az egymás melletti haladást."
+    explanation: "Az úttesten egy sorban kell haladni. Egymás mellett csak kerékpárúton, illetve olyan helyen (pl. kerékpáros nyom) haladhatnak, ahol a jelzések ezt lehetővé teszik."
   },
   {
     id: "ker_18",
     category: "kerekpar",
     difficulty: "medium",
-    question: "Szabad-e kerékpárral mobiltelefont kézben tartva használni menet közben?",
+    question: "Szabad-e kerékpárral közlekedés közben mobiltelefont a kézben tartva használni?",
     answers: [
-      "Igen, ha lassan megyünk",
-      "Csak üzenetírásra szabad",
-      "Nem.",
-      "Igen, ha fülhallgató van nálunk"
+      "Igen, ha a kerékpáros kihangosítón beszél, és közben legalább az egyik kezével folyamatosan fogja a kormányt.",
+      "Csak a GPS-navigáció megtekintése céljából tartható kézben az okostelefon egy-két másodpercig.",
+      "Igen, de kizárólag a lakó-pihenő övezetekben és a teljesen elzárt kerékpárutakon megengedett a nyomkodása.",
+      "Szigorúan tilos, a kézben tartott mobiltelefon használata kerékpározás közben jogilag is szabálytalan."
     ],
-    correctAnswer: 2,
-    explanation: "Menet közben a kézben tartott mobiltelefon elvonja a figyelmet és rontja az egyensúlyt, ezért használata szigorúan tilos és büntetendő."
+    correctAnswer: 3,
+    explanation: "A kézben tartott mobiltelefon elvonja a figyelmet és rontja a jármű irányítását, így a KRESZ alapján kerékpáron is szigorúan tilos."
   },
   {
     id: "ker_19",
     category: "kerekpar",
     difficulty: "hard",
-    question: "Mit kell tenni, ha kerékpárúton haladsz, de a kerékpárút keresztezi az úttestet és macskaszem/háromszög tábla van a kerékpárúton?",
+    question: "Mit kell tenned, ha kerékpárúton haladsz, de a kerékpárút keresztezi az úttestet, és a kerékpárúton 'Elsőbbségadás kötelező' (fordított háromszög) tábla van elhelyezve?",
     answers: [
-      "Leszállva tolni kell",
-      "Megállás nélkül kell áthaladni",
-      "Neked van elsőbbséged, mert kerékpárúton vagy",
-      "A jelzés szerint elsőbbséget kell adni."
+      "A kerékpárosnak van abszolút elsőbbsége, mivel az épített kerékpárút a gépjárműforgalom felett áll.",
+      "A jelzőtábla utasítása szerint a kerékpárosnak kell elsőbbséget adnia a keresztező járműveknek.",
+      "Le kell szállnod a kerékpárról, és gyalogosként, tolva kell a zebrán átmenned a túloldalra.",
+      "Ilyen tábla hivatalosan nem vonatkozhat kerékpárosra, így minden esetben a jobbkéz-szabály érvényesül."
     ],
-    correctAnswer: 3,
-    explanation: "Ha a kerékpárúton elsőbbségadás kötelező tábla van az úttest keresztezése előtt, akkor a biciklisnek kell elsőbbséget adnia az autóknak."
+    correctAnswer: 1,
+    explanation: "A jelzőtábla kötelezése mindenkire vonatkozik. Ha a kerékpárúton 'Elsőbbségadás kötelező' tábla áll, meg kell adni az elsőbbséget a keresztirányú forgalomnak."
   },
   {
     id: "ker_20",
     category: "kerekpar",
     difficulty: "easy",
-    question: "Mit jelez a kerékpár kerekére szerelt borostyánsárga prizma (küllőprizma)?",
+    question: "Mi a szerepe és mennyi a kötelező mennyisége a kerékpár kerekére szerelt borostyánsárga küllőprizmának?",
     answers: [
-      "Egyszerű díszítés",
-      "Hogy gyorsabban forogjon a kerék – az adott körülmények között",
-      "Oldalirányú láthatóságot biztosít.",
-      "Megvédi a kereket a sérülésektől"
+      "Kizárólag esztétikai célokat szolgálnak, hogy a kerékpár jobban nézzen ki sötétben, felszerelésük opcionális.",
+      "A gumiabroncs defektjének elkerülése érdekében fizikai védelmet és stabilitást adnak a kerék küllőinek.",
+      "Jelzi a kerékpáros aktuális sebességét a közeledő autósok számára a villogás ritmusának gyorsasága alapján.",
+      "Oldalirányú láthatóságot biztosítanak az éjszakai sötétségben, és kerekekenként legalább két darab kötelező."
     ],
-    correctAnswer: 2,
-    explanation: "A küllőprizmák (legalább kerekenként 2 db) visszaverik az autók fényét, így a biciklis oldalról is jól láthatóvá válik éjszaka."
+    correctAnswer: 3,
+    explanation: "A küllőprizmák a kerékpáros oldalirányú láthatóságát biztosítják, és mindkét keréken kötelező legalább 2-2 darabot elhelyezni."
   },
+
   // --- GYALOGOS KÖZLEKEDÉS (20 questions) ---
   {
     id: "gyal_1",
     category: "gyalogos",
     difficulty: "easy",
-    question: "Ha van járda, hol kell a gyalogosnak közlekednie?",
+    question: "Hol kell a gyalogosnak közlekednie, ha az úttest mellett megfelelő minőségű járda áll rendelkezésre?",
     answers: [
-      "A parkolósávban",
-      "A járdán",
-      "A kerékpársávon",
-      "Az úttest közepén"
+      "A kerékpárúton is nyugodtan haladhat, ha a járda valamilyen oknál fogva nem szimpatikus a számára.",
+      "A gyalogosnak minden esetben kötelező a járdán közlekednie, amennyiben az rendelkezésre áll.",
+      "Az úttest menetirány szerinti bal szélén, ha nincsen nagy és veszélyes autóforgalom a szakaszon.",
+      "Bármelyik felületen közlekedhet, ahol a személyes megítélése szerint a legnagyobb biztonságban van."
     ],
     correctAnswer: 1,
-    explanation: "A gyalogosnak főszabály szerint a járdán kell közlekednie, ha az rendelkezésre áll."
+    explanation: "A gyalogosnak főszabály szerint a járdán kell közlekednie, ha van, függetlenül attól, hogy van-e kerékpárút vagy úttest mellette."
   },
   {
     id: "gyal_2",
     category: "gyalogos",
     difficulty: "easy",
-    question: "Hogyan kell a gyalogosnak haladnia az úttest szélén, ha nincs járda lakott területen kívül?",
+    question: "Hogyan kell a gyalogosnak szabályosan haladnia az úttest szélén lakott területen kívül, ha nincsen járda?",
     answers: [
-      "Bárhol, nincs jelentősége",
-      "Az út közepén, hogy jól látható legyen",
-      "A bal oldalon, a forgalommal szemben",
-      "A jobb oldalon, a gépjárműforgalommal megegyező irányban"
+      "Az úttest menetirány szerinti jobb szélén, a járművekkel megegyező irányban haladva a padkán.",
+      "Az úttest legközepén, feltűnő fényvisszaverő ruházatban, hogy a lehető legjobban látható legyen.",
+      "Az úttest menetirány szerinti bal szélén, a gépjárműforgalommal szemben kell gyalogolnia.",
+      "Mindig az út menti vízelvezető árokban vagy a szántóföldön kell gyalogolni a biztonság okán."
     ],
     correctAnswer: 2,
-    explanation: "Ha nincs járda, a gyalogosnak a menetirány szerinti bal oldalon (szembe a forgalommal) kell haladnia, hogy időben lássa a felé közeledő autókat."
+    explanation: "Ha nincs járda, a gyalogosnak az út bal szélén (a forgalommal szemben) kell haladnia, hogy időben észrevegye a vele szemben, az ő oldalán közeledő járműveket."
   },
   {
     id: "gyal_3",
     category: "gyalogos",
     difficulty: "easy",
-    question: "Hol a legbiztonságosabb átkelni a gyalogosnak az úton?",
+    question: "Melyik a legbiztonságosabb és legszabályosabb hely a gyalogos számára az úttesten való átkelésre?",
     answers: [
-      "Két parkoló autó között",
-      "Ahol a leggyorsabban át tud futni",
-      "Kanyarban, mert ott lassabban mennek a kocsik",
-      "A kijelölt gyalogos-átkelőhelyen (zebrán)"
+      "Bármelyik parkoló jármű mögül hirtelen kilépve, ha előtte meggyőződött róla, hogy nem jön autó.",
+      "Egy éles útkanyarulatban, mert ott a járművek a centrifugális erő miatt amúgy is kénytelenek lelassítani.",
+      "A kijelölt gyalogos-átkelőhelyen (zebrán) vagy a fényjelző készülékkel irányított útkereszteződésben.",
+      "Két kereszteződés között pontosan félúton, mert ott általában sokkal kevesebb a zavaró közlekedési tényező."
     ],
-    correctAnswer: 3,
-    explanation: "A legbiztonságosabb átkelési pont a kijelölt gyalogos-átkelőhely, azaz a zebra, vagy a közlekedési lámpával irányított kereszteződés."
+    correctAnswer: 2,
+    explanation: "A legbiztonságosabb és szabályos átkelési pont a kijelölt gyalogos-átkelőhely (zebra) vagy egy lámpás kereszteződés."
   },
   {
     id: "gyal_4",
     category: "gyalogos",
     difficulty: "easy",
-    question: "Mit tegyél a zebránál, mielőtt az úttestre lépsz?",
+    question: "Mit kell kötelezően megtenned, mielőtt a zebrához érve lelépsz az úttestre?",
     answers: [
-      "Az átkelés veszélytelenségét ellenőrizni kell.",
-      "Lépj le azonnal",
-      "Fuss át minél gyorsabban",
-      "Fordíts hátat a forgalomnak – a megadott helyzetben"
+      "Határozottan és gyorsan le kell lépned, mert a gyalogosnak a zebrán mindig és feltétel nélkül elsőbbsége van.",
+      "Jelezned kell a határozott szándékodat a karod felemelésével az érkező gépjárművek sofőrjei felé.",
+      "Alapos körültekintéssel meg kell győződnöd arról, hogy az áthaladás a közeledő járművek miatt veszélytelen-e.",
+      "Meg kell várnod az út szélén, amíg minden közeledő gépjármű motorja teljesen leáll a közeledésed láttán."
     ],
-    correctAnswer: 0,
-    explanation: "A gyalogos az úttestre csak akkor léphet, ha az áthaladás veszélytelen, és a járműforgalmat nem zavarja."
+    correctAnswer: 2,
+    explanation: "Bár a zebrán elsőbbséged van, az úttestre csak akkor léphetsz le, ha meggyőződtél róla, hogy a közeledő autók meg tudnak (és meg is fognak) állni."
   },
   {
     id: "gyal_5",
     category: "gyalogos",
     difficulty: "easy",
-    question: "Milyen színű gyalogos lámpánál szabad átkelni az úton?",
+    question: "Milyen színű gyalogos lámpajelzésnél szabad megkezdeni az úttesten való átkelést?",
     answers: [
-      "Piros",
-      "Zöld",
-      "Sárga",
-      "Villogó piros"
+      "Villogó zöld jelzésnél is bátran megkezdhető az átkelés, ha elég gyorsan szedjük a lábunkat a túloldalig.",
+      "Sárga jelzésnél, mivel az időben felkészít minket az azonnali megindulásra az úttest széle felől.",
+      "Piros jelzésnél is szabad átkelni, amennyiben a közelben egyáltalán nincs zavaró gépjárműforgalom.",
+      "Kizárólag a folyamatos zöld jelzést mutató gyalogos lámpa esetén szabad lelépni a járdáról az úttestre."
     ],
-    correctAnswer: 1,
+    correctAnswer: 3,
     explanation: "Kizárólag a folyamatos zöld jelzésnél szabad megkezdeni az átkelést a gyalogos-átkelőhelyen."
   },
   {
     id: "gyal_6",
     category: "gyalogos",
     difficulty: "medium",
-    question: "Mi a teendő, ha átkelés közben villogni kezd a zöld gyalogosjelzés?",
+    question: "Mi a teendő, ha az úttesten való átkelés közben egyszer csak villogni kezd a zöld gyalogosjelzés?",
     answers: [
-      "Fordulj vissza",
-      "Fuss vissza a járdára",
-      "Folytasd az átkelést.",
-      "Állj meg az úttest közepén"
+      "Aki már lelépett, fejezze be biztonságosan az átkelést, de a járdáról újat megkezdeni már tilos.",
+      "Azonnal meg kell fordulni, és a lehető legrövidebb úton, futva vissza kell térni a kiindulási járdára.",
+      "Meg kell állni a két sáv között az úttest közepén, és ott megvárni a következő biztonságos zöld jelzést.",
+      "Lassabb tempóban kell megkezdeni az átkelést a járdáról a zebrára lépve, hogy felhívjuk az autósok figyelmét."
     ],
-    correctAnswer: 2,
-    explanation: "A villogó zöld az áthaladásra engedélyezett idő végét jelzi; aki már megkezdte az átkelést, fejezze be biztonságosan."
+    correctAnswer: 0,
+    explanation: "A villogó zöld jelzés az áthaladásra engedélyezett idő végét jelzi. Aki az úttesten van, fejezze be az átkelést, de aki még a járdán van, már ne lépjen le!"
   },
   {
     id: "gyal_7",
     category: "gyalogos",
     difficulty: "easy",
-    question: "Szabad-e fülhallgatót viselni és a telefont nézni az úton való átkelés közben?",
+    question: "Mennyire biztonságos fülhallgatót viselni és a telefon képernyőjét nézni az úton való átkelés közben?",
     answers: [
-      "Igen, ha gyorsan futunk",
-      "Igen, ha halljuk a zenét",
-      "Csak akkor, ha nincs forgalom",
-      "Nem, elvonja a figyelmet."
+      "Igen biztonságos, a KRESZ kifejezetten megengedi a zenehallgatást és üzenetírást a gyalogosok számára is.",
+      "Életveszélyes, mivel erősen elvonja a vizuális figyelmet és teljesen kizárja a forgalom fontos zajait.",
+      "Csak abban az esetben biztonságos, ha a telefonon lévő térképes és hangalapú navigációt követjük éppen.",
+      "Teljesen mindegy, ha a zebrán kelünk át, hiszen ott úgyis nekünk van abszolút elsőbbségünk a forgalommal szemben."
     ],
-    correctAnswer: 3,
-    explanation: "Átkeléskor teljes figyelemre van szükség. A telefonozás és fülhallgató használata életveszélyes, mert kizárja a külvilág hangjait."
+    correctAnswer: 1,
+    explanation: "Átkeléskor teljes figyelemre van szükség. A telefonozás és a fülhallgató használata életveszélyes, mert megszünteti a környezet érzékelését."
   },
   {
     id: "gyal_8",
     category: "gyalogos",
     difficulty: "medium",
-    question: "Gyalogosként léphetünk-e az úttestre, ha megkülönböztető fény- és hangjelzést használó jármű (sziréna, pl. mentő, rendőr, tűzoltó) közeledik?",
+    question: "Gyalogosként leléphetünk-e az úttestre (akár a zebrán), ha megkülönböztető fény- és hangjelzést használó jármű (szirénázó mentő, rendőr) közeledik?",
     answers: [
-      "Nem, a megkülönböztetett járműnek utat kell adni.",
-      "Csak akkor, ha piros a lámpájuk",
-      "Igen, ha gyorsan át tudunk futni előttük",
-      "Igen, mert nekünk van elsőbbségünk a zebrán – a megadott helyzetben"
+      "Igen, ha a gyalogos már a zebrán tartózkodik, a szirénázó mentőnek is kötelessége megállni és elengedni őt.",
+      "Kizárólag akkor tehetjük meg, ha a megkülönböztetett jármű piros lámpát kapott a közeledő kereszteződésben.",
+      "Nem, a megkülönböztető jelzést használó járműnek minden esetben, még a zebrán is abszolút elsőbbséget kell adni.",
+      "Igen, feltéve, hogy úgy ítéljük meg, hogy elég gyorsan át tudunk szaladni a sebesen közeledő rendőrautó előtt."
     ],
-    correctAnswer: 0,
-    explanation: "A megkülönböztető jelzéseket használó járműveknek minden helyzetben abszolút elsőbbségük van. Tilos eléjük lépni, segíteni kell a haladásukat."
+    correctAnswer: 2,
+    explanation: "A szirénázó (megkülönböztető jelzést használó) járműveknek minden helyzetben abszolút elsőbbségük van. Tilos eléjük lépni, segíteni kell a gyors haladásukat."
   },
   {
     id: "gyal_9",
     category: "gyalogos",
     difficulty: "medium",
-    question: "Milyen távolságon belül található kijelölt gyalogos-átkelőhely esetén kell azt igénybe venni az úttesten történő átkeléshez?",
+    question: "Milyen távolságon belül található kijelölt gyalogos-átkelőhely (zebra) esetén kötelező azt igénybe venni az úttesten történő átkeléshez?",
     answers: [
-      "20 méteren belül",
-      "50 méteren belül.",
-      "100 méteren belül",
-      "200 méteren belül"
+      "Csak akkor kötelező a zebrát használni, ha az kevesebb mint 10 méterre helyezkedik el a tartózkodási helyünktől.",
+      "Ha 100 méteren belül látható a zebra, akkor már szigorúan tilos máshol áthaladni az úttest ellentétes oldalára.",
+      "Ha 50 méteren belül van kijelölt gyalogos-átkelőhely vagy aluljáró, akkor a gyalogosnak kötelező azt használnia.",
+      "Nincsen semmilyen konkrét távolsági szabály, a gyalogos bárhol szabadon átkelhet az úttesten, ha eléggé óvatos."
     ],
-    correctAnswer: 1,
-    explanation: "Kijelölt gyalogos-átkelőhely hiányában a gyalogos akkor kelhet át máshol, ha a közelben 50 méteren belül nincs kijelölt átkelőhely vagy az átkelést szolgáló alul- vagy felüljáró."
+    correctAnswer: 2,
+    explanation: "Ha 50 méteren belül van zebra (vagy gyalogos alul-/felüljáró), a gyalogos csak azon kelhet át az úttesten."
   },
   {
     id: "gyal_10",
     category: "gyalogos",
     difficulty: "easy",
-    question: "Hogyan kell az úttesten átkelni kijelölt gyalogos-átkelőhely hiányában, ha az átkelés egyébként megengedett?",
+    question: "Hogyan kell szabályosan átkelni az úttesten olyan helyen, ahol nincs zebra a közelben, de az átkelés egyébként nem tilos?",
     answers: [
-      "Csak futva",
-      "Cikkcakkban",
-      "A legrövidebb úton, lehetőleg merőlegesen.",
-      "Átlósan, minél hosszabb úton – a megadott helyzetben"
+      "Ferde vonalban, az érkező járművek mozgását folyamatosan figyelve, nagyon lassú és óvatos, tyúklépésekkel.",
+      "Futva és minél sűrűbb cikkcakkban, hogy a lehető legkevesebb ideig tartózkodjunk a veszélyes zónában az úton.",
+      "Az átkelés zebra hiányában minden esetben, minden úttípuson szigorúan tilos és keményen büntetendő cselekmény.",
+      "A legrövidebb úton, indokolatlan megállás és késedelem nélkül, az úttest szélére lehetőleg merőleges irányban."
     ],
-    correctAnswer: 2,
-    explanation: "Az úttesten a legrövidebb útvonalon, lehetőleg merőlegesen kell áthaladni, és az átkelés során nem szabad indokolatlanul megállni."
+    correctAnswer: 3,
+    explanation: "Zebra hiányában a legrövidebb úton (merőlegesen) kell átkelni, és az úttesten nem szabad indokolatlanul megállni vagy késlekedni."
   },
   {
     id: "gyal_11",
     category: "gyalogos",
     difficulty: "easy",
-    question: "Miért veszélyes hirtelen kilépni egy parkoló vagy álló autó mögül az úttestre?",
+    question: "Miért kifejezetten életveszélyes hirtelen kilépni egy parkoló jármű vagy busz mögül az úttestre?",
     answers: [
-      "Az álló jármű takarja a gyalogost.",
-      "Mert piszkos lesz a ruhánk",
-      "Mert megkarcoljuk a parkoló autót",
-      "Nem veszélyes, ha óvatosak vagyunk"
+      "Mert a parkoló autók kipufogócsövéből kiáramló mérgező gáz közvetlenül a gyalogos arcába csapódhat be.",
+      "Mivel az álló jármű kitakarja a gyalogost az autósok elől, így a közeledő sofőrnek esélye sincs időben lefékezni.",
+      "Mivel a hosszan parkoló autók hirtelen, jelzés nélküli tolatásba kezdhetnek, ami könnyen elütheti a járókelőt.",
+      "Igazából nem hordoz különösebb veszélyt a művelet, feltéve, ha előtte alaposan meghallgatjuk a motorhangokat."
     ],
-    correctAnswer: 0,
-    explanation: "Az álló jármű kitakarja a gyalogost az autósok elől. Hirtelen kilépésnél a sofőrnek esélye sincs megállni. Ezért ezt kerülni kell!"
+    correctAnswer: 1,
+    explanation: "Az álló jármű teljesen kitakarja a gyalogost a forgalom elől. Hirtelen kilépésnél a közeledő sofőr nem tud elég gyorsan reagálni."
   },
   {
     id: "gyal_12",
     category: "gyalogos",
     difficulty: "medium",
-    question: "Hol közlekedhet a gyalogosok zárt csoportja az úttesten?",
+    question: "Hol közlekedhet szabályosan a gyalogosok zárt csoportja (pl. óvodás csoport, katonai alakulat) az úttesten?",
     answers: [
-      "Bármelyik oldalon – az adott körülmények között",
-      "Az úttest menetirány szerinti jobb szélén.",
-      "Az út bal szélén",
-      "Az úttest közepén"
+      "Mindig a járda teljes szélességét és az úttest felét elfoglalva, hogy a nagylétszámú csoport biztosan együtt maradjon.",
+      "Az úttest menetirány szerinti bal szélén, folyamatosan szemben a közeledő, szemből érkező gépjárműforgalommal.",
+      "Az úttest legközepén (a felezővonalon) haladva, hogy a csoport mindkét irányból jól észrevehető legyen az autósoknak.",
+      "Az úttest menetirány szerinti jobb szélén, a forgalmat a legkevésbé zavaró módon és kellő fegyelemmel haladva."
     ],
-    correctAnswer: 1,
-    explanation: "A gyalogosok zárt csoportja az úttesten annak menetirány szerinti jobb szélén közlekedhet."
+    correctAnswer: 3,
+    explanation: "A gyalogosok zárt csoportja az úttesten annak menetirány szerinti jobb szélén közlekedhet (kivéve a gyermekcsoportot, nekik a járdán vagy a bal szélen kell)."
   },
   {
     id: "gyal_13",
     category: "gyalogos",
     difficulty: "easy",
-    question: "Mikor kötelező a gyalogosnak fényvisszaverő ruházatot viselnie?",
+    question: "Mikor és hol kötelező a gyalogosnak fényvisszaverő ruházatot (pl. sárga mellényt) viselnie a KRESZ szerint?",
     answers: [
-      "Mindig",
-      "Csak esőben",
-      "Fényvisszaverő ruházat.",
-      "Lakott területen nappal"
+      "Lakott területen kívül, az úttesten vagy útpadkán tartózkodva, éjszaka vagy korlátozott látási viszonyok között.",
+      "Mindig és mindenhol kötelező, ha a gyalogos heves esőzésben vagy sűrű havazásban közlekedik a városi járdán haladva.",
+      "Kizárólag az autópályák és a kiépített autóutak közvetlen közelében tartózkodó gyalogosok számára teszik kötelezővé.",
+      "Minden egyes lakott területen kívüli útszakaszon, teljesen függetlenül az aktuális időjárástól, valamint a napszaktól."
     ],
-    correctAnswer: 2,
-    explanation: "Lakott területen kívül éjszaka vagy korlátozott látási viszonyok között az úttesten közlekedő vagy az út szélén tartózkodó gyalogosnak fényvisszaverő ruházatot kell viselnie."
+    correctAnswer: 0,
+    explanation: "Lakott területen kívül éjszaka vagy korlátozott látási viszonyok (köd, eső) között az út szélén haladó gyalogosnak fényvisszaverő ruházatot kell viselnie."
   },
   {
     id: "gyal_14",
     category: "gyalogos",
     difficulty: "medium",
-    question: "Mit ír elő a KRESZ a gyalogos számára a gyalog- és kerékpárúton?",
+    question: "Mit ír elő a KRESZ a gyalogos számára, ha az egy kijelölt 'Gyalog- és kerékpárúton' kénytelen közlekedni?",
     answers: [
-      "Kötelező középen haladnia",
-      "Kerékpárral kell közlekednie",
-      "Mindig a kerékpárosok előtt haladhat",
-      "Nem akadályozhatja a kerékpárosokat."
+      "A gyalogosnak az ilyen úton abszolút elsőbbsége van, így a kerékpárosoknak minden esetben ki kell kerülniük őt.",
+      "Szigorúan a bal oldalon kell haladnia, míg a kerékpárosok a jobb oldalt használják a gyorsabb haladásuk miatt.",
+      "Közlekedhet rajta, de a kerékpárosok zavartalan haladását semmilyen módon nem akadályozhatja és nem veszélyeztetheti.",
+      "Ilyen speciális úton a gyalogos egyáltalán nem közlekedhet, mert az kizárólag a kerékpárosok számára van fenntartva."
     ],
-    correctAnswer: 3,
+    correctAnswer: 2,
     explanation: "A gyalog- és kerékpárúton a gyalogos a kerékpáros forgalmat nem akadályozhatja és nem veszélyeztetheti."
   },
   {
     id: "gyal_15",
     category: "gyalogos",
     difficulty: "easy",
-    question: "Mi a teendőnk gyalogosként, ha a járdát jég vagy hó borítja és csúszik?",
+    question: "Mi a legbiztonságosabb teendő gyalogosként, ha a téli időszakban a járdát jég vagy vastag, letaposott hó borítja?",
     answers: [
-      "Óvatosan, lassan haladunk.",
-      "Az úttesten megyünk inkább",
-      "Csúszkálunk rajta, hátha elesünk",
-      "Futunk, hogy hamarabb túl legyünk rajta"
+      "Inkább az úttest közepére húzódunk, mert ott az elhaladó gépkocsik abroncsai általában már leolvasztották a havat.",
+      "Futólépésben próbálunk minél gyorsabban, lendületből túljutni a leginkább jeges és ezáltal nagyon veszélyes szakaszon.",
+      "Lassan, óvatos apró léptekkel haladunk, lehetőleg nem zsebre tett kézzel, hogy tudjunk egyensúlyozni, ha megcsúszunk.",
+      "Bármilyen rendelkezésre álló kerékpárra pattanunk, mert a vastag gumiabroncsok jobban tapadnak a jeges felületen is."
     ],
-    correctAnswer: 0,
-    explanation: "Csúszós járdán lassan, apró léptekkel kell haladni. Inkább tartsuk a kezünket szabadon (ne a zsebünkben), hogy segítsen az egyensúlyozásban."
+    correctAnswer: 2,
+    explanation: "Csúszós járdán lassan, apró léptekkel kell haladni. A kezünket vegyük ki a zsebünkből, hogy egy esetleges megcsúszásnál egyensúlyozni vagy tompítani tudjunk."
   },
   {
     id: "gyal_16",
     category: "gyalogos",
     difficulty: "easy",
-    question: "Szabad-e gyalogosnak az autópályán gyalogolnia?",
+    question: "Szabad-e gyalogosnak az autópályán vagy az autóúton gyalogosan közlekednie?",
     answers: [
-      "Csak nappal",
-      "Nem.",
-      "Igen, a leállósáv szélén",
-      "Igen, ha lerobbant a családi autó"
+      "Igen, a széles leállósáv legszélén gyalogolhat, amennyiben folyamatosan viseli az előírt sárga fényvisszaverő mellényt.",
+      "Szigorúan tilos. Jármű meghibásodása esetén is a szalagkorláton kívül kell várakozni a segítség vagy az autómentő érkezéséig.",
+      "Kizárólag napközben megengedett, és csak abban az esetben, ha a legközelebbi benzinkút nincs messzebb egyetlen kilométernél.",
+      "Igen, de csak szigorúan a forgalommal szemben haladva, hogy a gyalogos idejében lássa a feléje hatalmas sebességgel közeledő kamionokat."
     ],
     correctAnswer: 1,
-    explanation: "Autópályán gyalogosan közlekedni szigorúan tilos. Ha az autó lerobbant, a szalagkorláton kívül kell várakozni láthatósági mellényben."
+    explanation: "Autópályán gyalogosan közlekedni szigorúan tilos és életveszélyes. Lerobbanás esetén azonnal el kell hagyni az útpályát a szalagkorláton túlra."
   },
   {
     id: "gyal_17",
     category: "gyalogos",
     difficulty: "hard",
-    question: "Ki irányíthatja a gyalogosok forgalmát a jelzőlámpán és a rendőrön kívül?",
+    question: "A rendőrön és a közlekedési lámpán kívül ki jogosult még hivatalosan irányítani a gyalogosok forgalmát az úton?",
     answers: [
-      "Senki más",
-      "Bármelyik autós",
-      "A szabály szerint kijelölt forgalomirányító személy.",
-      "Egy felnőtt járókelő – az adott forgalmi helyzetben"
+      "Bármelyik felnőtt korú, határozott fellépésű gyalogos, ha a kereszteződésben lévő lámpa valamilyen műszaki okból meghibásodott.",
+      "Kizárólag a rendőrség hivatalos állományába tartozó, teljes egyenruhát viselő személy teheti meg a forgalomirányítást.",
+      "A helyi busz- vagy villamosvezetők is bármikor leállíthatják a keresztirányú forgalmat a leszálló gyalogosok átkeléséhez.",
+      "Többek között a polgárőr, a katona, a vasutas, vagy egy útmunkálatoknál hivatalosan kijelölt, jelzőtárcsás jelzőőr is megteheti."
     ],
-    correctAnswer: 2,
-    explanation: "A rendőrön kívül bizonyos esetekben a polgárőrök, katonák, vasúti átjárónál a vasutasok, vagy útmunkáknál a jelzőőrök is irányíthatják a forgalmat."
+    correctAnswer: 3,
+    explanation: "A KRESZ felhatalmazza a polgárőröket, katonákat, vasúti átjárónál a vasutasokat, útmunkáknál a jelzőőröket, és a katasztrófavédelem tagjait is a forgalom irányítására."
   },
   {
     id: "gyal_18",
     category: "gyalogos",
     difficulty: "easy",
-    question: "Hogyan kell leszállni a buszról vagy villamosról, ha az úttestre lépünk?",
+    question: "Hogyan kell a legbiztonságosabban leszállni a menetrend szerinti buszról vagy villamosról, ha közvetlenül az úttestre kell lépnünk?",
     answers: [
-      "A busz mögé bújunk",
-      "Megállunk a busz előtt beszélgetni",
-      "Hirtelen leugrunk és futunk az út túloldalára",
-      "Óvatosan kell körülnézni és a járdára lépni."
+      "Hirtelen át kell rohanni a busz orra előtt a túloldalra, amíg a nagy jármű úgyis teljesen feltartja a mögöttes forgalmat az utcában.",
+      "Szorosan a tömegközlekedési eszköz hátulja mögött kell azonnal átkelni az úton, mert ott a legkisebb a szélárnyék és a balesetveszély.",
+      "Körültekintően kell le- és az úttestre lépni, alaposan figyelve a busz vagy villamos mellett párhuzamosan elhaladó egyéb gépjárművekre.",
+      "Türelmesen várni kell a járművön a leszállással egészen addig, amíg a busz motorja teljesen le nem áll és a sofőr jelt nem ad a távozásra."
     ],
-    correctAnswer: 3,
-    explanation: "Ha a buszról az úttestre kell leszállnunk, fokozottan kell figyelnünk a busz mellett elhaladó autókra, és azonnal a járdára kell lépnünk."
+    correctAnswer: 2,
+    explanation: "Ha az úttestre kell leszállni (pl. nincs kiemelt megállósziget), a gyalogosnak fokozott óvatossággal kell körülnéznie a jármű mellett elhaladó forgalom miatt."
   },
   {
     id: "gyal_19",
     category: "gyalogos",
     difficulty: "medium",
-    question: "Gyalogosként mikor van elsőbbségünk az irányt változtató gépjárművel szemben?",
+    question: "Gyalogosként mikor és hol van elsőbbségünk egy kanyarodó (irányt változtató) gépjárművel szemben?",
     answers: [
-      "Ha arra az útra kanyarodik, amelyen átkelsz.",
-      "Soha",
-      "Csak akkor, ha integet a sofőr",
-      "Minden esetben, függetlenül mindentől – a megadott helyzetben"
+      "A gyalogosnak soha nincsen elsőbbsége az autókkal szemben, hacsak nem egy egyértelműen felfestett, kijelölt zebrán halad éppen át.",
+      "Minden olyan esetben, amikor az autós letérve a főútról az indexét használja, köteles azonnal megállni a járdán várakozó gyalogosnak.",
+      "Kizárólag csak akkor, ha a gyalogos egy nálánál jóval kisebb jármű (például kerékpár vagy elektromos roller) elé szeretne kilépni.",
+      "Ha a gyalogos éppen azon az úton kel át (még ha nincs is ott zebra), amelyikre a szóban forgó gépjármű be szeretne kanyarodni."
     ],
-    correctAnswer: 0,
-    explanation: "A bekanyarodó járműnek elsőbbséget kell adnia annak a gyalogosnak, aki azon az úton kel át, amelyre a jármű rákanyarodik (még ha nincs is ott zebra)."
+    correctAnswer: 3,
+    explanation: "A bekanyarodó járműnek (akár jobbra, akár balra kanyarodik) elsőbbséget kell adnia annak a gyalogosnak, aki azon az úton kel át, amelyre a jármű rákanyarodik."
   },
   {
     id: "gyal_20",
     category: "gyalogos",
     difficulty: "easy",
-    question: "Mit csinálj, ha labdázás közben a labda kigurul az úttestre?",
+    question: "Mit kell tenned feltétlenül, ha a parkban vagy járdán való labdázás közben a labda hirtelen kigurul a forgalmas úttestre?",
     answers: [
-      "Azonnal utánafutva elkapod",
-      "Sírni kezdesz az út közepén",
-      "Megkéred a kutyádat, hogy hozza ki",
-      "Nem futsz utána az úttestre."
+      "Soha nem szabad a kiguruló labda után futni az úttestre, meg kell állni a járda szélén, mert a közeledő autósok nem számítanak a hirtelen kilépésre.",
+      "Azonnal utána kell sprintelni minden körültekintés nélkül, hogy a guruló labda semmiképpen ne okozzon súlyos balesetet az arra haladó autók között.",
+      "Meg kell kérni egy éppen arra sétáló, magasabb felnőttet, hogy a kezét felemelve a forgalmat leállítva, biztonságosan hozza vissza a játékszert.",
+      "Lassan, jól láthatóan feltett kezekkel ki kell menni a labdáért a sávok közé, hogy az érkező gépjárművek sofőrjei már nagyon messziről lássanak téged."
     ],
-    correctAnswer: 3,
-    explanation: "Soha nem szabad a kiguruló labda után futni! Az autósok nem számítanak a hirtelen kirohanó gyerekre. Mindig állj meg, nézz körül és várj!"
+    correctAnswer: 0,
+    explanation: "Soha nem szabad a kiguruló labda után futni! Az autósok nem számítanak a hirtelen kirohanó gyerekre. Mindig meg kell állni a járda szélén, és megvárni, amíg teljesen biztonságos."
   }
 ];
