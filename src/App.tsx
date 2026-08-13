@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { GameSettings, CategoryInfo, Question } from "./types";
+import { GameSettings, CategoryInfo, Question, Difficulty } from "./types";
 import { CATEGORIES } from "./data/categories";
 import { getQuestionsForCategory } from "./data/questions";
 import { soundManager } from "./utils/soundManager";
@@ -27,6 +27,8 @@ const DEFAULT_SETTINGS: GameSettings = {
   enableMusic: true,
   enableSFX: true,
   timerDuration: 0, // OFF by default
+  childDifficulties: ["easy", "medium"],
+  adultDifficulties: ["hard"],
 };
 
 export default function App() {
@@ -34,7 +36,9 @@ export default function App() {
   const [settings, setSettings] = useState<GameSettings>(() => {
     try {
       const saved = window.localStorage.getItem(SETTINGS_KEY);
-      return saved ? JSON.parse(saved) : DEFAULT_SETTINGS;
+      return saved
+        ? { ...DEFAULT_SETTINGS, ...JSON.parse(saved) }
+        : DEFAULT_SETTINGS;
     } catch {
       return DEFAULT_SETTINGS;
     }
@@ -52,10 +56,11 @@ export default function App() {
 
   // --- 2. Active Session State ---
   const [currentScreen, setCurrentScreen] = useState<
-    "home" | "spinning" | "category-intro" | "question" | "results" | "review"
-  >("home");
+    "player-select" | "home" | "spinning" | "category-intro" | "question" | "results" | "review"
+  >("player-select");
   
   const [selectedCategory, setSelectedCategory] = useState<CategoryInfo | null>(null);
+  const [playerType, setPlayerType] = useState<"child" | "adult" | null>(null);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIdx, setCurrentQuestionIdx] = useState(0);
   const [userAnswers, setUserAnswers] = useState<{ [questionId: string]: number }>({});
@@ -154,7 +159,14 @@ export default function App() {
     setSelectedCategory(category);
     
     // Retrieve and shuffle questions for this specific category
-    const categoryQuestions = getQuestionsForCategory(category.id, settings.questionCount);
+    const allowedDifficulties: Difficulty[] =
+      playerType === "adult" ? settings.adultDifficulties : settings.childDifficulties;
+
+    const categoryQuestions = getQuestionsForCategory(
+      category.id,
+      settings.questionCount,
+      allowedDifficulties
+    );
     setQuestions(categoryQuestions);
     setCurrentQuestionIdx(0);
     setUserAnswers({});
@@ -165,7 +177,7 @@ export default function App() {
   };
 
   const handleStartSpin = () => {
-    if (isSpinning) return;
+    if (isSpinning || !playerType) return;
     setIsSpinning(true);
     setCurrentScreen("spinning");
 
@@ -200,11 +212,17 @@ export default function App() {
   // INSTANT RESET (Kiosk mode essential: zero traces, ready for next kid)
   const handleInstantReset = () => {
     setSelectedCategory(null);
+    setPlayerType(null);
     setQuestions([]);
     setCurrentQuestionIdx(0);
     setUserAnswers({});
     setScore(0);
     setIsSpinning(false);
+    setCurrentScreen("player-select");
+  };
+
+  const handlePlayerSelect = (type: "child" | "adult") => {
+    setPlayerType(type);
     setCurrentScreen("home");
   };
 
@@ -270,6 +288,57 @@ export default function App() {
       <div className="flex-1 z-10">
         <AnimatePresence mode="wait">
           
+          {/* SCREEN: PLAYER TYPE - asked before every new game */}
+          {currentScreen === "player-select" && (
+            <motion.div
+              key="player-select-screen"
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.02 }}
+              className="min-h-screen flex items-center justify-center p-6"
+            >
+              <div className="w-full max-w-3xl text-center">
+                <div className="mb-10">
+                  <img
+                    src="/SVMBB.png"
+                    alt="SVMBB Logó"
+                    className="w-28 h-28 sm:w-36 sm:h-36 object-contain mx-auto drop-shadow-lg mb-5"
+                  />
+                  <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight drop-shadow-lg">
+                    Ki játszik?
+                  </h1>
+                  <p className="mt-3 text-white/95 font-bold text-base sm:text-lg drop-shadow-md">
+                    Válaszd ki a játékos típusát, hogy a megfelelő nehézségű kérdéseket kapd.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <button
+                    onClick={() => handlePlayerSelect("child")}
+                    className="group bg-white/95 hover:bg-white rounded-3xl p-7 shadow-2xl border-4 border-white/70 transition-all hover:-translate-y-1 active:scale-95 cursor-pointer"
+                  >
+                    <div className="text-6xl mb-4">🧒</div>
+                    <div className="text-2xl font-black text-sky-700">Gyerek</div>
+                    <div className="mt-2 text-sm font-bold text-slate-500">
+                      Könnyű és közepes kérdések
+                    </div>
+                  </button>
+
+                  <button
+                    onClick={() => handlePlayerSelect("adult")}
+                    className="group bg-white/95 hover:bg-white rounded-3xl p-7 shadow-2xl border-4 border-white/70 transition-all hover:-translate-y-1 active:scale-95 cursor-pointer"
+                  >
+                    <div className="text-6xl mb-4">🧑</div>
+                    <div className="text-2xl font-black text-violet-700">Felnőtt</div>
+                    <div className="mt-2 text-sm font-bold text-slate-500">
+                      Nehéz kérdések
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          )}
+
           {/* SCREEN: HOME & SPINNING (Combined cleanly for organic spinning transition) */}
           {(currentScreen === "home" || currentScreen === "spinning") && (
             <motion.div
