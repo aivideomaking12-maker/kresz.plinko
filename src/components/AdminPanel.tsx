@@ -458,6 +458,9 @@ export default function AdminPanel({ settings, onSaveSettings }: AdminPanelProps
                             <span>Kérdések száma játékonként:</span>
                             <span className="text-indigo-600 font-extrabold">{settings.questionCount} db</span>
                           </label>
+                          <p className="text-[11px] leading-relaxed text-slate-500">
+                            A játék mindig a kiválasztott kategóriából próbálja feltölteni a kérdéseket. Ha az adott kategóriában nincs elég, a rendszer a többi kategóriából pótol, de csak a játékoshoz engedélyezett nehézségi szintekből.
+                          </p>
                           <div className="grid grid-cols-3 gap-2">
                             {[3, 5, 10].map((count) => (
                               <button
