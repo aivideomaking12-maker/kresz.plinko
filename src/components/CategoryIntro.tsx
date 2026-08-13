@@ -10,13 +10,16 @@ interface CategoryIntroProps {
 }
 
 const SvgWrapper = ({ children }: { children: React.ReactNode }) => (
-  <svg 
-    viewBox="0 0 200 200" 
-    preserveAspectRatio="xMidYMid meet" 
-    className="w-48 h-48 sm:w-56 sm:h-56 mx-auto drop-shadow-xl"
-  >
-    {children}
-  </svg>
+  <div className="w-[220px] h-[220px] sm:w-[240px] sm:h-[240px] mx-auto shrink-0 flex items-center justify-center">
+    <svg
+      viewBox="0 0 200 200"
+      preserveAspectRatio="xMidYMid meet"
+      className="block w-full h-full overflow-visible drop-shadow-xl"
+      style={{ overflow: "visible" }}
+    >
+      {children}
+    </svg>
+  </div>
 );
 
 export default function CategoryIntro({ category, onComplete, enableAnimations }: CategoryIntroProps) {
@@ -340,7 +343,7 @@ export default function CategoryIntro({ category, onComplete, enableAnimations }
     <div id="category-intro-screen" className="fixed inset-0 z-30 flex flex-col items-center justify-center bg-gradient-to-b from-[#4facfe] to-[#00f2fe] text-white p-6 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-[#4facfe]/95 to-[#00f2fe]/95 pointer-events-none" />
       
-      <div className="relative z-10 w-full max-w-lg text-center flex flex-col items-center space-y-6">
+      <div className="relative z-10 w-full max-w-lg text-center flex flex-col items-center gap-5 sm:gap-6">
         <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} className="bg-white/25 backdrop-blur-md border border-white/40 py-2 px-5 rounded-full flex items-center gap-2">
           <IconComponent className="w-5 h-5 text-yellow-300" />
           <span className="text-xs sm:text-sm font-black tracking-widest text-white uppercase">Kategória Sorsolva!</span>
@@ -350,11 +353,16 @@ export default function CategoryIntro({ category, onComplete, enableAnimations }
           {category.name}
         </motion.h1>
 
-        <motion.div initial={{ opacity: 0, scale: 0.5, rotate: -15 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ type: "spring", stiffness: 100, damping: 15, delay: 0.3 }} className="relative py-4">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85, rotate: -4 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ type: "spring", stiffness: 120, damping: 16, delay: 0.3 }}
+          className="relative w-[220px] h-[220px] sm:w-[240px] sm:h-[240px] shrink-0 flex items-center justify-center overflow-visible"
+        >
           {renderIllustration()}
         </motion.div>
 
-        <div className="flex flex-col items-center space-y-2 w-full max-w-xs">
+        <div className="flex flex-col items-center gap-2 w-full max-w-xs shrink-0">
           <p className="text-sm text-white/80 font-bold uppercase tracking-wider">A játék másodperceken belül indul...</p>
           <AnimatePresence mode="wait">
             <motion.div key={countdown} initial={{ opacity: 0, scale: 1.5, y: -10 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.7, y: 10 }} transition={{ duration: 0.25 }} className="text-6xl font-black text-yellow-300 drop-shadow-lg">
