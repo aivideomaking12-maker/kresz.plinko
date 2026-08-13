@@ -6,52 +6,57 @@ export const groupCQuestions: Question[] = [
     id: "mik_1",
     category: "mikromobilitas",
     difficulty: "easy",
-    question: "Milyen eszköznek számít az elektromos roller (e-roller) a jelenlegi szabályozás alapján, ha kis teljesítményű (max 25 km/h)?",
+    question: "Mi igaz az elektromos rollerről a jelenlegi magyar szabályozás alapján?",
     answers: [
-      "Gyalogosnak",
-      "Hasonló szabályok vonatkoznak rá, mint a kerékpárra",
-      "Személygépkocsinak",
-      "Játékszernek, bárhol használható korlátlanul"
+      "Minden esetben kerékpárnak minősül",
+      "A KRESZ külön nem nevesíti, de járműnek minősül",
+      "Minden esetben gyalogosnak minősül",
+      "Minden esetben személygépkocsinak minősül"
     ],
-    correctAnswer: 1,
-    explanation: "A kis teljesítményű (legfeljebb 25 km/h végsebességű) elektromos rollerekre alapvetően a kerékpáros közlekedés szabályai érvényesek."
+    correctAnswer: 0,
+    explanation: "A KRESZ jelenleg nem tartalmaz külön „elektromos roller” kategóriát. Az elektromos roller ugyanakkor járműnek minősül; a konkrét közlekedési és műszaki szabályok megítélésénél az eszköz jellemzői és más jogszabályok is számíthatnak."
   },
   {
     id: "mik_2",
     category: "mikromobilitas",
     difficulty: "easy",
-    question: "Szabad-e elektromos rollerrel a járdán száguldozni?",
+    question: "Melyik állítás helyes az elektromos roller járdán történő használatáról?",
     answers: [
-      "Igen, ha sietünk",
-      "Nem, a járdán alapvetően tilos e-rollerrel közlekedni (kivéve ha az út alkalmatlan, de akkor is csak lépésben, max 10 km/h-val)",
-      "Igen, a gyalogosoknak el kell ugraniuk előlünk",
-      "Csak éjszaka"
+      "Minden esetben szabad, ha lassan haladunk",
+      "A járdahasználat szabályait nem lehet általánosan.",
+      "A gyalogosoknak minden esetben elsőbbséget kell adniuk a rollernek",
+      "Járdán korlátozás nélkül használható"
     ],
     correctAnswer: 1,
-    explanation: "Az e-rollerrel is az úttesten, kerékpárúton vagy kerékpársávban kell haladni. Járdán csak kivételes esetben, legfeljebb 10 km/h-val szabad menni."
+    explanation: "Az elektromos roller jogi besorolása jelenleg nem egységesen, külön KRESZ-kategóriában szabályozott. Ezért nem helyes általános KRESZ-szabályként azt állítani, hogy járdán 10 km/h-val automatikusan használható."
   },
   {
     id: "mik_3",
     category: "mikromobilitas",
     difficulty: "easy",
     question: "Hány ember utazhat egyszerre egy elektromos rollerrel?",
-    answers: ["Csak egy ember", "Két ember, ha kapaszkodnak", "Három ember is", "Bármennyi, ha elférnek a deszkán"],
-    correctAnswer: 0,
+    answers: [
+      "Három ember is",
+      "Két ember, ha kapaszkodnak",
+      "Csak egy ember",
+      "Bármennyi, ha elférnek a deszkán"
+    ],
+    correctAnswer: 2,
     explanation: "Az elektromos rolleren szigorúan csak egyetlen személy (a vezető) utazhat! Utast szállítani rajta tilos és rendkívül balesetveszélyes."
   },
   {
     id: "mik_4",
     category: "mikromobilitas",
     difficulty: "medium",
-    question: "Kötelező-e a bukósisak viselése nagy teljesítményű (25 km/h feletti sebességre képes) e-roller vezetése közben?",
+    question: "Mi igaz az elektromos roller vezetőjének fejvédő használatára?",
     answers: [
-      "Nem, felesleges",
-      "Igen, kötelező a motoros vagy kerékpáros fejvédő sisak viselése",
-      "Csak lányoknak",
-      "Csak sötétben"
+      "Minden e-rollernél kötelező a sisak",
+      "Csak éjszaka kötelező",
+      "E-rollernél soha nem kell sisak",
+      "A sisak kötelezettsége az eszköz jogi."
     ],
-    correctAnswer: 1,
-    explanation: "A gyorsabb és nehezebb elektromos rollerek és e-bike-ok használatakor a bukósisak viselése kötelező a súlyos fejsérülések elkerülése érdekében."
+    correctAnswer: 3,
+    explanation: "Az elektromos rollerre nem létezik egyetlen, minden típusra azonos KRESZ-besorolás. A sisak kötelezettségét ezért az adott eszköz jogi kategóriája és a rá vonatkozó szabályok alapján kell megítélni."
   },
   {
     id: "mik_5",
@@ -59,12 +64,12 @@ export const groupCQuestions: Question[] = [
     difficulty: "easy",
     question: "Milyen lámpákkal kell felszerelni az elektromos rollert sötétben való közlekedéshez?",
     answers: [
+      "Egy első fehér és egy hátsó.",
       "Nem kell rá lámpa",
-      "Egy első fehér és egy hátsó piros lámpával, valamint fényvisszaverőkkel",
       "Kék villogóval",
       "Zöld fénnyel"
     ],
-    correctAnswer: 1,
+    correctAnswer: 0,
     explanation: "Ugyanúgy, mint a biciklinél, az e-rolleren is kötelező az első fehér és a hátsó piros lámpa sötétben vagy rossz látási viszonyok között."
   },
   {
@@ -74,7 +79,7 @@ export const groupCQuestions: Question[] = [
     question: "Szabad-e kézben tartott telefonnal e-rollert vezetni?",
     answers: [
       "Igen, ha csak az egyik kezünkkel fogjuk a kormányt",
-      "Nem, az e-rolleren mindkét kézzel fogni kell a kormányt a stabilitás miatt, telefonozni tilos!",
+      "Nem, tilos.",
       "Csak videózásra szabad",
       "Csak ha lassan megyünk"
     ],
@@ -88,11 +93,11 @@ export const groupCQuestions: Question[] = [
     question: "Mi az az e-bike (pedelec) a KRESZ szerint?",
     answers: [
       "Egy elektromos motorbicikli",
-      "Olyan elektromos rásegítésű kerékpár, amelynél a motor csak akkor segít, ha tekerjük a pedált",
       "Egy akkumulátoros roller pótüléssel",
+      "Olyan elektromos rásegítésű kerékpár",
       "Egy önvezető bicikli"
     ],
-    correctAnswer: 1,
+    correctAnswer: 2,
     explanation: "A pedelec olyan kerékpár, amelynél az elektromos motor csak pedálozás közben segít rá a haladásra (max 25 km/h-ig). Ez kerékpárnak minősül."
   },
   {
@@ -102,11 +107,11 @@ export const groupCQuestions: Question[] = [
     question: "Hol kell hagynunk a bérelt e-rollert a használat után?",
     answers: [
       "Az út vagy a zebra közepén eldöntve",
-      "Kijelölt mikromobilitási pontokon (parkolókban), vagy a járdán úgy, hogy ne akadályozza a gyalogosokat",
+      "Bárhol otthagyhatjuk",
       "Be kell dobni a bokorba",
-      "Bárhol otthagyhatjuk"
+      "Kijelölt mikromobilitási pontokon"
     ],
-    correctAnswer: 1,
+    correctAnswer: 3,
     explanation: "A rollereket kulturáltan, a kijelölt pontokon kell leparkolni. A szanaszét hagyott rollerek akadályozzák a babakocsisokat és a vakokat."
   },
   {
@@ -115,45 +120,55 @@ export const groupCQuestions: Question[] = [
     difficulty: "medium",
     question: "Szabad-e gördeszkával vagy hagyományos rollerrel (nem elektromossal) az úttesten haladni?",
     answers: [
+      "Nem, tilos.",
       "Igen, ha nincs autó",
-      "Nem, a hagyományos gördeszka, roller és görkorcsolya gyalogos sporteszköz, csak járdán használható",
       "Csak autópályán",
       "Igen, ha nagyon gyorsan megyünk"
     ],
-    correctAnswer: 1,
+    correctAnswer: 0,
     explanation: "A lábbal hajtós roller, gördeszka és görkorcsolya gyalogosnak minősül, így ezekkel a járdán kell haladni, a gyalogosok zavarása nélkül."
   },
   {
     id: "mik_10",
     category: "mikromobilitas",
     difficulty: "medium",
-    question: "Mennyi az e-roller maximális megengedett sebessége kerékpárúton haladva?",
-    answers: ["10 km/h", "25 km/h", "40 km/h", "Nincs korlátozás"],
+    question: "Milyen sebességhatár vonatkozik az elektromos rollerre kerékpárúton a jelenlegi KRESZ alapján?",
+    answers: [
+      "Egységesen 10 km/h",
+      "Egységesen 25 km/h",
+      "Egységesen 40 km/h",
+      "Nincs külön, általános e-roller-sebességhatár a KRESZ-ben"
+    ],
     correctAnswer: 1,
-    explanation: "Az e-rollerekre vonatkozó ajánlott maximális sebesség kerékpárúton és egyéb felületeken is legfeljebb 25 km/h."
+    explanation: "A KRESZ jelenleg nem határoz meg külön, általános 25 vagy 40 km/h-s sebességhatárt az elektromos rollerekre."
   },
   {
     id: "mik_11",
     category: "mikromobilitas",
     difficulty: "easy",
-    question: "Használhatja-e az e-rollert gyermek egyedül forgalmas úton?",
+    question: "Mit kell tudni az e-roller gyermek általi használatáról?",
     answers: [
-      "Igen, bármilyen korban",
-      "Nem, gyermekeknek e-roller használata forgalmas utakon nem ajánlott és bizonyos kor alatt tilos",
-      "Csak szülővel a kormányon",
-      "Csak ha van rajta csengő"
+      "Bármely életkorban szabad közúton használni",
+      "Csak szülővel a kormány mögött szabad",
+      "A KRESZ nem állapít meg külön",
+      "Csak csengővel felszerelve szabad"
     ],
-    correctAnswer: 1,
-    explanation: "Az elektromos roller irányítása nagy egyensúlyérzéket igényel. Fiatal gyermekeknek a forgalomban való rollerezés rendkívül veszélyes."
+    correctAnswer: 2,
+    explanation: "Az elektromos rollerre nincs a KRESZ-ben külön, minden típusra alkalmazható egységes korhatár-szabály. A közúti használat megítélésénél az eszköz jogi besorolása is lényeges."
   },
   {
     id: "mik_12",
     category: "mikromobilitas",
     difficulty: "hard",
-    question: "Ha egy elektromos eszköz gázkarral rendelkezik és pedálozás nélkül is képes önállóan 35 km/h sebességgel haladni, minek minősül?",
-    answers: ["Kerékpárnak", "Segédmotoros kerékpárnak (moped)", "Gyalogosnak", "E-rollernek"],
-    correctAnswer: 1,
-    explanation: "Az olyan kétkerekű elektromos jármű, amely pedálozás nélkül is gyorsan halad, segédmotoros kerékpárnak minősül. Vezetéséhez jogosítvány és bukósisak szükséges!"
+    question: "Mit lehet megállapítani pusztán abból, hogy egy elektromos eszköz gázkarral és 35 km/h-s önálló haladási képességgel rendelkezik?",
+    answers: [
+      "Biztosan kerékpár",
+      "Önmagában ezekből az adatokból nem állapítható meg minden jogi besorolási kérdés",
+      "Gyalogosnak minősül",
+      "Biztosan segédmotoros kerékpár"
+    ],
+    correctAnswer: 3,
+    explanation: "A jármű kategóriáját nem egyetlen adat, hanem az alkalmazandó jogszabályok és a jármű műszaki jellemzői alapján kell megítélni."
   },
   {
     id: "mik_13",
@@ -161,12 +176,12 @@ export const groupCQuestions: Question[] = [
     difficulty: "easy",
     question: "Miért fontos a lassítás az e-rollerrel a kanyarok előtt?",
     answers: [
+      "Mert a kis kerekek miatt a.",
       "Mert lemerül a gép",
-      "Mert a kis kerekek miatt a roller könnyen megcsúszhat és eleshetünk a kanyarban",
       "Mert elszédülünk",
       "Nem kell lassítani"
     ],
-    correctAnswer: 1,
+    correctAnswer: 0,
     explanation: "Az e-roller kis kerekei rosszabbul tapadnak a kanyarokban. Ha túl gyorsan kanyarodunk, a kerekek könnyen kicsúsznak alólunk."
   },
   {
@@ -176,7 +191,7 @@ export const groupCQuestions: Question[] = [
     question: "Szabad-e e-rollerrel vagy e-bike-kal ittasan (alkohol hatása alatt) közlekedni?",
     answers: [
       "Igen, mert ez nem autó",
-      "Nem, járművet (beleértve a biciklit és rollert is) alkoholos állapotban vezetni szigorúan tilos és életveszélyes!",
+      "Nem, tilos.",
       "Csak akkor, ha a kerékpárúton megyünk",
       "Csak sör fogyasztása után"
     ],
@@ -188,8 +203,13 @@ export const groupCQuestions: Question[] = [
     category: "mikromobilitas",
     difficulty: "easy",
     question: "Milyen cipőben a legbiztonságosabb e-rollerezni vagy kerékpározni?",
-    answers: ["Papucsban", "Zárt, sportos cipőben", "Magas sarkú cipőben", "Mezítláb"],
-    correctAnswer: 1,
+    answers: [
+      "Papucsban",
+      "Magas sarkú cipőben",
+      "Zárt, sportos cipőben",
+      "Mezítláb"
+    ],
+    correctAnswer: 2,
     explanation: "A zárt sportcipő stabilan tartja a lábat a roller deszkáján vagy a bicikli pedálján, elkerülve a lecsúszást."
   },
   {
@@ -199,11 +219,11 @@ export const groupCQuestions: Question[] = [
     question: "Mit kell tenni az e-rollerrel, ha gyalogos zónába (sétálóutcába) érünk, ahol tábla tiltja a járműforgalmat?",
     answers: [
       "Gyorsan áttekerünk rajta",
-      "Le kell szállni és gyalogosan tolni kell az eszközt",
+      "Kikerüljük a házakat",
       "Folyamatosan csöngetünk",
-      "Kikerüljük a házakat"
+      "Le kell szállni és gyalogosan tolni."
     ],
-    correctAnswer: 1,
+    correctAnswer: 3,
     explanation: "A sétálóutcákban a gyalogosok biztonsága az első. Ha tilos a járműforgalom, az e-rollert is csak tolva szabad vinni."
   },
   {
@@ -212,12 +232,12 @@ export const groupCQuestions: Question[] = [
     difficulty: "easy",
     question: "Mit jelez a roller hátsó sárvédőjén lévő piros prizma?",
     answers: [
+      "A roller éjszakai láthatóságát segíti",
       "Hogy szép legyen",
-      "A roller éjszakai láthatóságát segíti, mert visszaveri a mögöttünk jövő autók fényét",
       "Hogy ne fröcsköljön a víz",
       "Semmit"
     ],
-    correctAnswer: 1,
+    correctAnswer: 0,
     explanation: "A hátsó piros fényvisszaverő prizma rendkívül fontos passzív biztonsági eszköz, amely láthatóvá tesz minket hátulról sötétben is."
   },
   {
@@ -227,7 +247,7 @@ export const groupCQuestions: Question[] = [
     question: "Szabad-e e-rollerrel vagy kerékpárral kapaszkodni egy haladó gépjárműbe (pl. autóba vagy traktorba) vontatás céljából?",
     answers: [
       "Igen, ha fáradtak vagyunk",
-      "Nem, ez rendkívül életveszélyes és szigorúan tilos!",
+      "Nem, ez életveszélyes és tilos",
       "Csak ha ismeri a sofőrünket",
       "Csak kerékpárúton"
     ],
@@ -238,10 +258,15 @@ export const groupCQuestions: Question[] = [
     id: "mik_19",
     category: "mikromobilitas",
     difficulty: "hard",
-    question: "Mennyi az e-rollerrel megengedett legnagyobb sebesség a járdán (ha nincs más lehetőség)?",
-    answers: ["5 km/h", "10 km/h", "15 km/h", "20 km/h"],
-    correctAnswer: 1,
-    explanation: "A járdán (ha az úttest kerékpározásra teljesen alkalmatlan) legfeljebb 10 km/h-val szabad haladni, a gyalogosokat nem zavarva."
+    question: "Melyik állítás helyes az elektromos roller járdán történő sebességéről?",
+    answers: [
+      "A KRESZ minden e-rollerre 10 km/h-s felső határt ír elő",
+      "A KRESZ minden e-rollerre 25 km/h-s felső határt ír elő",
+      "A KRESZ minden e-rollerre 20 km/h-s felső határt ír elő",
+      "Nincs egységes, külön e-rolleres járdasebesség-határ a KRESZ-ben"
+    ],
+    correctAnswer: 2,
+    explanation: "A KRESZ jelenleg nem tartalmaz külön, minden elektromos rollerre alkalmazható járdai sebességhatárt."
   },
   {
     id: "mik_20",
@@ -250,22 +275,26 @@ export const groupCQuestions: Question[] = [
     question: "Mi a teendőnk, ha e-rollerrel elütünk egy gyalogost a járdán?",
     answers: [
       "Gyorsan elmenekülünk a helyszínről",
-      "Megállunk, segítséget nyújtunk, bocsánatot kérünk, és ha megsérült, értesítjük a mentőket (112) és a szüleinket/rendőrséget",
+      "Eldobjuk a rollert a folyóba",
       "Rákiabálunk, hogy miért nem figyelt",
-      "Eldobjuk a rollert a folyóba"
+      "Megállunk, segítséget nyújtunk, bocsánatot kérünk, és."
     ],
-    correctAnswer: 1,
+    correctAnswer: 3,
     explanation: "Baleset okozása vagy részesei esetén kötelező azonnal megállni, segíteni és szükség esetén hívni a segélyhívót (112)."
   },
-
   // --- HALADÁS AZ ÚTON (20 questions) ---
   {
     id: "hal_1",
     category: "haladas",
     difficulty: "easy",
     question: "Melyik oldalon kell haladnunk a járművekkel (autó, bicikli) Magyarországon?",
-    answers: ["A bal oldalon", "A jobb oldalon (jobb tartási kötelezettség)", "Az út közepén", "Ahol kevesebb a gödör"],
-    correctAnswer: 1,
+    answers: [
+      "A jobb oldalon",
+      "A bal oldalon",
+      "Az út közepén",
+      "Ahol kevesebb a gödör"
+    ],
+    correctAnswer: 0,
     explanation: "Magyarországon jobboldali közlekedés van érvényben, így minden járművel az úttest jobb széléhez közel kell haladni."
   },
   {
@@ -275,11 +304,11 @@ export const groupCQuestions: Question[] = [
     question: "Hogyan kell a kerékpárosnak kikerülnie az úttest szélén álló autót?",
     answers: [
       "Megállás nélkül, szorosan elsuhanva mellette",
+      "Hátrapillantással ellenőrizni a forgalmat",
       "Mögötte elhaladva a járdán",
-      "Hátrapillantással ellenőrizni a forgalmat, balra irányjelezni, majd megfelelő biztonsági oldaltávolságot tartva kikerülni",
       "Hangosan dudálva"
     ],
-    correctAnswer: 2,
+    correctAnswer: 1,
     explanation: "A parkoló autók kikerülése előtt mindig hátra kell nézni, irányjelezni kell, és akkora távolságot kell tartani, hogy egy hirtelen kinyíló autóajtó se okozzon balesetet."
   },
   {
@@ -289,11 +318,11 @@ export const groupCQuestions: Question[] = [
     question: "Mit kell tenned, ha az úttest szélén haladsz és egy busz indexel, hogy elindulna a buszmegállóból lakott területen?",
     answers: [
       "Gyorsan megelőzöd",
-      "Segítened kell a busz elindulását (lassítással vagy megállással), ha ez biztonságos",
       "Figyelmen kívül hagyod",
+      "Segítened kell a busz elindulását",
       "Dudálsz, hogy álljon meg"
     ],
-    correctAnswer: 1,
+    correctAnswer: 2,
     explanation: "Lakott területen belül a járművek kötelesek segíteni a megállóból elindulni szándékozó menetrend szerinti autóbusz elindulását."
   },
   {
@@ -303,26 +332,26 @@ export const groupCQuestions: Question[] = [
     question: "Mit jelent a követési távolság megtartása az úton?",
     answers: [
       "Azt, hogy minél közelebb kell menni az előttünk lévőhöz, hogy lássuk",
-      "Olyan távolságot kell tartani az előttünk haladó mögött, hogy az hirtelen fékezése esetén is biztonságosan meg tudjunk állni",
+      "A GPS távolságot",
       "Hogy mindig el kell engedni a mögöttünk jövőt",
-      "A GPS távolságot"
+      "Olyan távolságot kell tartani az előttünk."
     ],
-    correctAnswer: 1,
+    correctAnswer: 3,
     explanation: "A követési távolság azért fontos, hogy ha az előttünk lévő hirtelen satuféket nyom, legyen elég időnk és fékutunk megállni ütközés nélkül."
   },
   {
     id: "hal_5",
     category: "haladas",
     difficulty: "easy",
-    question: "Szabad-e a kerékpárúton motorral vagy segédmotorral közlekedni?",
+    question: "Szabad-e segédmotoros kerékpárral kerékpárúton közlekedni?",
     answers: [
+      "Főszabály szerint nem",
       "Igen, mert kétkerekű",
-      "Nem, a kerékpárút alapvetően csak a kerékpárosok és e-rollerek számára van fenntartva",
       "Csak éjszaka",
-      "Igen, ha sietnek"
+      "Igen, ha nincs más jármű"
     ],
-    correctAnswer: 1,
-    explanation: "A kerékpárúton gépjárművek (autó, motor) nem közlekedhetnek, kivéve bizonyos nagyon lassú segédmotorokat kivételes esetekben, de általában tilos."
+    correctAnswer: 0,
+    explanation: "A segédmotoros kerékpárra a kerékpárosokra vonatkozó szabályok egy része alkalmazandó, de kerékpárúton való közlekedése nem azonos a kerékpár használatával; a konkrét útvonal és jelzések szabályait kell figyelembe venni."
   },
   {
     id: "hal_6",
@@ -336,15 +365,20 @@ export const groupCQuestions: Question[] = [
       "Nincs jelentősége"
     ],
     correctAnswer: 1,
-    explanation: "Ha az úton van kerékpársáv, a biciklisnek kötelező abban haladnia, nem tekerhet az autók sávjában."
+    explanation: "A kijelölt kerékpársáv a kerékpáros közlekedésre kijelölt útfelület. A kerékpárosnak főszabály szerint ezt kell használnia, kivéve, ha a közúti jelzések vagy az adott helyzet másként rendelkezik."
   },
   {
     id: "hal_7",
     category: "haladas",
     difficulty: "easy",
     question: "Melyik irányból kell előzni a szabályok szerint az úton (főszabályként)?",
-    answers: ["Jobbról", "Balról", "Amelyik oldalon üresebb az út", "Középen átrepülve"],
-    correctAnswer: 1,
+    answers: [
+      "Jobbról",
+      "Amelyik oldalon üresebb az út",
+      "Balról",
+      "Középen átrepülve"
+    ],
+    correctAnswer: 2,
     explanation: "Főszabály szerint előzni csak balról szabad. Jobbról előzni szigorúan tilos és rendkívül balesetveszélyes."
   },
   {
@@ -354,11 +388,11 @@ export const groupCQuestions: Question[] = [
     question: "Szabad-e kerékpárral egyirányú utcába a forgalommal szemben behajtani?",
     answers: [
       "Igen, mert a bicikli kicsi",
-      "Alapvetően tilos, kivéve ha ezt kiegészítő tábla ('Kivéve kerékpár') kifejezetten megengedi",
+      "Csak nappal",
       "Bármikor szabad, ha óvatosak vagyunk",
-      "Csak nappal"
+      "Alapvetően tilos"
     ],
-    correctAnswer: 1,
+    correctAnswer: 3,
     explanation: "Egyirányú utcába szembe behajtani tilos, kivéve ha a tábla alatt ott van a 'Kivéve kerékpár' felirat vagy piktogram. Ekkor is szorosan az út szélén kell haladni."
   },
   {
@@ -367,27 +401,27 @@ export const groupCQuestions: Question[] = [
     difficulty: "easy",
     question: "Mit kell tennie a járművezetőnek, ha a mögötte haladó autó megkülönböztető jelzéseket használ (villog és szirénázik)?",
     answers: [
+      "Lehúzódással, lassítással, vagy szükség esetén megállással.",
       "Gyorsítani kell, hogy lehagyja",
-      "Lehúzódással, lassítással, vagy szükség esetén megállással szabaddá kell tenni az utat a szirénázó járműnek",
       "Hirtelen le kell fékezni",
       "Nem kell tenni semmit"
     ],
-    correctAnswer: 1,
+    correctAnswer: 0,
     explanation: "A szirénázó kocsik elől mindig azonnal, biztonságosan le kell húzódni, hogy mielőbb elhaladhassanak az életet menteni."
   },
   {
     id: "hal_10",
     category: "haladas",
     difficulty: "medium",
-    question: "Hogyan kell besorolni kanyarodás előtt a kereszteződésben?",
+    question: "Hová kell a járművezetőnek besorolnia kanyarodás előtt?",
     answers: [
-      "Mindegy honnan kanyarodunk",
-      "Jobbra kanyarodás előtt jobbra, balra kanyarodás előtt pedig az úttest felezővonala mellé kell besorolni",
-      "Mindig az út legszélére kell húzódni",
-      "Keresztbe kell állni az úton"
+      "Nem számít, honnan kanyarodik",
+      "Jobbra kanyarodáskor jobbra",
+      "Mindig az úttest jobb szélére kell húzódni",
+      "A kereszteződésben keresztbe kell állni"
     ],
     correctAnswer: 1,
-    explanation: "Kanyarodás előtt időben be kell sorolni a megfelelő sávba vagy az úttest megfelelő részére, jelezve az irányt a többi autósnak."
+    explanation: "Kanyarodás előtt a menetirány és az út kialakítása szerint kell a megfelelő helyre besorolni, és az irányváltoztatást jelezni kell."
   },
   {
     id: "hal_11",
@@ -396,26 +430,26 @@ export const groupCQuestions: Question[] = [
     question: "Mit kell tenned, ha az úton 'Útszűkület' táblát látsz?",
     answers: [
       "Gyorsítani kell, hogy te érj oda először",
-      "Lassítani kell, és felkészülni az elsőbbségadásra, ha a te oldalad szűkül",
       "Meg kell állni és visszafordulni",
+      "Lassítani kell, és felkészülni az elsőbbségadásra.",
       "Felesleges figyelni rá"
     ],
-    correctAnswer: 1,
+    correctAnswer: 2,
     explanation: "Útszűkületnél az út elkeskenyedik. Ha a te oldaladon van az akadály vagy szűkület, neked kell elengedned a szembejövőt."
   },
   {
     id: "hal_12",
     category: "haladas",
     difficulty: "medium",
-    question: "Szabad-e kerékpárral autót előzni egy kereszteződésben?",
+    question: "Melyik állítás igaz a kerékpáros kereszteződésben történő előzésére?",
     answers: [
-      "Igen, bármikor",
-      "Nem, a kereszteződésekben előzni általában tilos és rendkívül veszélyes a kanyarodó járművek miatt",
-      "Csak ha zöld a lámpa",
-      "Csak piros autónál"
+      "Minden kereszteződésben szabad előzni",
+      "Csak álló személygépkocsit szabad előzni",
+      "Csak zöld lámpánál szabad előzni",
+      "Kereszteződésben az előzés főszabály szerint tilos"
     ],
-    correctAnswer: 1,
-    explanation: "Útkereszteződésekben előzni szigorúan tilos és veszélyes, mert a kanyarodó vagy elsőbbséget kapó járművek elüthetik az előzőt."
+    correctAnswer: 3,
+    explanation: "A KRESZ a kereszteződésekben általános előzési tilalmat állapít meg, ugyanakkor meghatározott esetekben kivételeket is tartalmaz."
   },
   {
     id: "hal_13",
@@ -423,27 +457,27 @@ export const groupCQuestions: Question[] = [
     difficulty: "easy",
     question: "Mi a teendőnk, ha az úton gödröt vagy olajfoltot veszünk észre?",
     answers: [
+      "Biztonságos lassítás és hátrapillantás után óvatosan.",
       "Keresztülhajtunk rajta gyorsan",
-      "Biztonságos lassítás és hátrapillantás után óvatosan kikerüljük",
       "Hirtelen rarántjuk a kormányt",
       "Lehunyjuk a szemünket"
     ],
-    correctAnswer: 1,
+    correctAnswer: 0,
     explanation: "Az úthibákat óvatosan, hátrapillantás után szabad kikerülni. A hirtelen kormányrántás esést vagy ütközést okozhat a mellettünk haladóval."
   },
   {
     id: "hal_14",
     category: "haladas",
     difficulty: "hard",
-    question: "Hogyan kell végrehajtani a kerékpárosnak a balra kanyarodást egy többsávos, forgalmas főútvonalon lakott területen belül?",
+    question: "Mi lehet biztonságos megoldás kerékpárral balra kanyarodáskor forgalmas, többsávos úton?",
     answers: [
-      "Bátran be kell kanyarodni a sávok között",
-      "Közvetett kanyarodással: egyenesen áthalad a kereszteződésen, megáll a túloldalon, és ott a gyalogosok között tolva kel át",
-      "A járdán kell átrepülni",
-      "Tilos balra kanyarodni biciklivel"
+      "Közvetlenül keresztezzük a sávokat körültekintés nélkül",
+      "Szükség esetén közvetett kanyarodással",
+      "Felmegyünk a járdára és gyorsan áthajtunk",
+      "Kerékpárral soha nem szabad balra kanyarodni"
     ],
     correctAnswer: 1,
-    explanation: "Többsávos vagy nagyon forgalmas főutakon a biciklisnek tilos a belső sávból kanyarodnia. Biztonságosabb közvetett módon, leszállva és tolva átkelni."
+    explanation: "Bizonyos útviszonyoknál, illetve a KRESZ-ben meghatározott esetekben a kerékpáros közvetett kanyarodással, a kerékpárról leszállva és azt tolva haladhat tovább."
   },
   {
     id: "hal_15",
@@ -452,11 +486,11 @@ export const groupCQuestions: Question[] = [
     question: "Mit kell tenned, ha az úton sűrű köd van és alig látsz?",
     answers: [
       "Kapcsold be a távolsági fényszórót és száguldj",
-      "Csökkentsd a sebességedet, kapcsold be a világítást, és tarts nagyobb követési távolságot",
       "Állj meg az út közepén",
+      "Csökkentsd a sebességedet",
       "Kapcsold ki a lámpákat, hogy ne zavard a ködöt"
     ],
-    correctAnswer: 1,
+    correctAnswer: 2,
     explanation: "Ködben nagyon rosszak a látási viszonyok. Lassabban kell menni, tompított fényszórót kell használni és nagy követési távolságot kell tartani."
   },
   {
@@ -466,11 +500,11 @@ export const groupCQuestions: Question[] = [
     question: "Mit jelez a fehér színű záróvonal az úttest szélén (útpadka mellett)?",
     answers: [
       "Hogy ott tilos megállni",
-      "Az úttest szélét jelzi, amelyen túl az útpadka található (ezt a vonalat át szabad lépni pl. megálláshoz)",
+      "Hogy ott sín fut",
       "Zebra kezdetét",
-      "Hogy ott sín fut"
+      "Az úttest szélét jelzi"
     ],
-    correctAnswer: 1,
+    correctAnswer: 3,
     explanation: "Az úttest szélét jelző vonal (szegélyvonal) átléphető megállás vagy az útról való lehúzódás céljából."
   },
   {
@@ -479,12 +513,12 @@ export const groupCQuestions: Question[] = [
     difficulty: "easy",
     question: "Mit jelent a villogó irányjelző (index) használata kanyarodás előtt?",
     answers: [
+      "Egyértelmű jelzés a többi közlekedőnek arról",
       "Hogy szép sárga lámpánk van",
-      "Egyértelmű jelzés a többi közlekedőnek arról, hogy merre szándékozunk kanyarodni vagy sávot váltani",
       "Azt, hogy sietünk",
       "Hogy elromlott az autó"
     ],
-    correctAnswer: 1,
+    correctAnswer: 0,
     explanation: "Az indexelés kötelező jelzés, amellyel tudatjuk a többi sofőrrel és gyalogossal, hogy merre fogunk kanyarodni."
   },
   {
@@ -494,7 +528,7 @@ export const groupCQuestions: Question[] = [
     question: "Mi az a 'kapubejáró' a KRESZ haladási szabályai szerint?",
     answers: [
       "Egy szép kapu",
-      "Olyan magánút vagy ingatlan kijárat, ahonnan az útra ráhajtva mindig elsőbbséget kell adni az úton lévőknek",
+      "Olyan magánút vagy ingatlan kijárat",
       "Egy új sáv",
       "Ahol ingyen lehet parkolni"
     ],
@@ -508,11 +542,11 @@ export const groupCQuestions: Question[] = [
     question: "Ha kerékpárosként lakott területen kívül haladsz egy keskeny úton, és egy nagy teherautó akar megelőzni, mit érdemes tenned a biztonságodért?",
     answers: [
       "Középre húzódni, hogy ne tudjon megelőzni",
-      "Lehúzódni a jobb szélre, vagy szükség esetén teljesen megállni az útpadkán, segítve a biztonságos előzését",
       "Gyorsítani és versenyezni vele",
+      "Lehúzódni a jobb szélre",
       "Kiabálni a sofőrnek"
     ],
-    correctAnswer: 1,
+    correctAnswer: 2,
     explanation: "A biztonság az első. Ha keskeny az út, érdemes félrehúzódni az útpadkára és elengedni a nagy teherautót, elkerülve a menetszél miatti esést."
   },
   {
@@ -522,14 +556,13 @@ export const groupCQuestions: Question[] = [
     question: "Miért nem szabad hirtelen, indokolatlanul fékezni az úton?",
     answers: [
       "Mert kopik a gumi",
-      "Mert a mögöttünk haladó járműnek nem lesz ideje lefékezni és hátulról belénk rohanhat",
+      "Nyugodtan szabad fékezni bármikor",
       "Mert lemerül az akkumulátor",
-      "Nyugodtan szabad fékezni bármikor"
+      "Mert a mögöttünk haladó járműnek nem."
     ],
-    correctAnswer: 1,
+    correctAnswer: 3,
     explanation: "Indokolatlan satuféket nyomni tilos és veszélyes, mert láncreakciós ráfutásos balesetet okozhatunk az úton."
   },
-
   // --- KRESZ TÁBLÁK (20 questions) ---
   {
     id: "tab_1",
@@ -537,12 +570,12 @@ export const groupCQuestions: Question[] = [
     difficulty: "easy",
     question: "Milyen alakú és színű az 'Állj! Elsőbbségadás kötelező' (STOP) tábla?",
     answers: [
-      "Kerek, piros kerettel",
-      "Nyolcszögletű, piros alapon fehér felirattal",
-      "Háromszög alakú, csúcsára állítva",
-      "Négyzet alakú, kék"
+      "Nyolcszögletű, piros-fehér STOP feliratú tábla",
+      "Kerek, piros szegélyű tábla",
+      "Háromszög alakú, csúcsára állított tábla",
+      "Kék négyzet alakú tábla"
     ],
-    correctAnswer: 1,
+    correctAnswer: 0,
     explanation: "A STOP tábla az egyetlen nyolcszögletű tábla a KRESZ-ben, hogy hátulról vagy hóval borítva is azonnal felismerhető legyen."
   },
   {
@@ -550,7 +583,12 @@ export const groupCQuestions: Question[] = [
     category: "tablak",
     difficulty: "easy",
     question: "Mit jelent a piros körben kék alapon piros X-szel áthúzott tábla?",
-    answers: ["Várakozni tilos", "Megállni tilos", "Főútvonal", "Autópálya vége"],
+    answers: [
+      "Várakozni tilos",
+      "Megállni tilos",
+      "Főútvonal",
+      "Autópálya vége"
+    ],
     correctAnswer: 1,
     explanation: "A piros körben lévő kék alapon elhelyezett piros X jelzi a 'Megállni tilos' parancsot."
   },
@@ -559,8 +597,13 @@ export const groupCQuestions: Question[] = [
     category: "tablak",
     difficulty: "easy",
     question: "Mit jelent a piros körben kék alapon egyetlen átlós piros vonallal ellátott tábla?",
-    answers: ["Megállni tilos", "Várakozni (parkolni) tilos", "Behajtani tilos", "Kötelező haladási irány"],
-    correctAnswer: 1,
+    answers: [
+      "Megállni tilos",
+      "Behajtani tilos",
+      "Várakozni (parkolni) tilos",
+      "Kötelező haladási irány"
+    ],
+    correctAnswer: 2,
     explanation: "A kék alapon egyetlen átlós piros vonallal rendelkező kerek tábla jelöli a 'Várakozni tilos' tilalmat."
   },
   {
@@ -569,12 +612,12 @@ export const groupCQuestions: Question[] = [
     difficulty: "easy",
     question: "Mit jelent az a kerek, piros keretű tábla, aminek a közepe teljesen fehér?",
     answers: [
-      "Minden jármű mindkét irányból való behajtása tilos (Behajtani tilos)",
+      "Üres utat jelöl",
       "Gyalogosoknak tilos az átkelés",
       "Behajtani szabad",
-      "Üres utat jelöl"
+      "Minden jármű mindkét irányból való behajtása."
     ],
-    correctAnswer: 0,
+    correctAnswer: 3,
     explanation: "A fehér közepű piros kerek tábla azt jelzi, hogy az utcába mindkét irányból tilos behajtani minden járművel."
   },
   {
@@ -583,12 +626,12 @@ export const groupCQuestions: Question[] = [
     difficulty: "medium",
     question: "Mit jelent az a kerek piros tábla, aminek a közepén egy vízszintes fehér csík van?",
     answers: [
-      "Megállni tilos",
+      "Egyirányú utca bejárata",
       "Mindkét irányból behajtani tilos",
-      "Egyirányú utca bejárata, ahonnan ebbe az irányba behajtani tilos",
+      "Megállni tilos",
       "Gyalogút"
     ],
-    correctAnswer: 2,
+    correctAnswer: 0,
     explanation: "Ez a klasszikus 'Behajtani tilos' tábla egyirányú utcák végén. Ebbe az irányba tilos behajtani, de a túloldalról jöhetnek járművek."
   },
   {
@@ -598,11 +641,11 @@ export const groupCQuestions: Question[] = [
     question: "Mit ábrázol a 'Gyalogosok' veszélyt jelző tábla (piros keretű háromszög)?",
     answers: [
       "Egy biciklit",
-      "Két futó gyermeket (iskola, óvoda veszélyt jelző tábla)",
       "Egy sétáló gyalogos alakot",
+      "Két futó gyermeket (iskola, óvoda veszélyt jelző tábla)",
       "Egy zebrát"
     ],
-    correctAnswer: 2,
+    correctAnswer: 1,
     explanation: "A piros háromszögben sétáló gyalogos figura arra figyelmeztet, hogy az úton gyalogosok megjelenésére kell számítani."
   },
   {
@@ -612,11 +655,11 @@ export const groupCQuestions: Question[] = [
     question: "Mit jelent a kerek, kék alapon fehér kerékpárt ábrázoló tábla?",
     answers: [
       "Kerékpározni tilos",
-      "Kerékpárút (kizárólag kerékpárral és e-rollerrel szabad rajta közlekedni)",
-      "Bicikliüzlet",
+      "Kerékpárüzlet",
+      "Kerékpárút",
       "Veszélyes útszakasz"
     ],
-    correctAnswer: 1,
+    correctAnswer: 2,
     explanation: "A kerek kék tábla fehér biciklivel a kijelölt kerékpárutat jelöli, ahol a biciklisek biztonságosan tekerhetnek."
   },
   {
@@ -626,26 +669,26 @@ export const groupCQuestions: Question[] = [
     question: "Mit ábrázol és mit jelent az 'Iskola, gyermekek' veszélyt jelző tábla?",
     answers: [
       "Egy könyvet ábrázol",
-      "Piros háromszögben két futó gyereket ábrázol; azt jelzi, hogy az úttesten gyermekek megjelenésére kell számítani",
+      "Hogy itt szabad játszani az úton",
       "Egy játszóteret ábrázol",
-      "Hogy itt szabad játszani az úton"
+      "Piros háromszögben két futó gyereket ábrázol"
     ],
-    correctAnswer: 1,
+    correctAnswer: 3,
     explanation: "A piros keretű háromszögben lévő két futó gyerek figura figyelmeztet az iskola vagy óvoda közelségére, ahol fokozottan kell lassítani."
   },
   {
     id: "tab_9",
     category: "tablak",
     difficulty: "easy",
-    question: "Mit jelent a kék alapú, fehér gyalogost és kerékpárt ábrázoló kerek tábla, aminek a közepén egy függőleges fehér vonal van?",
+    question: "Mit jelent a kék, kerek tábla, amelyen gyalogos és kerékpár piktogramja látható, köztük elválasztó vonallal?",
     answers: [
-      "Gyalog- és kerékpárút, ahol a gyalogosok és kerékpárosok a vonallal elválasztott külön részeken közlekednek",
-      "Sétálóutca",
-      "Tilos a biciklizés",
-      "Autópálya kezdete"
+      "Gyalog- és kerékpárutat",
+      "Sétálóutcát",
+      "Kerékpárral behajtani tilos",
+      "Autópályát"
     ],
     correctAnswer: 0,
-    explanation: "A függőleges vonallal elválasztott gyalog- és kerékpárút tábla jelzi, hogy az út egyik felén csak gyalogosok, a másikon csak biciklisek haladhatnak."
+    explanation: "A jelzőtábla a gyalog- és kerékpárutat jelzi; az elválasztó vonal az elkülönített gyalogos- és kerékpáros részt mutatja."
   },
   {
     id: "tab_10",
@@ -666,8 +709,13 @@ export const groupCQuestions: Question[] = [
     category: "tablak",
     difficulty: "easy",
     question: "Mit jelent a kék alapon fehér P betűt ábrázoló négyszögletű tábla?",
-    answers: ["Megállni tilos", "Várakozóhely (Parkoló), ahol szabályosan szabad parkolni", "Rendőrség", "Pékség"],
-    correctAnswer: 1,
+    answers: [
+      "Megállni tilos",
+      "Rendőrség",
+      "Várakozóhely, ahol szabályosan szabad parkolni",
+      "Pékség"
+    ],
+    correctAnswer: 2,
     explanation: "A kék négyszögletes tábla a fehér 'P' betűvel a szabályos parkolóhelyet (várakozóhelyet) jelöli."
   },
   {
@@ -677,11 +725,11 @@ export const groupCQuestions: Question[] = [
     question: "Mit jelent a piros keretű háromszögben lévő felkiáltójel tábla?",
     answers: [
       "Hogy kiabálni kell",
-      "Egyéb veszély, amelyet más tábla nem jelöl (fokozott figyelemmel kell haladni)",
+      "Hogy meg kell állni",
       "Az út végét jelzi",
-      "Hogy meg kell állni"
+      "Egyéb veszély, amelyet más tábla nem."
     ],
-    correctAnswer: 1,
+    correctAnswer: 3,
     explanation: "A felkiáltójel tábla 'Egyéb veszély'-re figyelmeztet (pl. omlás, balesetveszély, különleges útviszonyok), amit más táblával nem tudtak jelölni."
   },
   {
@@ -690,12 +738,12 @@ export const groupCQuestions: Question[] = [
     difficulty: "medium",
     question: "Mit jelent a sárga alapú háromszög piros kerettel, benne egy fekete villamossal?",
     answers: [
-      "Hogy itt ingyen lehet utazni villamoson",
-      "Villamospálya kereszteződés közeledtét jelző veszélytábla",
-      "Hogy tilos villamossal menni",
-      "Vasúti átjárót"
+      "Villamospálya kereszteződésének veszélyére figyelmeztető táblát",
+      "Villamosmegállót",
+      "Villamossal behajtani tilos táblát",
+      "Vasúti átjárót jelző táblát"
     ],
-    correctAnswer: 1,
+    correctAnswer: 0,
     explanation: "Ez a tábla arra figyelmeztet, hogy az úttestet villamospálya keresztezi, és a villamosnak általában elsőbbsége lesz."
   },
   {
@@ -705,7 +753,7 @@ export const groupCQuestions: Question[] = [
     question: "Mit jelent az a tábla, ami kék alapon fehér házat, játszó gyereket és autót ábrázol?",
     answers: [
       "Autópálya",
-      "Lakó-pihenő övezet (ahol a gyalogosok az egész úton sétálhatnak, és a sebességhatár max 20 km/h)",
+      "Lakó-pihenő övezet",
       "Iskolaövezet",
       "Kempinghely"
     ],
@@ -719,11 +767,11 @@ export const groupCQuestions: Question[] = [
     question: "Mit jelent a piros keretű háromszögben lévő fekete mozdony vagy fénysorompó ábra?",
     answers: [
       "Hogy itt lehet vonatjegyet venni",
-      "Vasúti átjáró közeledik (fénysorompóval vagy anélkül)",
       "Vasútállomást",
+      "Vasúti átjáró közeledik",
       "Hogy a vonatnak kell megállnia"
     ],
-    correctAnswer: 1,
+    correctAnswer: 2,
     explanation: "A gőzmozdonyt vagy sorompót ábrázoló piros háromszög veszélytábla a vasúti átjáró közeledtére hívja fel a figyelmet."
   },
   {
@@ -732,12 +780,12 @@ export const groupCQuestions: Question[] = [
     difficulty: "medium",
     question: "Mit jelent a kerek kék tábla, benne egy fehér, jobbra mutató nyíllal?",
     answers: [
-      "Csak jobbra szabad kanyarodni (Kötelező haladási irány)",
+      "Egyirányú utca",
       "Jobb oldalon parkoló van",
       "Tilos jobbra kanyarodni",
-      "Egyirányú utca"
+      "Csak jobbra szabad kanyarodni"
     ],
-    correctAnswer: 0,
+    correctAnswer: 3,
     explanation: "A kék kerek táblák fehér nyíllal a Kötelező haladási irányt jelölik. Csak a nyíl által mutatott irányba szabad továbbhaladni."
   },
   {
@@ -746,7 +794,7 @@ export const groupCQuestions: Question[] = [
     difficulty: "easy",
     question: "Milyen táblát látsz a körforgalom előtt?",
     answers: [
-      "Kék körben három fehér, egymásba futó nyilat kör alakban",
+      "Kék körben három fehér",
       "Egy piros kört",
       "Egy kék négyzetet",
       "STOP táblát mindig"
@@ -774,12 +822,12 @@ export const groupCQuestions: Question[] = [
     difficulty: "medium",
     question: "Melyik tábla jelzi a lakott terület (város vagy falu) kezdetét?",
     answers: [
-      "Fehér alapon fekete házak sziluettje, vagy a település nevét tartalmazó fehér téglalap tábla",
-      "Egy kék kör",
       "Egy piros háromszög",
+      "Egy kék kör",
+      "Fehér alapon fekete házak sziluettje",
       "Nincs ilyen tábla"
     ],
-    correctAnswer: 0,
+    correctAnswer: 2,
     explanation: "A település nevét mutató fehér tábla jelzi a lakott terület kezdetét, ami egyben azt is jelenti, hogy életbe lép az 50 km/h-s sebességkorlátozás."
   },
   {
@@ -789,11 +837,11 @@ export const groupCQuestions: Question[] = [
     question: "Mit kell tenned, ha az út szélén 'Gyalogos-átkelőhely' (kék négyzetben fehér háromszög, rajta zebrán sétáló ember) táblát látsz?",
     answers: [
       "Gyorsítani kell, hogy átérj a zebra előtt",
-      "Lassítani kell, és felkészülni arra, hogy elsőbbséget adj az átkelni szándékozó gyalogosoknak",
+      "Biciklivel felmenni a járdára",
       "Dudálni folyamatosan",
-      "Biciklivel felmenni a járdára"
+      "Lassítani kell, és felkészülni arra, hogy."
     ],
-    correctAnswer: 1,
+    correctAnswer: 3,
     explanation: "Ez a tábla a kijelölt gyalogos-átkelőhelyet jelzi. Arra inti a sofőröket, hogy lassítsanak és adják meg az elsőbbséget a gyalogosoknak."
-  }
+  },
 ];
