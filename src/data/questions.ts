@@ -1,4 +1,4 @@
-import { Question } from "../types";
+import { Question, Difficulty } from "../types";
 import { groupAQuestions } from "./categories/groupA";
 import { groupBQuestions } from "./categories/groupB";
 import { groupCQuestions } from "./categories/groupC";
@@ -70,15 +70,15 @@ export function shuffleQuestions<T>(array: T[]): T[] {
  */
 export function getQuestionsForCategory(
   categoryId: string,
-  count: number
+  count: number,
+  allowedDifficulties: Difficulty[] = ["easy", "medium", "hard"]
 ): Question[] {
-  // 1. Filter questions belonging to the selected category (using the dynamic store)
+  // Filter by category AND the difficulty profile selected for the current player.
   const allQuestions = getQuestionsFromStorage();
-  const filtered = allQuestions.filter((q) => q.category === categoryId);
-  
-  // 2. Shuffle using Fisher-Yates algorithm
+  const filtered = allQuestions.filter(
+    (q) => q.category === categoryId && allowedDifficulties.includes(q.difficulty)
+  );
+
   const shuffled = shuffleQuestions(filtered);
-  
-  // 3. Select the configured count (3, 5, or 10)
   return shuffled.slice(0, Math.min(count, shuffled.length));
 }
