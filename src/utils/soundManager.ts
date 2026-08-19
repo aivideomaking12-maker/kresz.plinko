@@ -25,7 +25,7 @@ class SoundManager {
   }
 
   public play(
-    soundName: "spin" | "correct" | "wrong" | "victory"
+    soundName: "spin" | "correct" | "wrong" | "victory" | "fail"
   ) {
     if (!this.enabled) return;
 
@@ -50,7 +50,7 @@ class SoundManager {
   }
 
   private synthesizeFallback(
-    soundName: "spin" | "correct" | "wrong" | "victory"
+    soundName: "spin" | "correct" | "wrong" | "victory" | "fail"
   ) {
     if (!this.ctx) return;
 
@@ -409,6 +409,34 @@ class SoundManager {
             timeOffset +=
               note.d - 0.015;
           });
+
+          break;
+        }
+
+        // =====================================================
+        // FAIL
+        // Egyéni fail.mp3 hiányában egyszerű, lefelé tartó fallback
+        // =====================================================
+        case "fail": {
+          if (!this.ctx) return;
+
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+
+          osc.type = "sawtooth";
+
+          osc.frequency.setValueAtTime(220, now);
+          osc.frequency.exponentialRampToValueAtTime(90, now + 0.45);
+
+          gain.gain.setValueAtTime(0.001, now);
+          gain.gain.linearRampToValueAtTime(0.12, now + 0.02);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
+
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+
+          osc.start(now);
+          osc.stop(now + 0.5);
 
           break;
         }
