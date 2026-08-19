@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "motion/react";
-import { Award, RotateCcw, Eye, Sparkles, Shield, Star } from "lucide-react";
+import { Award, RotateCcw, Eye, Shield, Star } from "lucide-react";
 import { GameSettings, CategoryInfo } from "../types";
 import Mascot from "./Mascot";
+import { soundManager } from "../utils/soundManager";
 
 interface ResultsScreenProps {
   score: number;
@@ -23,14 +24,29 @@ export default function ResultsScreen({
 }: ResultsScreenProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
+  // Megakadályozza, hogy a victory hang többször megszólaljon
+  // akkor is, ha a komponens újrarenderelődik.
+  const victoryPlayedRef = useRef(false);
+
   const percentage = Math.round((score / totalQuestions) * 100);
+
+  // ============================================================
+  // 100%-OS EREDMÉNY - GYŐZELMI HANG
+  // ============================================================
+  useEffect(() => {
+    if (percentage === 100 && !victoryPlayedRef.current) {
+      victoryPlayedRef.current = true;
+      soundManager.play("victory");
+    }
+  }, [percentage]);
 
   // Police grade assignment
   const getPoliceRank = () => {
     if (percentage === 100) {
       return {
         title: "KRESZ Bajnok",
-        description: "Tökéletes teljesítmény! Te vagy a közlekedés abszolút bajnoka! A Rendőrség büszke rád!",
+        description:
+          "Tökéletes teljesítmény! Te vagy a közlekedés abszolút bajnoka! A Rendőrség büszke rád!",
         stars: 5,
         color: "text-amber-500",
         badgeBg: "bg-amber-100 border-amber-200",
@@ -38,7 +54,8 @@ export default function ResultsScreen({
     } else if (percentage >= 70) {
       return {
         title: "Közlekedési Főtörzsőrmester",
-        description: "Kiváló tudás! Már majdnem mindent tökéletesen tudsz. Igazi példakép vagy a társaidnak!",
+        description:
+          "Kiváló tudás! Már majdnem mindent tökéletesen tudsz. Igazi példakép vagy a társaidnak!",
         stars: 4,
         color: "text-indigo-600",
         badgeBg: "bg-indigo-50 border-indigo-100",
@@ -46,7 +63,8 @@ export default function ResultsScreen({
     } else if (percentage >= 40) {
       return {
         title: "Közlekedési Őrmester",
-        description: "Jó úton haladsz! Ismered a legfontosabb szabályokat, de érdemes még egy kicsit gyakorolnod!",
+        description:
+          "Jó úton haladsz! Ismered a legfontosabb szabályokat, de érdemes még egy kicsit gyakorolnod!",
         stars: 3,
         color: "text-emerald-600",
         badgeBg: "bg-emerald-50 border-emerald-100",
@@ -54,7 +72,8 @@ export default function ResultsScreen({
     } else {
       return {
         title: "Közlekedési Kadét",
-        description: "Bátor szárnypróbálgatás! Sokat tanultál ma, próbáld meg még egyszer, hogy még ügyesebb legyél!",
+        description:
+          "Bátor szárnypróbálgatás! Sokat tanultál ma, próbáld meg még egyszer, hogy még ügyesebb legyél!",
         stars: 1,
         color: "text-slate-500",
         badgeBg: "bg-slate-100 border-slate-200",
@@ -64,14 +83,19 @@ export default function ResultsScreen({
 
   const rank = getPoliceRank();
 
-  // Canvas particle physics effect (Confetti and Fireworks)
+  // ============================================================
+  // CANVAS PARTICLE PHYSICS EFFECT
+  // ============================================================
   useEffect(() => {
     if (!canvasRef.current) return;
+
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
+
     if (!ctx) return;
 
     let animationId: number;
+
     let particles: Array<{
       x: number;
       y: number;
@@ -90,15 +114,27 @@ export default function ResultsScreen({
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
+
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
     // Color palettes
-    const colors = ["#f59e0b", "#10b981", "#3b82f6", "#ec4899", "#8b5cf6", "#ef4444", "#06b6d4"];
+    const colors = [
+      "#f59e0b",
+      "#10b981",
+      "#3b82f6",
+      "#ec4899",
+      "#8b5cf6",
+      "#ef4444",
+      "#06b6d4",
+    ];
 
-    // Spawn Confetti
+    // ============================================================
+    // CONFETTI
+    // ============================================================
     const spawnConfetti = () => {
       if (!settings.enableConfetti) return;
+
       for (let i = 0; i < 8; i++) {
         particles.push({
           x: Math.random() * canvas.width,
@@ -115,16 +151,25 @@ export default function ResultsScreen({
       }
     };
 
-    // Spawn Fireworks
+    // ============================================================
+    // FIREWORKS
+    // ============================================================
     const spawnFirework = () => {
       if (!settings.enableFireworks) return;
+
       const x = Math.random() * canvas.width;
       const y = Math.random() * (canvas.height * 0.6);
-      const fireworkColor = colors[Math.floor(Math.random() * colors.length)];
-      
+
+      const fireworkColor =
+        colors[Math.floor(Math.random() * colors.length)];
+
       for (let i = 0; i < 40; i++) {
-        const angle = (i * Math.PI * 2) / 40 + (Math.random() - 0.5) * 0.2;
+        const angle =
+          (i * Math.PI * 2) / 40 +
+          (Math.random() - 0.5) * 0.2;
+
         const speed = Math.random() * 5 + 3;
+
         particles.push({
           x,
           y,
@@ -151,6 +196,9 @@ export default function ResultsScreen({
     const confettiInterval = setInterval(spawnConfetti, 150);
     const fireworksInterval = setInterval(spawnFirework, 1800);
 
+    // ============================================================
+    // PARTICLE PHYSICS
+    // ============================================================
     const updatePhysics = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -159,25 +207,40 @@ export default function ResultsScreen({
         p.y += p.vy;
 
         if (p.type === "confetti") {
-          p.vy += 0.05; // gravity
+          p.vy += 0.05;
           p.rotation += p.rotationSpeed;
         } else {
-          p.vy += 0.12; // slightly heavier gravity
-          p.alpha -= 0.015; // spark fade
+          p.vy += 0.12;
+          p.alpha -= 0.015;
         }
 
-        // Draw particle
         ctx.save();
+
         ctx.globalAlpha = p.alpha;
         ctx.translate(p.x, p.y);
 
         if (p.type === "confetti") {
           ctx.rotate((p.rotation * Math.PI) / 180);
+
           ctx.fillStyle = p.color;
-          ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size / 2);
+
+          ctx.fillRect(
+            -p.size / 2,
+            -p.size / 2,
+            p.size,
+            p.size / 2
+          );
         } else {
           ctx.beginPath();
-          ctx.arc(0, 0, p.size, 0, Math.PI * 2);
+
+          ctx.arc(
+            0,
+            0,
+            p.size,
+            0,
+            Math.PI * 2
+          );
+
           ctx.fillStyle = p.color;
           ctx.fill();
         }
@@ -185,7 +248,10 @@ export default function ResultsScreen({
         ctx.restore();
 
         // Delete dead particles
-        if (p.y > canvas.height || p.alpha <= 0) {
+        if (
+          p.y > canvas.height ||
+          p.alpha <= 0
+        ) {
           particles.splice(index, 1);
         }
       });
@@ -198,33 +264,67 @@ export default function ResultsScreen({
     return () => {
       clearInterval(confettiInterval);
       clearInterval(fireworksInterval);
-      window.removeEventListener("resize", resizeCanvas);
+
+      window.removeEventListener(
+        "resize",
+        resizeCanvas
+      );
+
       cancelAnimationFrame(animationId);
     };
-  }, [score, settings.enableConfetti, settings.enableFireworks]);
+  }, [
+    score,
+    settings.enableConfetti,
+    settings.enableFireworks,
+  ]);
 
   return (
-    <div id="results-screen-layout" className="min-h-screen bg-transparent flex flex-col pt-12 pb-24 px-4 sm:px-6 relative select-none overflow-hidden">
-      
+    <div
+      id="results-screen-layout"
+      className="min-h-screen bg-transparent flex flex-col pt-12 pb-24 px-4 sm:px-6 relative select-none overflow-hidden"
+    >
       {/* Canvas Layer for physical particles */}
-      <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none w-full h-full" />
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 z-0 pointer-events-none w-full h-full"
+      />
 
       <div className="relative z-10 w-full max-w-2xl mx-auto text-center flex flex-col items-center space-y-8">
+
         {/* Animated Badge */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{
+            opacity: 0,
+            scale: 0.8,
+          }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+          }}
           className="bg-white/20 backdrop-blur-md border border-white/30 py-2 px-5 rounded-full flex items-center gap-2 shadow-sm text-white"
         >
           <Award className="w-5 h-5 animate-bounce text-yellow-300" />
-          <span className="text-xs sm:text-sm font-black tracking-widest uppercase">Játék Sikeresen Befejezve!</span>
+
+          <span className="text-xs sm:text-sm font-black tracking-widest uppercase">
+            Játék Sikeresen Befejezve!
+          </span>
         </motion.div>
 
         {/* Big Police Shield badge holding rank */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ type: "spring", stiffness: 120, damping: 15 }}
+          initial={{
+            opacity: 0,
+            y: 30,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 120,
+            damping: 15,
+          }}
           className={`p-6 sm:p-8 rounded-[40px] border-4 w-full shadow-xl flex flex-col items-center relative overflow-hidden bg-white/95 backdrop-blur-md ${rank.badgeBg}`}
         >
           {/* Animated Glow in background */}
@@ -232,17 +332,24 @@ export default function ResultsScreen({
 
           {/* Big Shield Badge */}
           <div className="relative w-28 h-28 sm:w-32 sm:h-32 flex items-center justify-center mb-4">
-            {/* Golden shield vector background */}
+
             <Shield className="w-full h-full text-amber-400 fill-amber-50 drop-shadow-md" />
-            <span className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[58%] font-black text-amber-600 tracking-tight ${
-              percentage === 100 ? "text-lg sm:text-xl" : "text-xl sm:text-2xl"
-            }`}>
+
+            <span
+              className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[58%] font-black text-amber-600 tracking-tight ${
+                percentage === 100
+                  ? "text-lg sm:text-xl"
+                  : "text-xl sm:text-2xl"
+              }`}
+            >
               {percentage}%
             </span>
           </div>
 
           {/* Police rank title */}
-          <h2 className={`text-2xl sm:text-3xl md:text-4xl font-black leading-tight tracking-tight ${rank.color}`}>
+          <h2
+            className={`text-2xl sm:text-3xl md:text-4xl font-black leading-tight tracking-tight ${rank.color}`}
+          >
             {rank.title}
           </h2>
 
@@ -252,7 +359,9 @@ export default function ResultsScreen({
               <Star
                 key={idx}
                 className={`w-7 h-7 sm:w-8 sm:h-8 ${
-                  idx < rank.stars ? "text-amber-400 fill-amber-400" : "text-slate-200"
+                  idx < rank.stars
+                    ? "text-amber-400 fill-amber-400"
+                    : "text-slate-200"
                 } drop-shadow-sm`}
               />
             ))}
@@ -266,31 +375,47 @@ export default function ResultsScreen({
 
         {/* Detailed stats overview cards */}
         <div className="grid grid-cols-2 gap-4 w-full max-w-md">
+
           {/* Correct Answers card */}
           <div className="bg-emerald-100/90 backdrop-blur-sm rounded-2xl p-4 border border-emerald-300 shadow-lg text-center">
-            <p className="text-xs font-black text-emerald-800 uppercase tracking-wider mb-1">Helyes válaszok</p>
-            <p className="text-3xl font-black text-emerald-950">{score} db</p>
+            <p className="text-xs font-black text-emerald-800 uppercase tracking-wider mb-1">
+              Helyes válaszok
+            </p>
+
+            <p className="text-3xl font-black text-emerald-950">
+              {score} db
+            </p>
           </div>
 
           {/* Total Questions card */}
           <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 border border-white/30 shadow-lg text-center">
-            <p className="text-xs font-black text-indigo-800 uppercase tracking-wider mb-1">Összes kérdés</p>
-            <p className="text-3xl font-black text-indigo-950">{totalQuestions} db</p>
+            <p className="text-xs font-black text-indigo-800 uppercase tracking-wider mb-1">
+              Összes kérdés
+            </p>
+
+            <p className="text-3xl font-black text-indigo-950">
+              {totalQuestions} db
+            </p>
           </div>
         </div>
 
-        {/* Police Mascot saying goodbye or praising the child */}
+        {/* Police Mascot */}
         {settings.enableMascot && (
           <div className="bg-white/80 backdrop-blur-md p-5 rounded-3xl border border-white/40 shadow-xl w-full">
             <Mascot
-              mood={percentage >= 70 ? "cheering" : "happy"}
-              message={`Szuper munka! Büszke vagyok a teljesítményedre. A mai naptól kezdve sokkal biztonságosabban közlekedsz majd az utakon!`}
+              mood={
+                percentage >= 70
+                  ? "cheering"
+                  : "happy"
+              }
+              message="Szuper munka! Büszke vagyok a teljesítményedre. A mai naptól kezdve sokkal biztonságosabban közlekedsz majd az utakon!"
             />
           </div>
         )}
 
-        {/* Buttons: Review Answers and Reset App (kiosk flow) */}
+        {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md">
+
           {/* Review Button */}
           <button
             onClick={onReview}
@@ -300,7 +425,7 @@ export default function ResultsScreen({
             Válaszok ellenőrzése
           </button>
 
-          {/* Reset button (instantly prepares app for next kid!) */}
+          {/* Reset Button */}
           <button
             onClick={onRestart}
             className="flex-1 bg-gradient-to-b from-[#43e97b] to-[#38f9d7] hover:from-[#43e97b] hover:to-[#38f9d7] text-white p-4 rounded-2xl font-black text-sm uppercase tracking-wide shadow-lg border-b-4 border-[#2d8e5e] transition-all active:scale-98 flex items-center justify-center gap-2 cursor-pointer"
@@ -308,6 +433,7 @@ export default function ResultsScreen({
             <RotateCcw className="w-5 h-5" />
             Új játék indítása
           </button>
+
         </div>
       </div>
     </div>
