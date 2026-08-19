@@ -204,7 +204,6 @@ export default function App() {
       setCurrentQuestionIdx((prev) => prev + 1);
     } else {
       // Game over! Play triumph chiptune and show results
-      soundManager.play("victory");
       setCurrentScreen("results");
     }
   };
