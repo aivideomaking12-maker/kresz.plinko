@@ -24,19 +24,26 @@ export default function ResultsScreen({
 }: ResultsScreenProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  // Megakadályozza, hogy a victory hang többször megszólaljon
+  // Megakadályozza, hogy az eredményhang többször megszólaljon
   // akkor is, ha a komponens újrarenderelődik.
-  const victoryPlayedRef = useRef(false);
+  const resultSoundPlayedRef = useRef(false);
 
   const percentage = Math.round((score / totalQuestions) * 100);
 
   // ============================================================
-  // 100%-OS EREDMÉNY - GYŐZELMI HANG
+  // EREDMÉNYHANG
+  // 100% -> victory.mp3
+  // 100% alatt -> fail.mp3
   // ============================================================
   useEffect(() => {
-    if (percentage === 100 && !victoryPlayedRef.current) {
-      victoryPlayedRef.current = true;
+    if (resultSoundPlayedRef.current) return;
+
+    resultSoundPlayedRef.current = true;
+
+    if (percentage === 100) {
       soundManager.play("victory");
+    } else {
+      soundManager.play("fail");
     }
   }, [percentage]);
 
