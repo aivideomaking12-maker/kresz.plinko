@@ -66,7 +66,6 @@ export default function App() {
   const [userAnswers, setUserAnswers] = useState<{ [questionId: string]: number }>({});
   const [score, setScore] = useState(0);
   const [isSpinning, setIsSpinning] = useState(false);
-  const [dropRequest, setDropRequest] = useState(0);
 
   // Background synthesized music loop state
   const musicTimerRef = useRef<NodeJS.Timeout | null>(null);
@@ -346,70 +345,57 @@ export default function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8"
+              className="min-h-screen flex flex-col items-center justify-center p-6 md:p-8"
             >
-              <div className="w-full max-w-[1300px]">
-                <div className="w-full grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_430px] items-start gap-8 lg:gap-12">
+              <div className="w-full max-w-[1300px] flex flex-col items-center space-y-10">
+                
+                 {/* 1. Header / Title Block */}
+                <div className="text-center space-y-4">
                   
-                  {/* Left: Plinko board */}
-                  <div className="w-full max-w-xl justify-self-center lg:justify-self-start flex flex-col items-center">
+                  {/* SVMBB Logó beillesztve a cím fölé */}
+                  <img 
+                    src="/SVMBB.png" 
+                    alt="SVMBB Logó" 
+                    className="w-28 h-28 sm:w-36 sm:h-36 object-contain mx-auto drop-shadow-lg mb-2" 
+                  />
+
+                  <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-white tracking-tighter drop-shadow-[0_5px_10px_rgba(0,0,0,0.25)] mb-2 uppercase">
+                    KRESZ <span className="text-yellow-300">Plinkó</span>
+                  </h1>
+                  
+                  <div className="inline-block px-6 py-2 bg-white/25 backdrop-blur-md rounded-full border border-white/30 shadow-inner">
+                    <p className="text-white font-black text-sm sm:text-base tracking-widest uppercase italic">
+                      Ejtsd le és Tanulj!
+                    </p>
+                  </div>
+                  
+                  <p className="text-sm sm:text-base text-white/95 font-bold max-w-md mx-auto leading-relaxed drop-shadow-sm">
+                    Kerékpáros és gyalogos közúti biztonsági játék gyermekeknek. Ejtsd le a korongot és tanulj játszva!
+                  </p>
+                </div>
+
+                {/* 2. Side-by-side PlinkoBoard and Mascot Row (desktop) or stacked (mobile) */}
+                <div className="w-full flex flex-col lg:flex-row items-center lg:items-start justify-center gap-12 lg:gap-16 pt-2">
+                  
+                  {/* Left/Center Column: Plinko Board Game */}
+                  <div className="w-full max-w-xl flex flex-col items-center">
                     <PlinkoBoard
                       onSpinComplete={handleSpinComplete}
                       isSpinning={isSpinning}
                       setIsSpinning={setIsSpinning}
                       enableSFX={settings.enableSFX}
-                      dropRequest={dropRequest}
                     />
                   </div>
 
-                  {/* Right: title, drop button and mascot */}
-                  <div className="w-full flex flex-col items-center lg:items-start text-center lg:text-left pt-4 lg:pt-8">
-                    {/* SVMBB logo */}
-                    <img 
-                      src="/SVMBB.png" 
-                      alt="SVMBB Logó" 
-                      className="w-24 h-24 sm:w-28 sm:h-28 object-contain drop-shadow-lg" 
-                    />
-
-                    <h1 className="mt-2 text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tighter drop-shadow-[0_5px_10px_rgba(0,0,0,0.25)] uppercase leading-none">
-                      KRESZ <span className="text-yellow-300">Plinkó</span>
-                    </h1>
-                    
-                    <div className="mt-4 inline-block px-5 py-2 bg-white/25 backdrop-blur-md rounded-full border border-white/30 shadow-inner">
-                      <p className="text-white font-black text-sm tracking-widest uppercase italic">
-                        Ejtsd le és Tanulj!
-                      </p>
+                  {/* Right Column: Welcome Mascot Speech Bubble */}
+                  {settings.enableMascot && !isSpinning && (
+                    <div className="w-full max-w-md lg:self-center">
+                      <Mascot
+                        mood="happy"
+                        message="Szia! Üdvözöllek a KRESZ Plinkó játékban! Húzd a korongot a tábla tetején a kívánt indítóhelyre, majd engedd el vagy kattints az Engedd Le gombra, hogy kisorsold a mai KRESZ témakörödet!"
+                      />
                     </div>
-                    
-                    <p className="mt-3 text-sm sm:text-base text-white/95 font-bold max-w-md leading-relaxed drop-shadow-sm">
-                      Kerékpáros és gyalogos közúti biztonsági játék gyermekeknek. Ejtsd le a korongot és tanulj játszva!
-                    </p>
-
-                    {/* Engedd Le button moved to the right side */}
-                    {!isSpinning && (
-                      <motion.button
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => setDropRequest((prev) => prev + 1)}
-                        className="mt-6 px-8 py-4 bg-gradient-to-r from-emerald-400 to-teal-500 hover:from-emerald-500 hover:to-teal-600 text-white font-black text-base tracking-widest uppercase rounded-2xl border-b-4 border-emerald-700 shadow-xl cursor-pointer flex items-center gap-2 active:translate-y-[2px] active:border-b-2"
-                      >
-                        <span>Engedd Le!</span>
-                        <span className="text-xl leading-none">⌄</span>
-                      </motion.button>
-                    )}
-
-                    {/* Mascot moved lower, underneath the title block */}
-                    {settings.enableMascot && !isSpinning && (
-                      <div className="w-full mt-10 lg:mt-14">
-                        <Mascot
-                          mood="happy"
-                          message="Szia! Üdvözöllek a KRESZ Plinkó játékban! Húzd a korongot a tábla tetején a kívánt indítóhelyre, majd engedd el vagy kattints az Engedd Le gombra, hogy kisorsold a mai KRESZ témakörödet!"
-                        />
-                      </div>
-                    )}
-                  </div>
+                  )}
                 </div>
               </div>
             </motion.div>
